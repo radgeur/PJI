@@ -1,0 +1,33 @@
+Joueur string nom, (List<Personnage>)
+
+interface personnage int puissance, int pv, void attaque(), void setPV()
+	abstract personnagecac implemente personnage 
+		Gobelin (avance et fait des attaque simple) etend personnagecac
+
+		abstract personnageHumain etend personnagecac, int gold
+	
+
+choix : - mettre dans la base de données les différents personnages en fonction de leur type (personnagecac, personnageDistant, personnageHeal)
+BDD -> tous les personnages, un attribut type (personnagecac, personnageDistant, personnageHeal). la classe personnagecac va chercher dans la bdd les personnages ayant pour attribut personnagecac.
+
+
+Carte case[][]
+
+interface case int x,y
+	mur bloque tout
+        sol  defense personnage[]
+
+
+defense int largeur, hauteur, pv 
+defense -> bouclier
+        -> tourelle int portée, int puissance
+
+
+Base de données : niveau , (stuff)
+
+Main 
+contient tout
+
+Question à poser : 
+Est-ce correcte de mettre les personnages dans une base de données ?
+Comment gérer le cas des défenses faisant plus d'une case ? Coordonnées dans la défense?
