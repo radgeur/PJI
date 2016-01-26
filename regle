@@ -25,9 +25,11 @@ defense -> bouclier
 
 Base de données : niveau , (stuff)
 
+CaseEffectStrategy peut avoir les strategy fire et ice par exemple et lorsque le personnage passe dessus où est dessus au moment de l'effet, celui-ci va s'appliquer
+CharacterEffectStrategy va avoir les strategy fire et ice egalement mais ici l'effet va s'appliquer durant un laps de temps sur le personnage
+
 Main 
 contient tout
 
 Question à poser : 
-Est-ce correcte de mettre les personnages dans une base de données ?
-Comment gérer le cas des défenses faisant plus d'une case ? Coordonnées dans la défense?
+
