@@ -1,5 +1,5 @@
 package mapComponent;
 
-public class Case {
+public abstract class Case {
 
 }
