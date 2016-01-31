@@ -19,7 +19,7 @@ public abstract class Entity {
 	int weight;
 	int range;
 	int power;
-	boolean isAlly;
+	boolean isFriendly;
 	List<AttackStrategy> attackStrategy;
 	List<MoveStrategy> moveStrategy;
 	
@@ -44,9 +44,9 @@ public abstract class Entity {
 	
 	public void setPower(int power) {this.power = power;}
 	
-	public boolean isAlly() {return isAlly;}
+	public boolean isFriendly() {return isFriendly;}
 	
-	public void setAlly(boolean isAlly) {this.isAlly = isAlly;}
+	public void setFriendly(boolean isGood) {this.isFriendly = isGood;}
 	
 	/**
 	 * Use the AttackStrategy
@@ -64,5 +64,14 @@ public abstract class Entity {
 		for(MoveStrategy strategy : moveStrategy) {
 			strategy.action();
 		}
+	}
+	
+	/**
+	 * indicate if the entity is an opponent or not
+	 * @param entity
+	 * @return if the entity is an opponent or not
+	 */
+	public boolean isOpponent(Entity entity){
+		return isFriendly != entity.isFriendly();
 	}
 }

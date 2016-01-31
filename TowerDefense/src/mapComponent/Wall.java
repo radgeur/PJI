@@ -1,5 +1,6 @@
 package mapComponent;
 
+import entities.Character;
 import entities.Entity;
 
 /**
@@ -17,7 +18,7 @@ public class Wall implements Case{
 		this.y = y;
 	}
 	
-	public boolean canPass(Entity entity) {
+	public boolean canPass(Character character) {
 		return false;
 	}
 

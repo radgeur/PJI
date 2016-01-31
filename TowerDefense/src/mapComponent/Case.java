@@ -1,5 +1,6 @@
 package mapComponent;
 
+import entities.Character;
 import entities.Entity;
 
 /**
@@ -15,7 +16,7 @@ public interface Case {
 	 * @param entity 
 	 * @return true if the entity can pass in the case, else false.
 	 */
-	public boolean canPass(Entity entity);
+	public boolean canPass(Character character);
 	
 	/**
 	 * This method return the x coordinate of the case. 
