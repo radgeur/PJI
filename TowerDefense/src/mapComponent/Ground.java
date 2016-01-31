@@ -3,9 +3,8 @@ package mapComponent;
 import java.util.ArrayList;
 import java.util.List;
 
-import entities.Defence;
-import entities.Entity;
 import entities.Character;
+import entities.Defence;
 
 
 

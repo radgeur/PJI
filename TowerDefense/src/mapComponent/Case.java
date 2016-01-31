@@ -1,7 +1,6 @@
 package mapComponent;
 
 import entities.Character;
-import entities.Entity;
 
 /**
  * This class represent a case in the game.
@@ -12,21 +11,19 @@ import entities.Entity;
 public interface Case {
 
 	/**
-	 * Method to know if an entity can pass or not in this case.
-	 * @param entity 
-	 * @return true if the entity can pass in the case, else false.
+	 * To know if a Character can pass or not in this case.
+	 * @param entity to compare
+	 * @return true if the entity can pass on the case, else false.
 	 */
 	public boolean canPass(Character character);
 	
-	/**
-	 * This method return the x coordinate of the case. 
-	 * @return the x coordinate of the case
+	/** Return the x coordinate of the case. 
+	 * @return x coordinate of the case
 	 */
 	public int getX();
 	
-	/**
-	 * This method return the y coordinate of the case. 
-	 * @return the y coordinate of the case
+	/** Return the y coordinate of the case. 
+	 * @return y coordinate of the case
 	 */
 	public int getY();
 	

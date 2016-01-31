@@ -6,35 +6,53 @@ import strategy.attackStrategy.AttackStrategy;
 import strategy.moveStrategy.MoveStrategy;
 
 /**
+ * Class to could instantiate the different kind of Entity
  * 
  * @author CHARNEUX Dimitri, LEPRETRE Rémy 
- * Class to could implements the different kind of Entity
+ * 
  */
 
 public abstract class Entity {
 
 	// ATTRIBUTS
-	int HP;
-	int widht;
-	int weight;
-	int range;
-	int power;
-	boolean isFriendly;
-	List<AttackStrategy> attackStrategy;
-	List<MoveStrategy> moveStrategy;
+	protected int HP;
+	protected int width;
+	protected int height;
+	protected int range;
+	protected int power;
+	protected boolean isFriendly;
+	protected List<AttackStrategy> attackStrategy;
+	protected List<MoveStrategy> moveStrategy;
 	
 	//METHODS
+	/** Constructor
+	 * @param HP
+	 * @param width
+	 * @param height
+	 * @param range
+	 * @param power
+	 * @param isFriendly to know on which side the Entity is
+	 */
+	public Entity(int HP, int width, int height, int range, int power, boolean isFriendly) {
+		this.HP = HP;
+		this.width = width;
+		this.height = height;
+		this.range = range;
+		this.power = power;
+		this.isFriendly = isFriendly;
+	}
+	
 	public int getHP() {return HP;}
 	
 	public void setHP(int hP) {HP = hP;}
 	
-	public int getWidht() {return widht;}
+	public int getWidth() {return width;}
 	
-	public void setWidht(int widht) {this.widht = widht;}
+	public void setWidth(int widht) {this.width = widht;}
 	
-	public int getWeight() {return weight;}
+	public int getHeight() {return height;}
 	
-	public void setWeight(int weight) {this.weight = weight;}
+	public void setHeight(int height) {this.height = height;}
 	
 	public int getRange() {return range;}
 	
@@ -44,9 +62,9 @@ public abstract class Entity {
 	
 	public void setPower(int power) {this.power = power;}
 	
-	public boolean isFriendly() {return isFriendly;}
+	public boolean getFriendly() {return isFriendly;}
 	
-	public void setFriendly(boolean isGood) {this.isFriendly = isGood;}
+	public void setFriendly(boolean isFriendly) {this.isFriendly = isFriendly;}
 	
 	/**
 	 * Use the AttackStrategy
@@ -66,12 +84,10 @@ public abstract class Entity {
 		}
 	}
 	
-	/**
-	 * indicate if the entity is an opponent or not
-	 * @param entity
-	 * @return if the entity is an opponent or not
+	/** To know if both are on the same side
+	 * @return true if same side, else false
 	 */
-	public boolean isOpponent(Entity entity){
-		return isFriendly != entity.isFriendly();
+	public boolean isOpponent(Entity entity) {
+		return entity.getFriendly() == this.isFriendly;
 	}
 }

@@ -1,12 +1,16 @@
 package entities;
 
 /**
+ * Class to instantiate a Character Entity
  * 
  * @author CHARNEUX Dimitri, LEPRETRE Rémy
- * Class to create a Character Entity
+ * 
  */
 
 public class Character extends Entity{
 
-	
+	/** {@inheritDoc}*/
+	public Character(int HP, int width, int height, int range, int power, boolean isFriendly) {
+		super(HP, width, height, range, power, isFriendly);
+	}
 }

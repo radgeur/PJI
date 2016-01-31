@@ -1,7 +1,6 @@
 package mapComponent;
 
 import entities.Character;
-import entities.Entity;
 
 /**
  * This class represent a wall in the game.
@@ -10,24 +9,26 @@ import entities.Entity;
  *
  */
 public class Wall implements Case{
-	
+	//ATTRIBUTS
 	private int x, y;
 	
+	//METHODS
+	/** Constructor
+	 * @param x coordinate
+	 * @param y coordinate
+	 */
 	public Wall(int x, int y){
 		this.x = x;
 		this.y = y;
 	}
 	
-	public boolean canPass(Character character) {
-		return false;
-	}
+	/** {@inheritDoc}*/
+	public boolean canPass(Character character) {return false;}
 
-	public int getX() {
-		return x;
-	}
+	/** {@inheritDoc}*/
+	public int getX() {return x;}
 
-	public int getY() {
-		return y;
-	}
+	/** {@inheritDoc}*/
+	public int getY() {return y;}
 
 }
