@@ -1,5 +1,10 @@
 package strategy.attackStrategy;
 
-public class SimpleAttackStrategy extends AttackStrategy{
+public class SimpleAttackStrategy implements AttackStrategy{
+
+	@Override
+	public void action() {
+		
+	}
 
 }

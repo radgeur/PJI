@@ -1,5 +1,10 @@
 package strategy.moveStrategy;
 
-public class SimpleMoveStrategy extends MoveStrategy{
+public class SimpleMoveStrategy implements MoveStrategy{
+
+	@Override
+	public void action() {
+		
+	}
 
 }

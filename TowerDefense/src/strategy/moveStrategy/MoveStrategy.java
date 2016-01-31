@@ -1,5 +1,9 @@
 package strategy.moveStrategy;
 
-public abstract class MoveStrategy {
-
+public interface MoveStrategy {
+	
+	/**
+	 * Action to do when move
+	 */
+	public void action();
 }

@@ -1,6 +1,9 @@
 package strategy.attackStrategy;
 
-public abstract class AttackStrategy {
+public interface AttackStrategy {
 	
-	
+	/**
+	 * Action to do when attack
+	 */
+	public void action();
 }
