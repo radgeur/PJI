@@ -71,7 +71,7 @@ public abstract class Entity {
 	 */
 	public void attack(){
 		for(AttackStrategy strategy : attackStrategy) {
-			strategy.action();
+			strategy.action(this);
 		}
 	}
 	
@@ -80,7 +80,7 @@ public abstract class Entity {
 	 */
 	public void move(){
 		for(MoveStrategy strategy : moveStrategy) {
-			strategy.action();
+			strategy.action(this);
 		}
 	}
 	

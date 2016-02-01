@@ -1,5 +1,7 @@
 package strategy.moveStrategy;
 
+import entities.Entity;
+
 /**
  * Interface to could implements the different move Strategy
  * 
@@ -9,6 +11,7 @@ package strategy.moveStrategy;
 
 public interface MoveStrategy {
 	
-	/** Action to do when move */
-	public void action();
+	/** Action to do when move 
+	 * @param entity */
+	public void action(Entity entity);
 }

@@ -1,5 +1,8 @@
 package strategy.moveStrategy;
 
+import mapComponent.Map;
+import entities.Entity;
+
 /**
  * Basic move Strategy
  * 
@@ -8,10 +11,16 @@ package strategy.moveStrategy;
  */
 
 public class SimpleMoveStrategy implements MoveStrategy{
-
+	protected Map map;
+	
+	public SimpleMoveStrategy(Map map){
+		this.map = map;
+	}
+	
+	
 	/** {@inheritDoc}*/
 	@Override
-	public void action() {
+	public void action(Entity entity) {
 		
 	}
 

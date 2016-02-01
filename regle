@@ -1,27 +1,7 @@
 Joueur string nom, (List<Personnage>)
 
-interface personnage int puissance, int pv, void attaque(), void setPV()
-	abstract personnagecac implemente personnage 
-		Gobelin (avance et fait des attaque simple) etend personnagecac
-
-		abstract personnageHumain etend personnagecac, int gold
-	
-
 choix : - mettre dans la base de données les différents personnages en fonction de leur type (personnagecac, personnageDistant, personnageHeal)
 BDD -> tous les personnages, un attribut type (personnagecac, personnageDistant, personnageHeal). la classe personnagecac va chercher dans la bdd les personnages ayant pour attribut personnagecac.
-
-
-Carte case[][]
-
-interface case int x,y
-	mur bloque tout
-        sol  defense personnage[]
-
-
-defense int largeur, hauteur, pv 
-defense -> bouclier
-        -> tourelle int portée, int puissance
-
 
 Base de données : niveau , (stuff)
 
@@ -32,4 +12,24 @@ Main
 contient tout
 
 Question à poser : 
+
+Qu'est-ce qui est plus propre : implements runnable, Thread thread = new Thread(new maclassRunnable()) ou extends Thread?
+
+Comment marche le modèle MVC? 
+    Soit : model -> interaction BDD
+           vue -> contient la map et l'affichage
+           
+    Soit : model -> interaction BDD et la map (case[][]) observable
+           vue -> uniquement les éléments d'affichable observer
+           controleur -> gestion entre les deux
+
+
+
+Comment gérer l'alternance attaque et déplacement?
+    Soit un appel a move et attaque toutes les x ms, move se déplace de x pixels et attaque attaque si un ennemie est a distance.
+    Soit un appel a move qui va se déplacer tant qu'il ne trouve pas d'ennemie, quand il a trouver, return et appel à attaque qui va lancer une attaque sur l'ennemie tant que celui ci est vivant..
+
+
+
+
 

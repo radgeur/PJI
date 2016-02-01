@@ -1,5 +1,7 @@
 package strategy.attackStrategy;
 
+import entities.Entity;
+
 /**
  * Interface to could implements the different attacks Strategy
  * 
@@ -11,6 +13,7 @@ public interface AttackStrategy {
 	
 	/**
 	 * Action to do when attack
+	 * @param entity 
 	 */
-	public void action();
+	public void action(Entity entity);
 }
