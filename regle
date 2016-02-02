@@ -13,12 +13,10 @@ contient tout
 
 Question à poser : 
 
-Qu'est-ce qui est plus propre : implements runnable, Thread thread = new Thread(new maclassRunnable()) ou extends Thread?
+Qu'est-ce qui est plus propre : implements runnable, Thread thread = new Thread(new maclassRunnable()) ou extends Thread? (peu importe)
+Pourrait etre mieux de faire une boucle qui gère une action de tout les personnages pendant cette boucle et un sleep à la fin
 
-Comment marche le modèle MVC? 
-    Soit : model -> interaction BDD
-           vue -> contient la map et l'affichage
-           
+Comment marche le modèle MVC?
     Soit : model -> interaction BDD et la map (case[][]) observable
            vue -> uniquement les éléments d'affichable observer
            controleur -> gestion entre les deux
@@ -26,10 +24,9 @@ Comment marche le modèle MVC?
 
 
 Comment gérer l'alternance attaque et déplacement?
-    Soit un appel a move et attaque toutes les x ms, move se déplace de x pixels et attaque attaque si un ennemie est a distance.
-    Soit un appel a move qui va se déplacer tant qu'il ne trouve pas d'ennemie, quand il a trouver, return et appel à attaque qui va lancer une attaque sur l'ennemie tant que celui ci est vivant..
+    Créer un ActStrategy qui détermine par exemple si le personnage décide d'abord d'attaquer et apres de bouger ou inversement et dont attaquer et bouger dépend de sa stratégei
 
-
+Mettre la map en cours en static (globale)
 
 
 
