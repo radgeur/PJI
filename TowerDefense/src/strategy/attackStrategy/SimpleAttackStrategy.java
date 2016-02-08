@@ -15,8 +15,7 @@ import entities.Entity;
 public class SimpleAttackStrategy implements AttackStrategy{
 	//ATTRIBUTS
 	protected Map map;
-	protected Entity character;
-	protected Entity enemy;
+	protected Entity entity;
 	
 	//METHODS
 	/** Constructor
@@ -30,9 +29,24 @@ public class SimpleAttackStrategy implements AttackStrategy{
 	
 	/** {@inheritDoc}*/
 	@Override
-	public void action(Entity entity, List<Entity> listAttackableEnnemies) {
-		
-		//récpupère la liste des ennemis qui peuvent etre attaqué par character et attaque celui qui est le proche de lui
+	public void action(Entity entity, List<Entity> listAttackableEnemies) {
+		this.entity = entity;
+		Entity enemy = moreNearEnnemy(listAttackableEnemies);
+		this.entity.attack(enemy);
+	}
+
+
+
+	private Entity moreNearEnnemy(List<Entity> listAttackableEnemies) {
+		Entity tmp = null;
+		int distMin = Integer.MAX_VALUE;
+		for(Entity ent : listAttackableEnemies){
+			if((ent.getY() - entity.getY()) < distMin){
+				distMin = ent.getY() - entity.getY();
+				tmp = ent;
+			}
+		}
+		return tmp;
 	}
 
 }
