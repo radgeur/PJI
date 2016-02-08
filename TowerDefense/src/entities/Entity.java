@@ -22,6 +22,7 @@ public abstract class Entity {
 	protected int power;
 	protected int x;
 	protected int y;
+	protected int speed;
 	protected boolean isFriendly;
 	protected List<AttackStrategy> attackStrategy;
 	protected List<MoveStrategy> moveStrategy;
@@ -75,6 +76,10 @@ public abstract class Entity {
 	public boolean getFriendly() {return isFriendly;}
 	
 	public void setFriendly(boolean isFriendly) {this.isFriendly = isFriendly;}
+	
+	public int getSpeed() {return speed;}
+
+	public void setSpeed(int speed) {this.speed = speed;}
 	
 	/**
 	 * Use the AttackStrategy

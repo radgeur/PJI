@@ -11,18 +11,23 @@ import entities.Entity;
  */
 
 public class SimpleAttackStrategy implements AttackStrategy{
+	//ATTRIBUTS
 	protected Map map;
+	protected Entity character;
+	protected Entity enemy;
 	
+	//METHODS
+	/** Constructor
+	 * @param map
+	 */
 	public SimpleAttackStrategy(Map map){
 		this.map = map;
 	}
 	
-	
-	
 	/** {@inheritDoc}*/
 	@Override
 	public void action(Entity entity) {
-		
+		//récpupère la liste des ennemis qui peuvent etre attaqué par character et attaque celui qui est le proche de lui
 	}
 
 }
