@@ -1,5 +1,7 @@
 package strategy.attackStrategy;
 
+import java.util.List;
+
 import entities.Entity;
 
 /**
@@ -15,5 +17,5 @@ public interface AttackStrategy {
 	 * Action to do when attack
 	 * @param entity 
 	 */
-	public void action(Entity entity);
+	public void action(Entity entity, List<Entity> listAttackableEnnemies);
 }

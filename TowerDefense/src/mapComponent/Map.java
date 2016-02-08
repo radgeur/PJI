@@ -1,5 +1,10 @@
 package mapComponent;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import entities.Entity;
+
 
 /**
  * This class represent the game surface of our tower defense.
@@ -8,16 +13,22 @@ package mapComponent;
  */
 public class Map {
 	private Case[][] map;
+	private List<Entity> listEntities;
 	public final int caseHeight = 10;
 	public final int casewidth = 10;
 	
 	public Map(int length){
 		map = new Case[length][length];
+		listEntities = new ArrayList<Entity>();
 	}
 	
 	public Case getCaseWithPixel(int x, int y){
-		if(x > map.length * caseHeight || x< 0) return null;
-		if(y > map[0].length * casewidth || y< 0) return null;
+		if(x > map.length * casewidth || x< 0) return null;
+		if(y > map[0].length * caseHeight || y< 0) return null;
 		return map[x/caseHeight][y/casewidth];
+	}
+	
+	public List<Entity> getEntities(){
+		return listEntities;
 	}
 }

@@ -76,23 +76,6 @@ public abstract class Entity {
 	
 	public void setFriendly(boolean isFriendly) {this.isFriendly = isFriendly;}
 	
-	/**
-	 * Use the AttackStrategy
-	 */
-	public void attack(){
-		for(AttackStrategy strategy : attackStrategy) {
-			strategy.action(this);
-		}
-	}
-	
-	/**
-	 * Use the MoveStrategy
-	 */
-	public void move(){
-		for(MoveStrategy strategy : moveStrategy) {
-			strategy.action(this);
-		}
-	}
 	
 	/** To know if both are on the same side
 	 * @return true if same side, else false

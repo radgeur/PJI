@@ -1,5 +1,7 @@
 package strategy.attackStrategy;
 
+import java.util.List;
+
 import mapComponent.Map;
 import entities.Entity;
 
@@ -11,17 +13,12 @@ import entities.Entity;
  */
 
 public class SimpleAttackStrategy implements AttackStrategy{
-	protected Map map;
-	
-	public SimpleAttackStrategy(Map map){
-		this.map = map;
-	}
 	
 	
 	
 	/** {@inheritDoc}*/
 	@Override
-	public void action(Entity entity) {
+	public void action(Entity entity, List<Entity> listAttackableEnnemies) {
 		
 	}
 

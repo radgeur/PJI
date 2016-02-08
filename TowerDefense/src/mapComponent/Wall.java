@@ -1,5 +1,7 @@
 package mapComponent;
 
+import java.util.List;
+
 import entities.Character;
 
 /**
@@ -31,4 +33,5 @@ public class Wall implements Case{
 	/** {@inheritDoc}*/
 	public int getY() {return y;}
 
+	public List<Character> getListCharacter(){return null;}
 }

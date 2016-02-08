@@ -60,11 +60,8 @@ public class Ground implements Case{
 		return y;
 	}
 
-	/**
-	 * This method return the list of character on this case.
-	 * @return the list of character on this case.
-	 */
-	public List<Character> getListCharacter(){
+	public List<Character> getListCharacter()
+	{
 		return listCharacter;
 	}
 	

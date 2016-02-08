@@ -1,5 +1,7 @@
 package mapComponent;
 
+import java.util.List;
+
 import entities.Character;
 
 /**
@@ -27,5 +29,10 @@ public interface Case {
 	 */
 	public int getY();
 	
+	/**
+	 * This method return the list of character on this case.
+	 * @return the list of character on this case.
+	 */
+	public List<Character> getListCharacter();
 	
 }
