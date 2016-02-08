@@ -1,5 +1,7 @@
 package strategy.actStrategy;
 
+import entities.Entity;
+
 /**
  * Interface to could implements the different action Strategy
  * 
@@ -7,5 +9,9 @@ package strategy.actStrategy;
  *
  */
 public interface ActStrategy {
-
+	/**
+	 * Action to do when act
+	 * @param entity 
+	 */
+	public void action(Entity entity);
 }
