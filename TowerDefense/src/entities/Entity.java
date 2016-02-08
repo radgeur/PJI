@@ -50,11 +50,10 @@ public abstract class Entity {
 	public void setHP(int hP) {HP = hP;}
 	
 	public void removeHP(int rmHp){
-		if(HP - rmHp <= 0){
+		if(HP - rmHp <= 0)
 			HP = 0;
-		} else {
+		else
 			HP -= rmHp;
-		}
 	}
 	
 	public int getWidth() {return width;}
