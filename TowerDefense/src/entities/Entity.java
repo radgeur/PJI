@@ -49,6 +49,14 @@ public abstract class Entity {
 	
 	public void setHP(int hP) {HP = hP;}
 	
+	public void removeHP(int rmHp){
+		if(HP - rmHp <= 0){
+			HP = 0;
+		} else {
+			HP -= rmHp;
+		}
+	}
+	
 	public int getWidth() {return width;}
 	
 	public void setWidth(int widht) {this.width = widht;}
@@ -86,5 +94,9 @@ public abstract class Entity {
 	 */
 	public boolean isOpponent(Entity entity) {
 		return entity.getFriendly() == this.isFriendly;
+	}
+	
+	public void attack(Entity enemy){
+		enemy.removeHP(power);
 	}
 }
