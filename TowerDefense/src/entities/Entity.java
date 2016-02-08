@@ -20,6 +20,8 @@ public abstract class Entity {
 	protected int height;
 	protected int range;
 	protected int power;
+	protected int x;
+	protected int y;
 	protected boolean isFriendly;
 	protected List<AttackStrategy> attackStrategy;
 	protected List<MoveStrategy> moveStrategy;
@@ -61,6 +63,14 @@ public abstract class Entity {
 	public int getPower() {return power;}
 	
 	public void setPower(int power) {this.power = power;}
+	
+	public int getX() {return x;}
+	
+	public void setX(int x) {this.x = x;}
+	
+	public int getY() {return y;}
+	
+	public void setY(int y) {this.y = y;}
 	
 	public boolean getFriendly() {return isFriendly;}
 	
