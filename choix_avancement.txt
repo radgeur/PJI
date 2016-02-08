@@ -1,0 +1,3 @@
+les x sont les coordonnées horizontales.
+les y sont les coordonnées verticales.
+Les monstres et le joueur peuvent se passer à travers et le joueur peut passer à travers ses tourelles mais pas les monstres.
