@@ -16,19 +16,24 @@ import entities.Defence;
  */
 public class Ground implements Case{
 
+	//ATTRIBUTS
 	private Defence defence;
 	
 	private List<Character> listCharacter;
 	
 	private int x,y;
 	
+	//METHODS
 	public Ground(int x, int y){
 		this.x = x;
 		this.y = y;
 		listCharacter = new ArrayList<Character>();
 	}
 	
-	
+	/** If a character could or not go throw this case
+	 * @param character 
+	 * @return if there is no defence on this case then true else false
+	 */
 	public boolean canPass(Character caracter) {
 		if(!hasDefence())
 			return true;
@@ -52,13 +57,9 @@ public class Ground implements Case{
 		return defence != null;
 	}
 
-	public int getX() {
-		return x;
-	}
+	public int getX() {return x;}
 
-	public int getY() {
-		return y;
-	}
+	public int getY() {return y;}
 
 	public List<Character> getListCharacter()
 	{

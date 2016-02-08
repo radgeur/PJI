@@ -13,6 +13,18 @@ import entities.Entity;
  */
 
 public class SimpleAttackStrategy implements AttackStrategy{
+	//ATTRIBUTS
+	protected Map map;
+	protected Entity character;
+	protected Entity enemy;
+	
+	//METHODS
+	/** Constructor
+	 * @param map
+	 */
+	public SimpleAttackStrategy(Map map){
+		this.map = map;
+	}
 	
 	
 	
@@ -20,6 +32,7 @@ public class SimpleAttackStrategy implements AttackStrategy{
 	@Override
 	public void action(Entity entity, List<Entity> listAttackableEnnemies) {
 		
+		//récpupère la liste des ennemis qui peuvent etre attaqué par character et attaque celui qui est le proche de lui
 	}
 
 }

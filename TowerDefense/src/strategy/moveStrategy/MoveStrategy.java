@@ -2,6 +2,7 @@ package strategy.moveStrategy;
 
 import entities.Entity;
 
+
 /**
  * Interface to could implements the different move Strategy
  * 
