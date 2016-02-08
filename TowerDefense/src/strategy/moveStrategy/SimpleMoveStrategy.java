@@ -3,7 +3,7 @@ package strategy.moveStrategy;
 import mapComponent.Map;
 import model.GameModel;
 import entities.Entity;
-import mapComponent.*;
+import mapComponent.Case;
 
 /**
  * Basic move Strategy
@@ -18,23 +18,25 @@ public class SimpleMoveStrategy implements MoveStrategy{
 	
 	//ATTRIBUTS
 	protected Map map;
-	protected Entity character;
+	protected Entity entity;
 	
 	//METHODS
 	/** Constructor
 	 * @param map 
 	 */
 	public SimpleMoveStrategy(){
-		map = GameModel.Map;
+		map = GameModel.map;
 	}
 	
 	/** {@inheritDoc}*/
 	@Override
 	public void action(Entity entity) {
-		//avance de la vitesse du character multiplier par une valeur fixe qui est la valeur de déplacement par défaut
-		this.character = entity;
-		character.setY(character.getY() + DEFAULT_MOVE_SPEED * character.getSpeed());
-		Case case = map.getCaseWithPixel(character.getX(), character.getY());
+		this.entity = entity;
+		Case c = map.getCaseWithPixel(entity.getX(), entity.getY());
+		c.removeEntity(entity);
+		entity.setY(entity.getY() + DEFAULT_MOVE_SPEED * entity.getSpeed());
+		c = map.getCaseWithPixel(entity.getX(), entity.getY());
+		c.addEntity(entity);
 	}
 
 }

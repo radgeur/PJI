@@ -3,6 +3,7 @@ package mapComponent;
 import java.util.List;
 
 import entities.Character;
+import entities.Entity;
 
 /**
  * This class represent a case in the game.
@@ -34,5 +35,15 @@ public interface Case {
 	 * @return the list of character on this case.
 	 */
 	public List<Character> getListCharacter();
+	
+	/** Add an entity on the Case
+	 * @param entity to add on the Case
+	 */
+	public void addEntity(Entity entity);
+	
+	/** Remove the entity of the Case
+	 * @param entity to remove of the Case
+	 */
+	public void removeEntity(Entity entity);
 	
 }

@@ -5,6 +5,7 @@ import java.util.List;
 
 import entities.Character;
 import entities.Defence;
+import entities.Entity;
 
 
 
@@ -18,9 +19,7 @@ public class Ground implements Case{
 
 	//ATTRIBUTS
 	private Defence defence;
-	
 	private List<Character> listCharacter;
-	
 	private int x,y;
 	
 	//METHODS
@@ -57,13 +56,25 @@ public class Ground implements Case{
 		return defence != null;
 	}
 
+	/** {@inheritDoc}*/
 	public int getX() {return x;}
 
+	/** {@inheritDoc}*/
 	public int getY() {return y;}
 
-	public List<Character> getListCharacter()
-	{
-		return listCharacter;
+	/** {@inheritDoc}*/
+	public List<Character> getListCharacter() {return listCharacter;}
+
+	/** {@inheritDoc}*/
+	public void addEntity(Entity entity) {
+		listCharacter.add((Character)entity);
 	}
+
+	/** {@inheritDoc}*/
+	public void removeEntity(Entity entity) {
+		listCharacter.remove((Character)entity);
+	}
+	
+	
 	
 }
