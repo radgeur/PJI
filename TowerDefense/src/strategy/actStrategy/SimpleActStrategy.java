@@ -3,12 +3,9 @@ package strategy.actStrategy;
 import java.util.ArrayList;
 import java.util.List;
 
-import mapComponent.Case;
-import mapComponent.Ground;
 import model.GameModel;
 import strategy.attackStrategy.AttackStrategy;
 import strategy.moveStrategy.MoveStrategy;
-import entities.Character;
 import entities.Entity;
 
 

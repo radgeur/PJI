@@ -14,8 +14,8 @@ import entities.Entity;
 public class Map {
 	private Case[][] map;
 	private List<Entity> listEntities;
-	public final int caseHeight = 10;
-	public final int casewidth = 10;
+	public final static int caseHeight = 10;
+	public final static int casewidth = 10;
 	
 	public Map(int length){
 		map = new Case[length][length];
@@ -28,7 +28,9 @@ public class Map {
 		return map[x/caseHeight][y/casewidth];
 	}
 	
-	public List<Entity> getEntities(){
-		return listEntities;
+	public List<Entity> getEntities() {return listEntities;}
+	
+	public Case[][] getMap() {
+		return map;
 	}
 }

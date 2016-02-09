@@ -29,14 +29,14 @@ public class SimpleMoveStrategy implements MoveStrategy{
 	}
 	
 	/** {@inheritDoc}*/
-	@Override
 	public void action(Entity entity) {
 		this.entity = entity;
 		Case c = map.getCaseWithPixel(entity.getX(), entity.getY());
 		c.removeEntity(entity);
 		entity.setY(entity.getY() + DEFAULT_MOVE_SPEED * entity.getSpeed());
+		if (entity.getY() + entity.getHeight() > map.getMap().length * Map.casewidth)
+			entity.setY(map.getMap().length * Map.casewidth - entity.getHeight());
 		c = map.getCaseWithPixel(entity.getX(), entity.getY());
 		c.addEntity(entity);
-	}
-
+	} 
 }
