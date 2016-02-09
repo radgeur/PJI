@@ -21,9 +21,7 @@ public class SimpleMoveStrategy implements MoveStrategy{
 	protected Entity entity;
 	
 	//METHODS
-	/** Constructor
-	 * @param map 
-	 */
+	/** Constructor */
 	public SimpleMoveStrategy(){
 		map = GameModel.map;
 	}
@@ -35,7 +33,7 @@ public class SimpleMoveStrategy implements MoveStrategy{
 		c.removeEntity(entity);
 		entity.setY(entity.getY() + DEFAULT_MOVE_SPEED * entity.getSpeed());
 		if (entity.getY() + entity.getHeight() > map.getMap().length * Map.casewidth)
-			entity.setY(map.getMap().length * Map.casewidth - entity.getHeight());
+			entity.setY(map.getMap()[0].length * Map.casewidth - entity.getHeight());
 		c = map.getCaseWithPixel(entity.getX(), entity.getY());
 		c.addEntity(entity);
 	} 
