@@ -2,6 +2,7 @@ package strategy.moveStrategy;
 
 import mapComponent.Map;
 import model.GameModel;
+import entities.Character;
 import entities.Entity;
 import mapComponent.Case;
 
@@ -18,7 +19,7 @@ public class SimpleMoveStrategy implements MoveStrategy{
 	
 	//ATTRIBUTS
 	protected Map map;
-	protected Entity entity;
+	protected Character character;
 	
 	//METHODS
 	/** Constructor */
@@ -27,14 +28,14 @@ public class SimpleMoveStrategy implements MoveStrategy{
 	}
 	
 	/** {@inheritDoc}*/
-	public void action(Entity entity) {
-		this.entity = entity;
-		Case c = map.getCaseWithPixel(entity.getX(), entity.getY());
-		c.removeEntity(entity);
-		entity.setY(entity.getY() + DEFAULT_MOVE_SPEED * entity.getSpeed());
-		if (entity.getY() + entity.getHeight() > map.getMap().length * Map.casewidth)
-			entity.setY(map.getMap()[0].length * Map.casewidth - entity.getHeight());
-		c = map.getCaseWithPixel(entity.getX(), entity.getY());
-		c.addEntity(entity);
+	public void action(Character character) {
+		this.character = character;
+		Case c = map.getCaseWithPixel(character.getX(), character.getY());
+		c.removeCharacter(character);
+		character.setY(character.getY() + DEFAULT_MOVE_SPEED * character.getSpeed());
+		if (character.getY() + character.getHeight() > map.getMap().length * Map.casewidth)
+			character.setY(map.getMap()[0].length * Map.casewidth - character.getHeight());
+		c = map.getCaseWithPixel(character.getX(), character.getY());
+		c.addCharacter(character);
 	} 
 }

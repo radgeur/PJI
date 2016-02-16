@@ -40,3 +40,12 @@ Mettre la map en cours en static (globale)
 Est ce que c'est moche dans une classe de prendre une liste alors qu'on est sûre d'en utiliser q'un seul élement mais à côté les attributs ne sont définis qu'une seule fois dans une interface qui devient ainsi une classe bastraite avec du coup un seul constructeur commun.
 
 Comment faire pour l'ajout d'un character sans caster? est ce que ca peut créer des problemes avec le remove?
+
+
+act strategy differebt pour defense et character
+
+calculé la distance en fonction du centre de l'entité
+
+
+Laisser les attributs important et mettre les secondaires dans une liste d'attributs.
+

@@ -31,13 +31,18 @@ public class SimpleAttackStrategy implements AttackStrategy{
 	@Override
 	public void action(Entity entity, List<Entity> listAttackableEnemies) {
 		this.entity = entity;
-		Entity enemy = moreNearEnnemy(listAttackableEnemies);
+		Entity enemy = closestEnemy(listAttackableEnemies);
 		this.entity.attack(enemy);
 	}
 
 
 
-	private Entity moreNearEnnemy(List<Entity> listAttackableEnemies) {
+	/**
+	 * Method to find the closest enemy in a list of enemies
+	 * @param listAttackableEnemies list of enemies attackable by the entity in this class
+	 * @return the closest enemy in the list
+	 */
+	private Entity closestEnemy(List<Entity> listAttackableEnemies) {
 		Entity tmp = null;
 		int distMin = Integer.MAX_VALUE;
 		for(Entity ent : listAttackableEnemies){

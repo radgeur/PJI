@@ -39,11 +39,11 @@ public interface Case {
 	/** Add an entity on the Case
 	 * @param entity to add on the Case
 	 */
-	public void addEntity(Entity entity);
+	public void addCharacter(Character character);
 	
 	/** Remove the entity of the Case
 	 * @param entity to remove of the Case
 	 */
-	public void removeEntity(Entity entity);
+	public void removeCharacter(Character character);
 	
 }

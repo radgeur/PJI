@@ -38,8 +38,8 @@ public class Wall implements Case{
 	public List<Character> getListCharacter(){return null;}
 
 	/** {@inheritDoc}*/
-	public void addEntity(Entity entity) {}
+	public void addCharacter(Character character) {}
 
 	/** {@inheritDoc}*/
-	public void removeEntity(Entity entity) {}
+	public void removeCharacter(Character character) {}
 }

@@ -66,13 +66,13 @@ public class Ground implements Case{
 	public List<Character> getListCharacter() {return listCharacter;}
 
 	/** {@inheritDoc}*/
-	public void addEntity(Entity entity) {
-		listCharacter.add((Character)entity);
+	public void addCharacter(Character character) {
+		listCharacter.add(character);
 	}
 
 	/** {@inheritDoc}*/
-	public void removeEntity(Entity entity) {
-		listCharacter.remove((Character)entity);
+	public void removeCharacter(Character character) {
+		listCharacter.remove(character);
 	}
 	
 	

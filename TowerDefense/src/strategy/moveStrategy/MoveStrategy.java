@@ -1,5 +1,6 @@
 package strategy.moveStrategy;
 
+import entities.Character;
 import entities.Entity;
 
 
@@ -14,5 +15,5 @@ public interface MoveStrategy {
 	
 	/** Action to do when move 
 	 * @param entity */
-	public void action(Entity entity);
+	public void action(Character character);
 }

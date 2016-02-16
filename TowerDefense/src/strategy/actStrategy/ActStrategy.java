@@ -8,10 +8,10 @@ import entities.Entity;
  * @author CHARNEUX Dimitri, LEPRETRE Rémy 
  *
  */
-public interface ActStrategy {
+public interface ActStrategy <T extends Entity> {
 	/**
 	 * Action to do when act
 	 * @param entity 
 	 */
-	public void action(Entity entity);
+	public void action(T entity);
 }
