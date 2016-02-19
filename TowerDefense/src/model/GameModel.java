@@ -6,4 +6,6 @@ import mapComponent.Map;
 
 public class GameModel extends Observable{
 	public static Map map;
+	public GameModel(Map map){this.map = map;}
+	
 }

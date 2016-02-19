@@ -3,6 +3,7 @@ package mapComponent;
 import java.util.ArrayList;
 import java.util.List;
 
+import entities.Defence;
 import entities.Entity;
 
 
@@ -14,6 +15,7 @@ import entities.Entity;
 public class Map {
 	private Case[][] map;
 	private List<Entity> listEntities;
+	private Defence nexus;
 	public final static int caseHeight = 10;
 	public final static int casewidth = 10;
 	
@@ -30,7 +32,23 @@ public class Map {
 	
 	public List<Entity> getEntities() {return listEntities;}
 	
+	public void addEntity(Entity ent){
+		listEntities.add(ent);
+	}
+	
 	public Case[][] getMap() {
 		return map;
+	}
+	
+	public void setMap(Case[][] c) {
+		this.map = c;
+	}
+
+	public Defence getNexus() {
+		return nexus;
+	}
+
+	public void setNexus(Defence nexus) {
+		this.nexus = nexus;
 	}
 }

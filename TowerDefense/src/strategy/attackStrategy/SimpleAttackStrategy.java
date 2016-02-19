@@ -14,15 +14,12 @@ import entities.Entity;
 
 public class SimpleAttackStrategy implements AttackStrategy{
 	//ATTRIBUTS
-	protected Map map;
 	protected Entity entity;
 	
 	//METHODS
 	/** Constructor
-	 * @param map
 	 */
-	public SimpleAttackStrategy(Map map){
-		this.map = map;
+	public SimpleAttackStrategy(){
 	}
 	
 	

@@ -55,6 +55,15 @@ public class Ground implements Case{
 	public boolean hasDefence(){
 		return defence != null;
 	}
+	
+	/**
+	 * Put a defence on this case.
+	 * @param d
+	 */
+	public void putDefence(Defence d){
+		if(canPut(d))
+			this.defence = d;
+	}
 
 	/** {@inheritDoc}*/
 	public int getX() {return x;}

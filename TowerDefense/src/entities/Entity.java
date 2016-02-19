@@ -2,6 +2,7 @@ package entities;
 
 import java.util.List;
 
+import strategy.actStrategy.ActStrategy;
 import strategy.attackStrategy.AttackStrategy;
 import strategy.moveStrategy.MoveStrategy;
 
@@ -24,8 +25,7 @@ public abstract class Entity {
 	protected int y;
 	protected int speed;
 	protected boolean isFriendly;
-	protected List<AttackStrategy> attackStrategy;
-	protected List<MoveStrategy> moveStrategy;
+	protected ActStrategy<Entity> actStrategy;
 	
 	//METHODS
 	/** Constructor
@@ -43,6 +43,10 @@ public abstract class Entity {
 		this.range = range;
 		this.power = power;
 		this.isFriendly = isFriendly;
+	}
+	
+	public void action(){
+		actStrategy.action(this);
 	}
 	
 	public int getHP() {return HP;}
@@ -87,6 +91,10 @@ public abstract class Entity {
 	public int getSpeed() {return speed;}
 
 	public void setSpeed(int speed) {this.speed = speed;}
+	
+	public void setActStrategy(ActStrategy act){
+		this.actStrategy = act;
+	}
 	
 	/** To know if both are on the same side
 	 * @return true if same side, else false
