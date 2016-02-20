@@ -83,6 +83,11 @@ public class Ground implements Case{
 	public void removeCharacter(Character character) {
 		listCharacter.remove(character);
 	}
+
+	@Override
+	public boolean isWall() {
+		return false;
+	}
 	
 	
 	

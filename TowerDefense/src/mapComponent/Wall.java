@@ -42,4 +42,9 @@ public class Wall implements Case{
 
 	/** {@inheritDoc}*/
 	public void removeCharacter(Character character) {}
+
+	@Override
+	public boolean isWall() {
+		return true;
+	}
 }

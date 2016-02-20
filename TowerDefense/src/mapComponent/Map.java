@@ -16,8 +16,8 @@ public class Map {
 	private Case[][] map;
 	private List<Entity> listEntities;
 	private Defence nexus;
-	public final static int caseHeight = 10;
-	public final static int casewidth = 10;
+	public static int caseHeight = 10;
+	public static int casewidth = 10;
 	
 	public Map(int length){
 		map = new Case[length][length];
@@ -49,6 +49,16 @@ public class Map {
 	}
 
 	public void setNexus(Defence nexus) {
+		listEntities.add(nexus);
 		this.nexus = nexus;
 	}
+	
+	public boolean isFinished(){
+		return nexus.getHP() <= 0;
+	}
+	
+	public void setHeight(int h){this.caseHeight = h;}
+	
+	public void setWidth(int w){this.casewidth = w;}
+	
 }

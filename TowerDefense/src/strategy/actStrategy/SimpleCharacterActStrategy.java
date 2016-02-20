@@ -30,7 +30,8 @@ public class SimpleCharacterActStrategy implements ActStrategy<Character>{
 	@Override
 	public void action(Character character) {
 		List<Entity> listAttackableEntity = getAttackableEntities();
-		if(listAttackableEntity == null)
+		System.out.println("act" + listAttackableEntity.size());
+		if(listAttackableEntity.size() == 0)
 			moveStrategy.action(character);
 		else
 			attackStrategy.action(character, listAttackableEntity);
@@ -46,7 +47,7 @@ public class SimpleCharacterActStrategy implements ActStrategy<Character>{
 		for(Entity ent : listEntity){
 			if(ent.isOpponent(character)){
 				if(ent.getX() <= character.getX() && (ent.getX() + ent.getWidth()) >= character.getX()){
-					if((ent.getY() - character.getY()) <= character.getRange())
+					if((ent.getY() - character.getY() - character.getHeight()) <= character.getRange())
 						listAttackableEntity.add(ent);
 				}
 			}

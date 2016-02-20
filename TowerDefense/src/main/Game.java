@@ -23,10 +23,13 @@ public class Game {
 		GameView view = new GameView();
 		model.addObserver(view);
 		GameControler controler = new GameControler(model);
+		controler.run();
 	}
 
 	private Map initMap() {
 		Map m = new Map(5);
+		m.setHeight(100);
+		m.setWidth(100);
 		Case[][] c = new Case[5][5];
 		for (int i = 0; i < 2; i++) {
 			for (int j = 0; j < c.length; j++) {
@@ -46,14 +49,19 @@ public class Game {
 			}
 		}
 
-		Character monster = new Character(10, 10, 10, 1, 10, false);
+		Character monster = new Character(10, 70, 70, 1, 5, false);
 		monster.setActStrategy(new SimpleCharacterActStrategy(
 				new SimpleAttackStrategy(), new SimpleMoveStrategy(), monster));
+		monster.setSpeed(1);
+		monster.setX(210);
+		monster.setY(0);
 		m.addEntity(monster);
 		c[2][0].addCharacter(monster);
 
-		Defence nexus = new Defence(10, 10, 10, 0, 0, true);
+		Defence nexus = new Defence(10, 100, 100, 0, 0, true);
 		nexus.setActStrategy(new NoActionActStrategy());
+		nexus.setX(200);
+		nexus.setY(400);
 		m.setNexus(nexus);
 		Ground g = new Ground(2, 4);
 		g.putDefence(nexus);
@@ -61,6 +69,11 @@ public class Game {
 		m.setMap(c);
 
 		return m;
+	}
+	
+	public static void main(String[] args){
+		Game g = new Game();
+		g.run();
 	}
 	
 }

@@ -45,5 +45,11 @@ public interface Case {
 	 * @param entity to remove of the Case
 	 */
 	public void removeCharacter(Character character);
+
+	/**
+	 * Indicates if the case is a wall or not.
+	 * @return true if the case is a wall, else return false 
+	 */
+	public boolean isWall();
 	
 }

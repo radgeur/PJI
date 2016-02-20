@@ -17,6 +17,7 @@ public abstract class Entity {
 
 	// ATTRIBUTS
 	protected int HP;
+	protected int maxHP;
 	protected int width;
 	protected int height;
 	protected int range;
@@ -37,7 +38,7 @@ public abstract class Entity {
 	 * @param isFriendly to know on which side the Entity is
 	 */
 	public Entity(int HP, int width, int height, int range, int power, boolean isFriendly) {
-		this.HP = HP;
+		this.maxHP = this.HP = HP;
 		this.width = width;
 		this.height = height;
 		this.range = range;
@@ -50,6 +51,8 @@ public abstract class Entity {
 	}
 	
 	public int getHP() {return HP;}
+	
+	public int getMaxHP() {return maxHP;}
 	
 	public void setHP(int hP) {HP = hP;}
 	
@@ -100,7 +103,7 @@ public abstract class Entity {
 	 * @return true if same side, else false
 	 */
 	public boolean isOpponent(Entity entity) {
-		return entity.getFriendly() == this.isFriendly;
+		return entity.getFriendly() != this.isFriendly;
 	}
 	
 	public void attack(Entity enemy){
