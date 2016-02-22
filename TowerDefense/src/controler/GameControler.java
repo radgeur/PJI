@@ -19,7 +19,6 @@ public class GameControler {
 					e.printStackTrace();
 				}
 			}
-			System.out.println("lll");
 			model.setchange();
 			model.notifyObservers();
 		}
