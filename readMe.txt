@@ -37,9 +37,7 @@ Comment gérer l'alternance attaque et déplacement?
 Mettre la map en cours en static (globale)
 
 
-Est ce que c'est moche dans une classe de prendre une liste alors qu'on est sûre d'en utiliser q'un seul élement mais à côté les attributs ne sont définis qu'une seule fois dans une interface qui devient ainsi une classe bastraite avec du coup un seul constructeur commun.
-
-Comment faire pour l'ajout d'un character sans caster? est ce que ca peut créer des problemes avec le remove?
+Est ce que c'est moche dans une classe de prendre une liste alors qu'on est sûre d'en utiliser q'un seul élement mais à côté les attributs ne sont définis qu'une seule fois dans une interface qui devient ainsi une classe abstraite avec du coup un seul constructeur commun.
 
 
 act strategy differebt pour defense et character
