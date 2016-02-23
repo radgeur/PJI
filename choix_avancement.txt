@@ -1,7 +1,10 @@
-les x sont les coordonnées horizontales.
-les y sont les coordonnées verticales.
-Les monstres et le joueur peuvent se passer à travers et le joueur peut passer à travers ses tourelles mais pas les monstres.
-Le point en haut à gauche de la JFrame a la coordonnée 0/0
-Le personnage est définit par son point en haut à gauche qui est de coordonée 0/0
-La map contient la liste des characters pour faciliter la détection des personnages. Les cases contiennent leur liste de characters pour pouvoir appliquer les effets facilement.
-
+-les x sont les coordonnées horizontales.
+-les y sont les coordonnées verticales.
+-Les monstres et le joueur peuvent se passer à travers et le joueur peut passer à travers ses tourelles mais pas les monstres. Par contre personne ne peut passer à travers les murs.
+-Le joueur ne peut poser des tourelles que sur le sol, pas sur les murs.
+-Il ne peut y avoir qu'une seule tourelle par case mais une tourelle peut occuper plusieurs cases.
+-Le point en haut à gauche de la JFrame a la coordonnée 0/0
+-Le personnage est définit par son point en haut à gauche qui est de coordonée 0/0
+-Le personnage attaque depuis le centre de son image mais par contre peut être touché en n'importe qu'elle point de celle-ci
+-La map contient la liste des characters pour faciliter la détection des personnages. Les cases contiennent leur liste de characters pour pouvoir appliquer les effets facilement.
+-Les MoveStrategy et AttackStrategy ne sont pas utilisés indépendamment mais gérer par un ActStrategy.
