@@ -1,9 +1,11 @@
-package mapComponent;
+package view;
 import java.awt.Color;
 import java.awt.Graphics;
 
 import javax.swing.JPanel;
 
+import mapComponent.Case;
+import mapComponent.Map;
 import model.GameModel;
 import entities.Entity;
 

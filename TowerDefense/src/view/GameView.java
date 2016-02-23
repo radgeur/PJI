@@ -12,7 +12,6 @@ import entities.Entity;
 
 import mapComponent.Case;
 import mapComponent.Map;
-import mapComponent.MyPanel;
 import model.GameModel;
 
 public class GameView implements Observer{
