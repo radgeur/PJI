@@ -56,6 +56,11 @@ public class Map {
 	
 	public List<Entity> getEntities() {return listEntities;}
 	
+	//TODO remplacer les getcase par des getcases dans addcharacter and adddefence
+	/**
+	 * Add a Character to the list of entities and on the cases where is locate
+	 * @param character to add
+	 */
 	public void addCharacter(Character character){
 		Case tmp = getCaseWithPixel(character.getX(), character.getY());
 		if(!tmp.isWall()){
@@ -64,6 +69,10 @@ public class Map {
 		}
 	}
 	
+	/**
+	 * Add a defence to the list of entities and on the cases where is locate
+	 * @param defence to add
+	 */
 	public void addDefense(Defence defence){
 		Case tmp = getCaseWithPixel(defence.getX(), defence.getY());
 		if(!tmp.isWall() && ((Ground)tmp).canPut(defence)){
