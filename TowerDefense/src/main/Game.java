@@ -1,19 +1,18 @@
 package main;
 
-import controler.GameControler;
-import strategy.actStrategy.ActStrategy;
-import strategy.actStrategy.NoActionActStrategy;
-import strategy.actStrategy.SimpleCharacterActStrategy;
-import strategy.attackStrategy.SimpleAttackStrategy;
-import strategy.moveStrategy.SimpleMoveStrategy;
-import view.GameView;
-import entities.Character;
-import entities.Defence;
 import mapComponent.Case;
 import mapComponent.Ground;
 import mapComponent.Map;
 import mapComponent.Wall;
 import model.GameModel;
+import strategy.actStrategy.NoActionActStrategy;
+import strategy.actStrategy.SimpleCharacterActStrategy;
+import strategy.attackStrategy.SimpleAttackStrategy;
+import strategy.moveStrategy.SimpleMoveStrategy;
+import view.GameView;
+import controler.GameControler;
+import entities.Character;
+import entities.Defence;
 
 public class Game {
 

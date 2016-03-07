@@ -47,3 +47,5 @@ calculé la distance en fonction du centre de l'entité
 
 Laisser les attributs important et mettre les secondaires dans une liste d'attributs.
 
+
+Pourquoi warning au niveau de setActstrategy dans entity?

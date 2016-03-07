@@ -13,12 +13,14 @@ import entities.Entity;
  *
  */
 public class Map {
+	//ATTRIBUTES
 	private Case[][] map;
 	private List<Entity> listEntities;
 	private Defence nexus;
 	public static int caseHeight = 10;
 	public static int casewidth = 10;
 	
+	//METHODS
 	public Map(int length){
 		map = new Case[length][length];
 		listEntities = new ArrayList<Entity>();
@@ -32,33 +34,23 @@ public class Map {
 	
 	public List<Entity> getEntities() {return listEntities;}
 	
-	public void addEntity(Entity ent){
-		listEntities.add(ent);
-	}
+	public void addEntity(Entity ent){listEntities.add(ent);}
 	
-	public Case[][] getMap() {
-		return map;
-	}
+	public Case[][] getMap() {return map;}
 	
-	public void setMap(Case[][] c) {
-		this.map = c;
-	}
+	public void setMap(Case[][] c) {this.map = c;}
 
-	public Defence getNexus() {
-		return nexus;
-	}
+	public Defence getNexus() {return nexus;}
 
 	public void setNexus(Defence nexus) {
 		listEntities.add(nexus);
 		this.nexus = nexus;
 	}
 	
-	public boolean isFinished(){
-		return nexus.getHP() <= 0;
-	}
+	public boolean isFinished(){return nexus.getHP() <= 0;}
 	
-	public void setHeight(int h){this.caseHeight = h;}
+	public void setHeight(int h){caseHeight = h;}
 	
-	public void setWidth(int w){this.casewidth = w;}
+	public void setWidth(int w){casewidth = w;}
 	
 }

@@ -1,10 +1,6 @@
 package entities;
 
-import java.util.List;
-
 import strategy.actStrategy.ActStrategy;
-import strategy.attackStrategy.AttackStrategy;
-import strategy.moveStrategy.MoveStrategy;
 
 /**
  * Class to could instantiate the different kind of Entity
@@ -95,9 +91,7 @@ public abstract class Entity {
 
 	public void setSpeed(int speed) {this.speed = speed;}
 	
-	public void setActStrategy(ActStrategy act){
-		this.actStrategy = act;
-	}
+	public void setActStrategy(ActStrategy act){this.actStrategy = act;}
 	
 	/** To know if both are on the same side
 	 * @return true if same side, else false

@@ -1,7 +1,6 @@
 package strategy.moveStrategy;
 
 import entities.Character;
-import entities.Entity;
 
 
 /**

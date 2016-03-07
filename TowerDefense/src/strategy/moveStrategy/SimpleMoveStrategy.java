@@ -1,10 +1,9 @@
 package strategy.moveStrategy;
 
+import mapComponent.Case;
 import mapComponent.Map;
 import model.GameModel;
 import entities.Character;
-import entities.Entity;
-import mapComponent.Case;
 
 /**
  * Basic move Strategy

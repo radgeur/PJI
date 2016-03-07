@@ -3,7 +3,6 @@ package mapComponent;
 import java.util.List;
 
 import entities.Character;
-import entities.Entity;
 
 /**
  * This class represent a case in the game.

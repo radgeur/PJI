@@ -1,18 +1,10 @@
 package view;
 
 import java.awt.Color;
-import java.awt.Graphics;
 import java.util.Observable;
 import java.util.Observer;
 
 import javax.swing.JFrame;
-import javax.swing.JPanel;
-
-import entities.Entity;
-
-import mapComponent.Case;
-import mapComponent.Map;
-import model.GameModel;
 
 public class GameView implements Observer{
 	private JFrame window;
