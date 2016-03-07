@@ -7,6 +7,8 @@ import mapComponent.Wall;
 import model.GameModel;
 import strategy.actStrategy.NoActionActStrategy;
 import strategy.actStrategy.SimpleCharacterActStrategy;
+import strategy.actStrategy.SimpleDefenceActStrategy;
+import strategy.attackStrategy.ClosestAttackStrategy;
 import strategy.attackStrategy.SimpleAttackStrategy;
 import strategy.moveStrategy.SimpleMoveStrategy;
 import view.GameView;
@@ -70,8 +72,8 @@ public class Game2 {
 		c[2][0].addCharacter(monster2);
 		
 		
-		Defence defence = new Defence(10, 50, 50, 0, 0, true);
-		defence.setActStrategy(new NoActionActStrategy());
+		Defence defence = new Defence(10, 50, 50, 50, 5, true);
+		defence.setActStrategy(new SimpleDefenceActStrategy(new ClosestAttackStrategy(), defence));
 		defence.setX(200);
 		defence.setY(200);
 		m.addDefense(defence);

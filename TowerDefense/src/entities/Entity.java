@@ -39,13 +39,13 @@ public abstract class Entity {
 		this.maxHP = this.HP = HP;
 		this.width = width;
 		this.height = height;
-		this.range = range;
+		this.range = range + (int) Math.sqrt((height/2)^2 + (width/2)^2);
 		this.power = power;
 		this.isFriendly = isFriendly;
 	}
 	
 	public void action(){
-		actStrategy.action(this);
+		actStrategy.action();
 	}
 	
 	public int getHP() {return HP;}

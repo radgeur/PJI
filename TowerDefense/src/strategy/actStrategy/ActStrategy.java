@@ -11,7 +11,6 @@ import entities.Entity;
 public interface ActStrategy <T extends Entity> {
 	/**
 	 * Action to do when act
-	 * @param entity 
 	 */
-	public void action(T entity);
+	public void action();
 }
