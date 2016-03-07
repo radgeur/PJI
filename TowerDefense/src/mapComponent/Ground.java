@@ -5,6 +5,7 @@ import java.util.List;
 
 import entities.Character;
 import entities.Defence;
+import entities.Entity;
 
 
 
@@ -86,6 +87,14 @@ public class Ground implements Case{
 	@Override
 	public boolean isWall() {
 		return false;
+	}
+
+	@Override
+	public void removeEntity(Entity entity) {
+		if(entity.isDefense())
+			defence = null;
+		else 
+			listCharacter.remove(entity);
 	}
 	
 	

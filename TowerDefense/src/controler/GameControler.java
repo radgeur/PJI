@@ -1,5 +1,8 @@
 package controler;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import entities.Entity;
 import model.GameModel;
 
@@ -19,6 +22,13 @@ public class GameControler {
 					e.printStackTrace();
 				}
 			}
+			List<Entity> tmp = new ArrayList<Entity>();
+			for(Entity entity : model.map.getEntities()){
+				if(entity.getHP() <= 0){
+					tmp.add(entity);
+				}
+			}
+			model.map.removeEntities(tmp);
 			model.setchange();
 			model.notifyObservers();
 		}

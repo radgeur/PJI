@@ -3,6 +3,7 @@ package mapComponent;
 import java.util.ArrayList;
 import java.util.List;
 
+import entities.Character;
 import entities.Defence;
 import entities.Entity;
 
@@ -34,10 +35,20 @@ public class Map {
 	
 	public List<Entity> getEntities() {return listEntities;}
 	
-	public void addEntity(Entity ent){
-		listEntities.add(ent);
-		
-		
+	public void addCharacter(Character character){
+		Case tmp = getCaseWithPixel(character.getX(), character.getY());
+		if(!tmp.isWall()){
+			listEntities.add(character);
+			tmp.addCharacter(character);
+		}
+	}
+	
+	public void addDefense(Defence defence){
+		Case tmp = getCaseWithPixel(defence.getX(), defence.getY());
+		if(!tmp.isWall() && ((Ground)tmp).canPut(defence)){
+			listEntities.add(defence);
+			((Ground)tmp).putDefence(defence); 
+		}
 	}
 	
 	public Case[][] getMap() {return map;}
@@ -56,5 +67,25 @@ public class Map {
 	public void setHeight(int h){caseHeight = h;}
 	
 	public void setWidth(int w){casewidth = w;}
+
+	/**
+	 * remove an entity of the list of entities and of the case where she is present.
+	 * @param entity 
+	 */
+	public void removeEntity(Entity entity) {
+		listEntities.remove(entity);
+		Case tmp = getCaseWithPixel(entity.getX(), entity.getY());
+		tmp.removeEntity(entity);
+	}
+	
+	/**
+	 * remove a list of entities of the list of entities and of the case where they are present.
+	 * @param entity 
+	 */
+	public void removeEntities(List<Entity> entities) {
+		for(Entity ent : entities){
+			removeEntity(ent);
+		}
+	}
 	
 }

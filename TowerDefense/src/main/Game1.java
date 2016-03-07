@@ -47,14 +47,14 @@ public class Game1 {
 				c[i][j] = new Wall(i, j);
 			}
 		}
-
+		m.setMap(c);
 		Character monster = new Character(10, 70, 70, 1, 5, false);
 		monster.setActStrategy(new SimpleCharacterActStrategy(
 				new SimpleAttackStrategy(), new SimpleMoveStrategy(), monster));
 		monster.setSpeed(1);
 		monster.setX(210);
 		monster.setY(0);
-		m.addEntity(monster);
+		m.addCharacter(monster);
 		c[2][0].addCharacter(monster);
 
 		Defence nexus = new Defence(10, 100, 100, 0, 0, true);
@@ -65,8 +65,6 @@ public class Game1 {
 		Ground g = new Ground(2, 4);
 		g.putDefence(nexus);
 		c[2][4] = g;
-		m.setMap(c);
-
 		return m;
 	}
 	

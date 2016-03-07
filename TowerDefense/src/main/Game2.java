@@ -49,13 +49,15 @@ public class Game2 {
 			}
 		}
 
+		m.setMap(c);
+		
 		Character monster = new Character(100, 30, 30, 1, 5, false);
 		monster.setActStrategy(new SimpleCharacterActStrategy(
 				new SimpleAttackStrategy(), new SimpleMoveStrategy(), monster));
 		monster.setSpeed(1);
 		monster.setX(250);
 		monster.setY(0);
-		m.addEntity(monster);
+		m.addCharacter(monster);
 		c[2][0].addCharacter(monster);
 		
 		Character monster2 = new Character(10, 30, 30, 1, 5, false);
@@ -64,9 +66,15 @@ public class Game2 {
 		monster2.setSpeed(1);
 		monster2.setX(270);
 		monster2.setY(200);
-		m.addEntity(monster2);
+		m.addCharacter(monster2);
 		c[2][0].addCharacter(monster2);
 		
+		
+		Defence defence = new Defence(10, 50, 50, 0, 0, true);
+		defence.setActStrategy(new NoActionActStrategy());
+		defence.setX(200);
+		defence.setY(200);
+		m.addDefense(defence);
 
 		Defence nexus = new Defence(10, 50, 50, 0, 0, true);
 		nexus.setActStrategy(new NoActionActStrategy());
@@ -76,8 +84,6 @@ public class Game2 {
 		Ground g = new Ground(2, 4);
 		g.putDefence(nexus);
 		c[4][8] = g;
-		m.setMap(c);
-
 		return m;
 	}
 	

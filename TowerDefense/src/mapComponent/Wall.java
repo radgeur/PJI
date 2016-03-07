@@ -3,6 +3,7 @@ package mapComponent;
 import java.util.List;
 
 import entities.Character;
+import entities.Entity;
 
 /**
  * This class represent a wall in the game.
@@ -46,4 +47,7 @@ public class Wall implements Case{
 	public boolean isWall() {
 		return true;
 	}
+
+	@Override
+	public void removeEntity(Entity entity) {}
 }
