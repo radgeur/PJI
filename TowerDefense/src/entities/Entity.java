@@ -103,4 +103,6 @@ public abstract class Entity {
 	public void attack(Entity enemy){
 		enemy.removeHP(power);
 	}
+	
+	public abstract boolean isDefense();
 }

@@ -34,7 +34,11 @@ public class Map {
 	
 	public List<Entity> getEntities() {return listEntities;}
 	
-	public void addEntity(Entity ent){listEntities.add(ent);}
+	public void addEntity(Entity ent){
+		listEntities.add(ent);
+		
+		
+	}
 	
 	public Case[][] getMap() {return map;}
 	
