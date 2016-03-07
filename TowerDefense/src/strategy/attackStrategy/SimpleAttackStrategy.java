@@ -2,7 +2,6 @@ package strategy.attackStrategy;
 
 import java.util.List;
 
-import mapComponent.Map;
 import entities.Entity;
 
 /**
@@ -17,15 +16,7 @@ public class SimpleAttackStrategy implements AttackStrategy{
 	protected Entity entity;
 	
 	//METHODS
-	/** Constructor
-	 */
-	public SimpleAttackStrategy(){
-	}
-	
-	
-	
 	/** {@inheritDoc}*/
-	@Override
 	public void action(Entity entity, List<Entity> listAttackableEnemies) {
 		this.entity = entity;
 		Entity enemy = closestEnemy(listAttackableEnemies);

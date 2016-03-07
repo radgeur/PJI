@@ -1,5 +1,7 @@
 package entities;
 
+import java.awt.Point;
+
 import strategy.actStrategy.ActStrategy;
 
 /**
@@ -105,4 +107,27 @@ public abstract class Entity {
 	}
 	
 	public abstract boolean isDefense();
+	
+	/** Return the center of an Entity
+	 * @param entity
+	 * @return center of the entity
+	 */
+	public Point getCenter() {
+		int x = (this.x + width) / 2;
+		int y = (this.y + height) / 2;
+		return new Point(x,y);
+	}
+	
+	/** Return the distance between the current entity and an other entity
+	 * @param entity to compare the distance
+	 * @return distance between both
+	 */
+	public double distance(Entity entity) {
+		double dist;
+		Point currentEntityCenter = this.getCenter();
+		Point otherEntityCenter = entity.getCenter();
+		dist = Math.abs(currentEntityCenter.getX() - otherEntityCenter.getX());
+		dist += Math.abs(currentEntityCenter.getY() - otherEntityCenter.getY());
+		return dist;
+	}
 }

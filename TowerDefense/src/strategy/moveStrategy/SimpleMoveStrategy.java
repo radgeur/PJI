@@ -21,8 +21,7 @@ public class SimpleMoveStrategy implements MoveStrategy{
 	
 	//METHODS
 	/** Constructor */
-	public SimpleMoveStrategy(){
-	}
+	public SimpleMoveStrategy(){}
 	
 	/** {@inheritDoc}*/
 	public void action(Character character) {
