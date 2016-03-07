@@ -5,6 +5,6 @@ import entities.Entity;
 public class NoActionActStrategy implements ActStrategy<Entity>{
 
 	@Override
-	public void action(Entity entity) {}
+	public void action() {}
 
 }

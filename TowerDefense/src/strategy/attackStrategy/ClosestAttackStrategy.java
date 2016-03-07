@@ -13,8 +13,8 @@ public class ClosestAttackStrategy implements AttackStrategy{
 	 * @return the closest enemy
 	 */
 	public Entity closestEnemy(List<Entity> listAttackableEnemies) {
-		Entity closest = listAttackableEnemies.get(0);
-		double distance = entity.distance(listAttackableEnemies.get(0));
+		Entity closest = null;
+		double distance = Double.MAX_VALUE;
 		for(Entity ent : listAttackableEnemies) {
 			if(entity.distance(ent) < distance){
 				distance = entity.distance(ent);
@@ -24,7 +24,7 @@ public class ClosestAttackStrategy implements AttackStrategy{
 		return closest;
 	}
 	
-	/** {@inheritdoc} */
+	/** {@ihneritdoc} */
 	public void action(Entity entity, List<Entity> listAttackableEnemies) {
 		this.entity = entity;
 		Entity enemy = closestEnemy(listAttackableEnemies);
