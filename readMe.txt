@@ -48,4 +48,11 @@ calculé la distance en fonction du centre de l'entité
 Laisser les attributs important et mettre les secondaires dans une liste d'attributs.
 
 
-Pourquoi warning au niveau de setActstrategy dans entity?
+Stratégie des monstres qui attaquent tout de suite le nexus :
+Au début de la partie et à chaque fois q'une défense est posé, le calcul de chemin est effectué
+Les flèches sont mises pour chaque cases et le monstre vérifie toutes les cases sur lesquels il passe pendant sa moveStrategy pour s'avoir dans quelle direction aller.
+
+Stratégie des monstres qui attaquent l'ennemi le plus proche :
+On met des chiffres autour de la première défense sur chaque case, ce chiffre augmentant en foncion de la distance par rapport à la défense.
+Lorsqu'une nouvelle défense est posé, les chiffres sont recalculés à partir de cette nouvelle défense et remplacer sur les cases si le chiffre pour la nouvelle défense est inférieur.
+Le monstre suivra les chiffres les plus petits.
