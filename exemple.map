@@ -1,0 +1,26 @@
+map taille 10 5
+xxxx0xxxxx
+xxxx0xxxxx
+xxxx0xxxxx
+xxxx0xxxxx
+xxxxNxxxxx
+
+Liste monstre : 
+Vague 1 0sec
+Monstre 1 : 
+x y pv power range vitesse
+act : simpleActStrategy
+att : simpleAttackStarategy
+Mov : simpleMoveStrategy
+
+Vague 2 15sec
+Monstre 1 : 
+x y pv power range vitesse
+act : simpleActStrategy
+att : simpleAttackStarategy
+Mov : simpleMoveStrategy
+Monstre 2 : 
+x y pv power range vitesse
+act : simpleActStrategy
+att : simpleAttackStarategy
+Mov : simpleMoveStrategy

@@ -13,8 +13,8 @@ public class GameControler {
 
 	public void run() {
 		model.notifyObservers();
-		while(!model.map.isFinished()){
-			for(Entity entity : model.map.getEntities()){
+		while(!GameModel.map.isFinished()){
+			for(Entity entity : GameModel.map.getEntities()){
 				entity.action();
 				try {
 					Thread.sleep(200);

@@ -56,7 +56,7 @@ public class Game2 {
 		Character monster = new Character(100, 30, 30, 1, 5, false);
 		monster.setActStrategy(new SimpleCharacterActStrategy(
 				new SimpleAttackStrategy(), new SimpleMoveStrategy(), monster));
-		monster.setSpeed(1);
+		monster.setSpeed(3);
 		monster.setX(250);
 		monster.setY(0);
 		m.addCharacter(monster);
