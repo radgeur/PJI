@@ -40,9 +40,9 @@ public class Map {
 	 * @return case
 	 */
 	public Case getCaseWithPixel(int x, int y) {
-		if (x > map.length * casewidth || x < 0)
+		if (x >= map.length * casewidth || x < 0)
 			return null;
-		if (y > map[0].length * caseHeight || y < 0)
+		if (y >= map[0].length * caseHeight || y < 0)
 			return null;
 		return map[x / casewidth][y / caseHeight];
 	}
@@ -198,7 +198,7 @@ public class Map {
 			List<Case> neighbors = this.getNeighbors(currentCase);
 			for (Case tmp : neighbors) {
 				if (!tmp.isWall()) {
-					if (tmp.getPathFindingNexus() < -1
+					if (tmp.getPathFindingNexus() == -1
 							|| tmp.getPathFindingNexus() > currentCase.getPathFindingNexus()) {
 						tmp.setPathFindingNexus(currentCase
 								.getPathFindingNexus() + 1);
