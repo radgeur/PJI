@@ -189,9 +189,7 @@ public class Map {
 				currentCases.addAll(this.getNeighbors(c));
 			}
 			for(Case c : currentCases){
-				if(previousCases.contains(c))
-					currentCases.remove(c);
-				else if (!c.isWall())
+				if (!c.isWall() && !previousCases.contains(c))
 					c.setPathFindingDefence(i, defence);
 			}
 			previousCases.addAll(currentCases);
