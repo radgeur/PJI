@@ -141,6 +141,8 @@ public class Ground implements Case{
 		}
 	}
 	
-	
+	public int getClosestestPathFindingDefence(){
+		return defencesDistance.firstKey();
+	}
 	
 }

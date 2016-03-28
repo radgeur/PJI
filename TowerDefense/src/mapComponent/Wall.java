@@ -78,4 +78,8 @@ public class Wall implements Case{
 
 	@Override
 	public void setPathFindingDefence(int key, Entity value) {}
+	
+	public int getClosestestPathFindingDefence(){
+		return -1;
+	}
 }

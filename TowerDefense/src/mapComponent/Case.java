@@ -77,4 +77,6 @@ public interface Case {
 	
 	public void setPathFindingDefence(int key, Entity value);
 	
+	public int getClosestestPathFindingDefence();
+	
 }
