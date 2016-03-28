@@ -1,6 +1,7 @@
 package mapComponent;
 
 import java.util.List;
+import java.util.TreeMap;
 
 import entities.Character;
 import entities.Entity;
@@ -71,10 +72,10 @@ public class Wall implements Case{
 	public void setPathFindingNexus(int pathfinding) {}
 
 	@Override
-	public int getPathFindingDefence() {
-		return -1;
+	public TreeMap<Integer, List<Entity>> getPathFindingDefence() {
+		return null;
 	}
 
 	@Override
-	public void setPathFindingDefence(int pathfinding) {}
+	public void setPathFindingDefence(TreeMap<Integer, List<Entity>> pathfinding) {}
 }

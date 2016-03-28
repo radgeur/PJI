@@ -22,9 +22,10 @@ public class Map {
 	private Defence nexus;
 	public static int caseHeight = 10;
 	public static int casewidth = 10;
-
-	// METHODS
-	public Map(int length) {
+	public static int catchArea = 6;
+	
+	//METHODS
+	public Map(int length){
 		map = new Case[length][length];
 		listEntities = new ArrayList<Entity>();
 	}
@@ -173,6 +174,13 @@ public class Map {
 			neighbors.add(tmp);
 
 		return neighbors;
+	}	
+
+	/** When a Defence is put on the board, his catch area are calculated with the static value 
+	 * @param Entity defence was put on the board
+	 */
+	public void updateDefencesPathFinding(Entity defence){
+	
 	}
 
 	/**
@@ -200,5 +208,4 @@ public class Map {
 			}
 		}
 	}
-
 }
