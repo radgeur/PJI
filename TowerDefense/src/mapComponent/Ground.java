@@ -145,7 +145,7 @@ public class Ground implements Case{
 		if(!defencesDistance.isEmpty())
 			return defencesDistance.firstKey();
 		else 
-			return -1;
+			return 0;
 	}
 	
 }

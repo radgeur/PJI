@@ -184,7 +184,7 @@ public class Map {
 		List<Case> previousCases = new ArrayList<Case>();
  		previousCases = this.getCasesOfEntity(defence);
 		
-		for(int i=0;i<catchArea;i++){
+		for(int i=1;i<=catchArea;i++){
 			for(Case c : previousCases){
 				currentCases.addAll(this.getNeighbors(c));
 			}

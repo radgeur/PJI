@@ -71,7 +71,7 @@ public class Game2 {
 		m.addCharacter(monster2);
 		
 		
-		Defence defence = new Defence(10, 50, 50, 50, 5, true);
+		Defence defence = new Defence(10, 49, 49, 49, 5, true);
 		defence.setActStrategy(new SimpleDefenceActStrategy(new ClosestAttackStrategy(), defence));
 		defence.setX(200);
 		defence.setY(200);
