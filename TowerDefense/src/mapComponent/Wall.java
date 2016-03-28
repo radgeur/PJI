@@ -66,5 +66,5 @@ public class Wall implements Case{
 	}
 
 	@Override
-	public void setPathFindingDefence(TreeMap<Integer, List<Entity>> pathfinding) {}
+	public void setPathFindingDefence(int key, Entity value) {}
 }

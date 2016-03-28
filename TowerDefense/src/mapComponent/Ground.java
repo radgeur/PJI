@@ -118,8 +118,17 @@ public class Ground implements Case{
 	}
 
 	@Override
-	public void setPathFindingDefence(TreeMap<Integer, List<Entity>> pathfinding) {
-		this.defencesDistance = pathfinding;
+	public void setPathFindingDefence(int key, Entity defence) {
+		List<Entity> tmp;
+		if(!defencesDistance.containsKey(key)){
+			tmp =new ArrayList<Entity>();
+			tmp.add(defence);
+			this.defencesDistance.put(key, tmp);
+		} else {
+			tmp = defencesDistance.get(key);
+			tmp.add(defence);
+			this.defencesDistance.put(key, tmp);
+		}
 	}
 	
 	
