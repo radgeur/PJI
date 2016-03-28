@@ -25,7 +25,7 @@ public class MyPanel extends JPanel{
 					graph.drawRect(c.getX()*Map.casewidth, c.getY()*Map.caseHeight, Map.casewidth, Map.caseHeight);
 				} else {
 					graph.setColor(Color.LIGHT_GRAY);
-					graph.drawString(c.getPathFindingNexus() + "", c.getX()*Map.casewidth, c.getY()*Map.caseHeight);
+					graph.drawString(c.getPathFindingNexus() + "", c.getXInPixel(), c.getYInPixel()+15);
 				}
 			}
 		}

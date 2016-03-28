@@ -22,6 +22,7 @@ public class Game1 {
 		GameView view = new GameView();
 		model.addObserver(view);
 		GameControler controler = new GameControler(model);
+		map.initNexusPathFinding();
 		controler.run();
 	}
 
@@ -57,7 +58,7 @@ public class Game1 {
 		m.addCharacter(monster);
 		c[2][0].addCharacter(monster);
 
-		Defence nexus = new Defence(10, 100, 100, 0, 0, true);
+		Defence nexus = new Defence(10, 99, 99, 0, 0, true);
 		nexus.setActStrategy(new NoActionActStrategy());
 		nexus.setX(200);
 		nexus.setY(400);

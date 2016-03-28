@@ -34,6 +34,17 @@ public class Wall implements Case{
 
 	/** {@inheritDoc}*/
 	public int getY() {return y;}
+	
+
+	@Override
+	public int getXInPixel() {
+		return x * Map.casewidth;
+	}
+
+	@Override
+	public int getYInPixel() {
+		return y * Map.caseHeight;
+	}
 
 	/** {@inheritDoc}*/
 	public List<Character> getListCharacter(){return null;}

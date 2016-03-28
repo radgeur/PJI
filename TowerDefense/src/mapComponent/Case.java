@@ -31,6 +31,16 @@ public interface Case {
 	 */
 	public int getY();
 	
+	/** Return the x coordinate of the case in pixel. 
+	 * @return x coordinate of the case in pixel
+	 */
+	public int getXInPixel();
+	
+	/** Return the y coordinate of the case in pixel. 
+	 * @return y coordinate of the case in pixel.
+	 */
+	public int getYInPixel();
+	
 	/**
 	 * This method return the list of character on this case.
 	 * @return the list of character on this case.
