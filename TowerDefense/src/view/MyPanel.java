@@ -27,7 +27,7 @@ public class MyPanel extends JPanel{
 					graph.setColor(Color.LIGHT_GRAY);
 					graph.drawString(c.getPathFindingNexus() + "", c.getXInPixel(), c.getYInPixel()+15);
 					graph.setColor(Color.DARK_GRAY);
-					graph.drawString("", c.getXInPixel()+15, c.getYInPixel()+15);
+					graph.drawString(c.getClosestestPathFindingDefence() + "", c.getXInPixel()+15, c.getYInPixel()+15);
 				}
 			}
 		}
