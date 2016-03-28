@@ -26,6 +26,8 @@ public class MyPanel extends JPanel{
 				} else {
 					graph.setColor(Color.LIGHT_GRAY);
 					graph.drawString(c.getPathFindingNexus() + "", c.getXInPixel(), c.getYInPixel()+15);
+					graph.setColor(Color.DARK_GRAY);
+					graph.drawString("", c.getXInPixel()+15, c.getYInPixel()+15);
 				}
 			}
 		}

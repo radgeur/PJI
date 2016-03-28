@@ -63,9 +63,6 @@ public class Game1 {
 		nexus.setX(200);
 		nexus.setY(400);
 		m.setNexus(nexus);
-		Ground g = new Ground(2, 4);
-		g.putDefence(nexus);
-		c[2][4] = g;
 		return m;
 	}
 	

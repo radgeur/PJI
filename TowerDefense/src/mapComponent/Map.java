@@ -114,8 +114,8 @@ public class Map {
 	}
 
 	public void setNexus(Defence nexus) {
-		listEntities.add(nexus);
 		this.nexus = nexus;
+		this.addDefense(nexus);
 	}
 
 	public boolean isFinished() {
