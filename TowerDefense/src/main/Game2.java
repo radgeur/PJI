@@ -24,6 +24,7 @@ public class Game2 {
 		GameView view = new GameView();
 		model.addObserver(view);
 		GameControler controler = new GameControler(model);
+		map.initNexusPathFinding();
 		controler.run();
 	}
 

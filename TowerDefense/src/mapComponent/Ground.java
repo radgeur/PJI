@@ -22,14 +22,16 @@ public class Ground implements Case{
 	private Defence defence;
 	private List<Character> listCharacter;
 	private int x,y;
-	private int NexusDistance;
-	private TreeMap<Integer, List<Entity>> DefencesDistance;
+	private int nexusDistance;
+	private TreeMap<Integer, List<Entity>> defencesDistance;
 	
 	//METHODS
 	public Ground(int x, int y){
 		this.x = x;
 		this.y = y;
 		listCharacter = new ArrayList<Character>();
+		nexusDistance = -1;
+		this.defencesDistance =  new TreeMap<Integer, List<Entity>>();
 	}
 	
 	/** If a character could or not go throw this case
@@ -102,22 +104,22 @@ public class Ground implements Case{
 
 	@Override
 	public int getPathFindingNexus() {
-		return NexusDistance;
+		return nexusDistance;
 	}
 
 	@Override
 	public void setPathFindingNexus(int pathfinding) {
-		this.NexusDistance = pathfinding;
+		this.nexusDistance = pathfinding;
 	}
 
 	@Override
 	public TreeMap<Integer, List<Entity>> getPathFindingDefence() {
-		return DefencesDistance;
+		return defencesDistance;
 	}
 
 	@Override
 	public void setPathFindingDefence(TreeMap<Integer, List<Entity>> pathfinding) {
-		this.DefencesDistance = pathfinding;
+		this.defencesDistance = pathfinding;
 	}
 	
 	

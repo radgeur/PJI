@@ -22,7 +22,10 @@ public class MyPanel extends JPanel{
 				Case c = map.getMap()[i][j];
 				if(c.isWall()){
 					graph.setColor(Color.BLACK);
-					graph.drawRect(c.getX()*map.caseHeight, c.getY()*map.casewidth, map.caseHeight, map.casewidth);
+					graph.drawRect(c.getX()*Map.casewidth, c.getY()*Map.caseHeight, Map.casewidth, Map.caseHeight);
+				} else {
+					graph.setColor(Color.LIGHT_GRAY);
+					graph.drawString(c.getPathFindingNexus() + "", c.getX()*Map.casewidth, c.getY()*Map.caseHeight);
 				}
 			}
 		}
