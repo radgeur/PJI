@@ -142,7 +142,10 @@ public class Ground implements Case{
 	}
 	
 	public int getClosestestPathFindingDefence(){
-		return defencesDistance.firstKey();
+		if(!defencesDistance.isEmpty())
+			return defencesDistance.firstKey();
+		else 
+			return -1;
 	}
 	
 }
