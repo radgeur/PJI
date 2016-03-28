@@ -2,6 +2,7 @@ package mapComponent;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.TreeMap;
 
 import entities.Character;
 import entities.Defence;
@@ -21,7 +22,8 @@ public class Ground implements Case{
 	private Defence defence;
 	private List<Character> listCharacter;
 	private int x,y;
-	private int pathFindingNexus, pathFindingDefence;
+	private int NexusDistance;
+	private TreeMap<Integer, List<Entity>> DefencesDistance;
 	
 	//METHODS
 	public Ground(int x, int y){
@@ -100,22 +102,22 @@ public class Ground implements Case{
 
 	@Override
 	public int getPathFindingNexus() {
-		return pathFindingNexus;
+		return NexusDistance;
 	}
 
 	@Override
 	public void setPathFindingNexus(int pathfinding) {
-		this.pathFindingNexus = pathfinding;
+		this.NexusDistance = pathfinding;
 	}
 
 	@Override
-	public int getPathFindingDefence() {
-		return pathFindingDefence;
+	public TreeMap<Integer, List<Entity>> getPathFindingDefence() {
+		return DefencesDistance;
 	}
 
 	@Override
-	public void setPathFindingDefence(int pathfinding) {
-		this.pathFindingDefence = pathfinding;
+	public void setPathFindingDefence(TreeMap<Integer, List<Entity>> pathfinding) {
+		this.DefencesDistance = pathfinding;
 	}
 	
 	

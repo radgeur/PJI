@@ -56,3 +56,8 @@ Stratégie des monstres qui attaquent l'ennemi le plus proche :
 On met des chiffres autour de la première défense sur chaque case, ce chiffre augmentant en foncion de la distance par rapport à la défense.
 Lorsqu'une nouvelle défense est posé, les chiffres sont recalculés à partir de cette nouvelle défense et remplacer sur les cases si le chiffre pour la nouvelle défense est inférieur.
 Le monstre suivra les chiffres les plus petits.
+
+S'il n'y a pas de numéro il suit les flèches et des qu'il y a des numéros on les suit
+Numéroter toutes les cases avec un numéro indiquant la distance jusqu'au nexus
+Indiquer le distance avec un int la séparant du héros
+Une liste contenant toutes les défenses à moins de 10 cases de rayons par exemple trier par ordre croissant.

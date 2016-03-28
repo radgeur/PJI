@@ -1,6 +1,7 @@
 package mapComponent;
 
 import java.util.List;
+import java.util.TreeMap;
 
 import entities.Character;
 import entities.Entity;
@@ -62,8 +63,8 @@ public interface Case {
 	
 	public void setPathFindingNexus(int pathfinding);
 	
-	public int getPathFindingDefence();
+	public TreeMap<Integer, List<Entity>> getPathFindingDefence();
 	
-	public void setPathFindingDefence(int pathfinding);
+	public void setPathFindingDefence(TreeMap<Integer, List<Entity>> pathfinding);
 	
 }
