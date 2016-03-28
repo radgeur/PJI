@@ -1,7 +1,9 @@
 package mapComponent;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 
 import entities.Character;
 import entities.Defence;
@@ -115,6 +117,44 @@ public class Map {
 	public void removeEntities(List<Entity> entities) {
 		for(Entity ent : entities){
 			removeEntity(ent);
+		}
+	}
+	
+	public List<Case> getNeighbors(Case current){
+		List<Case> neighbors = new ArrayList<Case>();
+		Case tmp = getCaseWithPixel(current.getX() + Map.casewidth, current.getY());
+		if(tmp != null) neighbors.add(tmp);
+		
+		tmp = getCaseWithPixel(current.getX() - Map.casewidth, current.getY());
+		if(tmp != null) neighbors.add(tmp);
+		
+		tmp = getCaseWithPixel(current.getX(), current.getY() + Map.caseHeight);
+		if(tmp != null) neighbors.add(tmp);
+		
+		tmp = getCaseWithPixel(current.getX(), current.getY() - Map.caseHeight);
+		if(tmp != null) neighbors.add(tmp);
+		
+		return neighbors;
+	}
+	
+	
+	/**
+	 * Calculate for each case the distance to Nexus at this case. 
+	 */
+	public void initNexusPathFinding(){
+		Case currentCase = getCaseWithPixel(nexus.getX(), nexus.getY());
+		currentCase.setPathFindingNexus(0);
+		Queue<Case> listCase = new LinkedList<Case>();
+		listCase.add(currentCase);
+		while(!listCase.isEmpty()){
+			currentCase = listCase.poll();
+			List<Case> neighbors = this.getNeighbors(currentCase);
+			for(Case tmp : neighbors){
+				if(tmp.getPathFindingNexus() >= 0){
+					tmp.setPathFindingNexus(currentCase.getPathFindingNexus() +1);
+					listCase.add(tmp);
+				}
+			}
 		}
 	}
 	

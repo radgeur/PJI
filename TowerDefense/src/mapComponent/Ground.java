@@ -21,13 +21,14 @@ public class Ground implements Case{
 	private Defence defence;
 	private List<Character> listCharacter;
 	private int x,y;
-	private int pathFindingNexus, pathFindingDefence;
+	private int nexusDistance, pathFindingDefence;
 	
 	//METHODS
 	public Ground(int x, int y){
 		this.x = x;
 		this.y = y;
 		listCharacter = new ArrayList<Character>();
+		nexusDistance = -1;
 	}
 	
 	/** If a character could or not go throw this case
@@ -100,12 +101,12 @@ public class Ground implements Case{
 
 	@Override
 	public int getPathFindingNexus() {
-		return pathFindingNexus;
+		return nexusDistance;
 	}
 
 	@Override
 	public void setPathFindingNexus(int pathfinding) {
-		this.pathFindingNexus = pathfinding;
+		this.nexusDistance = pathfinding;
 	}
 
 	@Override
