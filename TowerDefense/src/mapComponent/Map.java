@@ -180,7 +180,22 @@ public class Map {
 	 * @param Entity defence was put on the board
 	 */
 	public void updateDefencesPathFinding(Entity defence){
-	
+		List<Case> currentCases = new ArrayList<Case>();
+		List<Case> previousCases = new ArrayList<Case>();
+ 		previousCases = this.getCasesOfEntity(defence);
+		
+		for(int i=0;i<catchArea;i++){
+			for(Case c : previousCases){
+				currentCases.addAll(this.getNeighbors(c));
+			}
+			for(Case c : currentCases){
+				if(previousCases.contains(c))
+					currentCases.remove(c);
+				else if (!c.isWall())
+					c.setPathFindingDefence(i, defence);
+			}
+			previousCases.addAll(currentCases);
+		}
 	}
 
 	/**
