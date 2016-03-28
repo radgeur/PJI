@@ -21,6 +21,7 @@ public class Ground implements Case{
 	private Defence defence;
 	private List<Character> listCharacter;
 	private int x,y;
+	private int pathFindingNexus, pathFindingDefence;
 	
 	//METHODS
 	public Ground(int x, int y){
@@ -95,6 +96,26 @@ public class Ground implements Case{
 			defence = null;
 		else 
 			listCharacter.remove(entity);
+	}
+
+	@Override
+	public int getPathFindingNexus() {
+		return pathFindingNexus;
+	}
+
+	@Override
+	public void setPathFindingNexus(int pathfinding) {
+		this.pathFindingNexus = pathfinding;
+	}
+
+	@Override
+	public int getPathFindingDefence() {
+		return pathFindingDefence;
+	}
+
+	@Override
+	public void setPathFindingDefence(int pathfinding) {
+		this.pathFindingDefence = pathfinding;
 	}
 	
 	

@@ -50,4 +50,20 @@ public class Wall implements Case{
 
 	@Override
 	public void removeEntity(Entity entity) {}
+
+	@Override
+	public int getPathFindingNexus() {
+		return -1;
+	}
+
+	@Override
+	public void setPathFindingNexus(int pathfinding) {}
+
+	@Override
+	public int getPathFindingDefence() {
+		return -1;
+	}
+
+	@Override
+	public void setPathFindingDefence(int pathfinding) {}
 }

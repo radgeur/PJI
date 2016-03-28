@@ -52,6 +52,18 @@ public interface Case {
 	 */
 	public boolean isWall();
 
+	/**
+	 * Remove a entity on the case.
+	 * @param entity
+	 */
 	public void removeEntity(Entity entity);
+	
+	public int getPathFindingNexus();
+	
+	public void setPathFindingNexus(int pathfinding);
+	
+	public int getPathFindingDefence();
+	
+	public void setPathFindingDefence(int pathfinding);
 	
 }
