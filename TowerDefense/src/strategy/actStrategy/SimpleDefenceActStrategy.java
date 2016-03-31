@@ -1,5 +1,12 @@
 package strategy.actStrategy;
 
+/**
+ * ActStrategy for a defence
+ * 
+ * @author CHARNEUX Dimitri, LEPRETRE Rémy 
+ *
+ */
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,10 +16,15 @@ import entities.Defence;
 import entities.Entity;
 
 public class SimpleDefenceActStrategy implements ActStrategy<Defence>{
-
+	//ATTRIBUTES
 	private AttackStrategy attackStrategy;
 	private Defence defence;
 	
+	//METHODS
+	/** Constructor
+	 * @param att attackStrategy
+	 * @param defence that gonna act the strategy
+	 */
 	public SimpleDefenceActStrategy(AttackStrategy att, Defence defence){
 		this.attackStrategy = att;
 		this.defence = defence;

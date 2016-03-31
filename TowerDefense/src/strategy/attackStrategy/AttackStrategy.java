@@ -13,9 +13,9 @@ import entities.Entity;
 
 public interface AttackStrategy {
 	
-	/**
-	 * Action to do when attack
-	 * @param entity 
+	/** Action to do when attack
+	 * @param entity that do the attack
+	 * @param listAttackableEnnemies list of enemies that could be attack
 	 */
-	public void action(Entity entity, List<Entity> listAttackableEnnemies);
+	public void action(Entity entity, List<Entity> listAttackableEnemies);
 }

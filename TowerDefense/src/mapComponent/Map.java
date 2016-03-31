@@ -22,7 +22,7 @@ public class Map {
 	private Defence nexus;
 	public static int caseHeight = 10;
 	public static int casewidth = 10;
-	public static int catchArea = 6;
+	public static int catchArea = 3;
 	
 	//METHODS
 	public Map(int length){
@@ -30,13 +30,9 @@ public class Map {
 		listEntities = new ArrayList<Entity>();
 	}
 
-	/**
-	 * return the case where the point (x,y) is
-	 * 
-	 * @param x
-	 *            coordinate of the point
-	 * @param y
-	 *            coordinate of the point
+	/** return the case where the point (x,y) is
+	 * @param x coordinate of the point
+	 * @param yncoordinate of the point
 	 * @return case
 	 */
 	public Case getCaseWithPixel(int x, int y) {
@@ -47,11 +43,8 @@ public class Map {
 		return map[x / casewidth][y / caseHeight];
 	}
 
-	/**
-	 * return all the Cases where the entity is
-	 * 
-	 * @param entity
-	 *            to locate
+	/** return all the Cases where the entity is
+	 * @param entity to locate
 	 * @return list of Cases where the entity is
 	 */
 	public List<Case> getCasesOfEntity(Entity entity) {
@@ -66,87 +59,49 @@ public class Map {
 		}
 		return cases;
 	}
-
-	public List<Entity> getEntities() {
-		return listEntities;
-	}
+	
 
 	// TODO remplacer les getcase par des getcases dans addcharacter and
 	// adddefence
 	/**
-	 * Add a Character to the list of entities and on the cases where is locate
-	 * 
-	 * @param character
-	 *            to add
+	 * Add a Character to the list of entities and on the cases where he is locate
+	 * @param character  to add
 	 */
 	public void addCharacter(Character character) {
-		Case tmp = getCaseWithPixel(character.getX(), character.getY());
-		if (!tmp.isWall()) {
-			listEntities.add(character);
-			tmp.addCharacter(character);
+		List<Case> tmp = getCasesOfEntity(character);
+		listEntities.add(character);
+		for(Case c : tmp){
+			if (!c.isWall()) {
+				c.addCharacter(character);
+			}
 		}
 	}
 
-	/**
-	 * Add a defence to the list of entities and on the cases where is locate
-	 * 
-	 * @param defence
-	 *            to add
+	/** Add a defence to the list of entities and on the cases where it is locate 
+	 * @param defence to add
 	 */
 	public void addDefense(Defence defence) {
-		Case tmp = getCaseWithPixel(defence.getX(), defence.getY());
-		if (!tmp.isWall() && ((Ground) tmp).canPut(defence)) {
-			listEntities.add(defence);
-			((Ground) tmp).putDefence(defence);
+		List<Case> tmp = getCasesOfEntity(defence);
+		listEntities.add(defence);
+		for(Case c : tmp){
+			if(!c.isWall() && ((Ground) c).canPut(defence))
+				((Ground) c).putDefence(defence);
 		}
 	}
 
-	public Case[][] getMap() {
-		return map;
-	}
-
-	public void setMap(Case[][] c) {
-		this.map = c;
-	}
-
-	public Defence getNexus() {
-		return nexus;
-	}
-
-	public void setNexus(Defence nexus) {
-		this.nexus = nexus;
-		this.addDefense(nexus);
-	}
-
-	public boolean isFinished() {
-		return nexus.getHP() <= 0;
-	}
-
-	public void setHeight(int h) {
-		caseHeight = h;
-	}
-
-	public void setWidth(int w) {
-		casewidth = w;
-	}
-
-	/**
-	 * remove an entity of the list of entities and of the case where she is
-	 * present.
-	 * 
-	 * @param entity
+	/** remove an entity to the list of entities and of the case where he is
+	 * @param entity toremove
 	 */
 	public void removeEntity(Entity entity) {
 		listEntities.remove(entity);
-		Case tmp = getCaseWithPixel(entity.getX(), entity.getY());
-		tmp.removeEntity(entity);
+		List<Case> tmp = getCasesOfEntity(entity);
+		for(Case c: tmp) {
+			c.removeEntity(entity);
+		}
 	}
 
-	/**
-	 * remove a list of entities of the list of entities and of the case where
-	 * they are present.
-	 * 
-	 * @param entity
+	/** remove a list of entities to the list of entities and of the case where he is
+	 * @param list of entities to remove
 	 */
 	public void removeEntities(List<Entity> entities) {
 		for (Entity ent : entities) {
@@ -154,6 +109,10 @@ public class Map {
 		}
 	}
 
+	/** List the neighbors cases of the current case
+	 * @param current case
+	 * @return list of the neighbors cases
+	 */
 	public List<Case> getNeighbors(Case current) {
 		List<Case> neighbors = new ArrayList<Case>();
 		Case tmp = getCaseWithPixel(current.getXInPixel() + Map.casewidth,
@@ -196,9 +155,7 @@ public class Map {
 		}
 	}
 
-	/**
-	 * Calculate for each case the distance to Nexus at this case.
-	 */
+	/** Calculate for each case the distance from the Nexus to this case. */
 	public void initNexusPathFinding() {
 		List<Case> listTmp = getCasesOfEntity(nexus);
 		Queue<Case> listCases = new LinkedList<Case>();
@@ -221,4 +178,23 @@ public class Map {
 			}
 		}
 	}
+	
+	public List<Entity> getEntities() {return listEntities;}
+	
+	public Case[][] getMap() {return map;}
+
+	public void setMap(Case[][] c) {this.map = c;}
+
+	public Defence getNexus() {return nexus;}
+
+	public void setNexus(Defence nexus) {
+		this.nexus = nexus;
+		this.addDefense(nexus);
+	}
+
+	public boolean isFinished() {return nexus.getHP() <= 0;}
+
+	public void setHeight(int h) {caseHeight = h;}
+
+	public void setWidth(int w) {casewidth = w;}
 }

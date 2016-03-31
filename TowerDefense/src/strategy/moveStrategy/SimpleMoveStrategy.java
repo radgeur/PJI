@@ -25,7 +25,7 @@ public class SimpleMoveStrategy implements MoveStrategy{
 	/** Constructor */
 	public SimpleMoveStrategy(){}
 	
-	/** {@inheritDoc}*/
+	@Override
 	public void action(Character character) {
 		Map map = GameModel.map;
 		this.character = character;

@@ -15,8 +15,6 @@ public class Defence extends Entity{
 	}
 
 	@Override
-	public boolean isDefense() {
-		return true;
-	}
+	public boolean isDefense() {return true;}
 	
 }

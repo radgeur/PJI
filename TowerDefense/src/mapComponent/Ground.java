@@ -26,6 +26,10 @@ public class Ground implements Case{
 	private TreeMap<Integer, List<Entity>> defencesDistance;
 	
 	//METHODS
+	/** Constructor
+	 * @param x coordinate
+	 * @param y coordinate
+	 */
 	public Ground(int x, int y){
 		this.x = x;
 		this.y = y;
@@ -34,35 +38,26 @@ public class Ground implements Case{
 		this.defencesDistance =  new TreeMap<Integer, List<Entity>>();
 	}
 	
-	/** If a character could or not go throw this case
-	 * @param character 
-	 * @return if there is no defence on this case then true else false
-	 */
+	@Override
 	public boolean canPass(Character caracter) {
 		if(!hasDefence())
 			return true;
 		return !defence.isOpponent(caracter);
 	}
 	
-	/**
-	 * Indicate if a defence can be place on the case.
+	/** Check if a defence could be place on the case.
 	 * @param defence
 	 * @return true if a defence can be place on the case.
 	 */
-	public boolean canPut(Defence defence){
-		return this.defence == null;
-	}
+	public boolean canPut(Defence defence){return this.defence == null;}
 	
 	/**
-	 * indicate if there is a defence on the case.
+	 * Check if there is already a defence on the case.
 	 * @return true if there is a defence on the case.
 	 */
-	public boolean hasDefence(){
-		return defence != null;
-	}
+	public boolean hasDefence(){return defence != null;}
 	
-	/**
-	 * Put a defence on this case.
+	/** Put a defence on this case.
 	 * @param d
 	 */
 	public void putDefence(Defence d){
@@ -70,39 +65,14 @@ public class Ground implements Case{
 			this.defence = d;
 	}
 
-	/** {@inheritDoc}*/
-	public int getX() {return x;}
-
-	/** {@inheritDoc}*/
-	public int getY() {return y;}
+	@Override
+	public void addCharacter(Character character) {listCharacter.add(character);}
 
 	@Override
-	public int getXInPixel() {
-		return x * Map.casewidth;
-	}
+	public void removeCharacter(Character character) {listCharacter.remove(character);}
 
 	@Override
-	public int getYInPixel() {
-		return y * Map.caseHeight;
-	}
-
-	/** {@inheritDoc}*/
-	public List<Character> getListCharacter() {return listCharacter;}
-
-	/** {@inheritDoc}*/
-	public void addCharacter(Character character) {
-		listCharacter.add(character);
-	}
-
-	/** {@inheritDoc}*/
-	public void removeCharacter(Character character) {
-		listCharacter.remove(character);
-	}
-
-	@Override
-	public boolean isWall() {
-		return false;
-	}
+	public boolean isWall() {return false;}
 
 	@Override
 	public void removeEntity(Entity entity) {
@@ -110,21 +80,6 @@ public class Ground implements Case{
 			defence = null;
 		else 
 			listCharacter.remove(entity);
-	}
-
-	@Override
-	public int getPathFindingNexus() {
-		return nexusDistance;
-	}
-
-	@Override
-	public void setPathFindingNexus(int pathfinding) {
-		this.nexusDistance = pathfinding;
-	}
-
-	@Override
-	public TreeMap<Integer, List<Entity>> getPathFindingDefence() {
-		return defencesDistance;
 	}
 
 	@Override
@@ -141,11 +96,38 @@ public class Ground implements Case{
 		}
 	}
 	
-	public int getClosestestPathFindingDefence(){
+	@Override
+	public int getClosestPathFindingDefence(){
 		if(!defencesDistance.isEmpty())
 			return defencesDistance.firstKey();
 		else 
 			return 0;
 	}
+	
+	
+	
+	@Override
+	public List<Character> getListCharacter() {return listCharacter;}
+	
+	@Override
+	public int getPathFindingNexus() {return nexusDistance;}
+
+	@Override
+	public void setPathFindingNexus(int pathfinding) {this.nexusDistance = pathfinding;}
+
+	@Override
+	public TreeMap<Integer, List<Entity>> getPathFindingDefence() {return defencesDistance;}
+	
+	@Override
+	public int getX() {return x;}
+
+	@Override
+	public int getY() {return y;}
+
+	@Override
+	public int getXInPixel() {return x * Map.casewidth;}
+
+	@Override
+	public int getYInPixel() {return y * Map.caseHeight;}
 	
 }

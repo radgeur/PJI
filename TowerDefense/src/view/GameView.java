@@ -1,5 +1,12 @@
 package view;
 
+/**
+ * Class to instantiate a frame for the game
+ * 
+ * @author CHARNEUX Dimitri, LEPRETRE Rémy 
+ *
+ */
+
 import java.awt.Color;
 import java.util.Observable;
 import java.util.Observer;
@@ -10,6 +17,7 @@ public class GameView implements Observer{
 	private JFrame window;
 	private MyPanel panel;
 	
+	/** Constructor */
 	public GameView(){
 		window = new JFrame();
 	    window.setTitle("Tower Defense");

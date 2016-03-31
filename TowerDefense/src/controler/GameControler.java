@@ -7,10 +7,11 @@ import entities.Entity;
 import model.GameModel;
 
 public class GameControler {
+	//ATTRIBUTES
 	private GameModel model;
-	
 	public GameControler(GameModel model){this.model = model;}
-
+	
+	//METHODS
 	public void run() {
 		model.notifyObservers();
 		while(!GameModel.map.isFinished()){
@@ -23,16 +24,16 @@ public class GameControler {
 				}
 			}
 			List<Entity> tmp = new ArrayList<Entity>();
-			for(Entity entity : model.map.getEntities()){
+			for(Entity entity : GameModel.map.getEntities()){
 				if(entity.getHP() <= 0){
 					tmp.add(entity);
 				}
 			}
-			model.map.removeEntities(tmp);
+			GameModel.map.removeEntities(tmp);
 			model.setchange();
 			model.notifyObservers();
 		}
-		if(model.map.getNexus().getHP() > 0)
+		if(GameModel.map.getNexus().getHP() > 0)
 			System.out.println("vous avez gagné");
 		else
 			System.out.println("Vous avez perdu");

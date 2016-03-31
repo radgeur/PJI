@@ -1,8 +1,16 @@
 package strategy.attackStrategy;
 
+/**
+ * AttackStrategy that attack the closest enemy
+ * 
+ * @author CHARNEUX Dimitri, LEPRETRE Rémy 
+ *
+ */
+
 import java.util.List;
 
 import entities.Entity;
+
 
 public class ClosestAttackStrategy implements AttackStrategy{
 	//ATTRIBUTES
@@ -24,7 +32,7 @@ public class ClosestAttackStrategy implements AttackStrategy{
 		return closest;
 	}
 	
-	/** {@ihneritdoc} */
+	@Override
 	public void action(Entity entity, List<Entity> listAttackableEnemies) {
 		this.entity = entity;
 		Entity enemy = closestEnemy(listAttackableEnemies);

@@ -26,47 +26,39 @@ public class Wall implements Case{
 		this.y = y;
 	}
 	
-	/** {@inheritDoc}*/
+	@Override
 	public boolean canPass(Character character) {return false;}
 
-	/** {@inheritDoc}*/
+	@Override
 	public int getX() {return x;}
 
-	/** {@inheritDoc}*/
+	@Override
 	public int getY() {return y;}
 	
 
 	@Override
-	public int getXInPixel() {
-		return x * Map.casewidth;
-	}
+	public int getXInPixel() {return x * Map.casewidth;}
 
 	@Override
-	public int getYInPixel() {
-		return y * Map.caseHeight;
-	}
+	public int getYInPixel() {return y * Map.caseHeight;}
 
-	/** {@inheritDoc}*/
+	@Override
 	public List<Character> getListCharacter(){return null;}
 
-	/** {@inheritDoc}*/
+	@Override
 	public void addCharacter(Character character) {}
 
-	/** {@inheritDoc}*/
+	@Override
 	public void removeCharacter(Character character) {}
 
 	@Override
-	public boolean isWall() {
-		return true;
-	}
+	public boolean isWall() {return true;}
 
 	@Override
 	public void removeEntity(Entity entity) {}
 
 	@Override
-	public int getPathFindingNexus() {
-		return -1;
-	}
+	public int getPathFindingNexus() {return -1;}
 
 	@Override
 	public void setPathFindingNexus(int pathfinding) {}
@@ -79,7 +71,6 @@ public class Wall implements Case{
 	@Override
 	public void setPathFindingDefence(int key, Entity value) {}
 	
-	public int getClosestestPathFindingDefence(){
-		return -1;
-	}
+	@Override
+	public int getClosestPathFindingDefence(){return -1;}
 }

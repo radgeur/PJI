@@ -17,10 +17,17 @@ import entities.Entity;
  *
  */
 public class SimpleCharacterActStrategy implements ActStrategy<Character>{
+	//ATTRIBUTES
 	private AttackStrategy attackStrategy;
 	private MoveStrategy moveStrategy;
 	private Character character;
 	
+	//METHODS
+	/** Constructor
+	 * @param att attackstrategy to add
+	 * @param move movestrategy to add
+	 * @param character that gonna act the strategy
+	 */
 	public SimpleCharacterActStrategy(AttackStrategy att, MoveStrategy move, Character character){
 		this.attackStrategy = att;
 		this.moveStrategy = move;
@@ -37,8 +44,7 @@ public class SimpleCharacterActStrategy implements ActStrategy<Character>{
 			attackStrategy.action(character, listAttackableEntity);
 	}
 	
-	/**
-	 * Method to return the attackable entities
+	/** return the attackable entities
 	 * @return the list of attackable entities
 	 */
 	public List<Entity> getAttackableEntities(){
