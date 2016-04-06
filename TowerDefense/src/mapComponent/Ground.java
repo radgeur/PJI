@@ -51,10 +51,7 @@ public class Ground implements Case{
 	 */
 	public boolean canPut(Defence defence){return this.defence == null;}
 	
-	/**
-	 * Check if there is already a defence on the case.
-	 * @return true if there is a defence on the case.
-	 */
+	@Override
 	public boolean hasDefence(){return defence != null;}
 	
 	/** Put a defence on this case.

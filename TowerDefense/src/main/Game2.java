@@ -51,7 +51,8 @@ public class Game2 {
 				c[i][j] = new Wall(i, j);
 			}
 		}
-
+		//Uncomment to test the pathfinding.
+		//c[5][5] = new Wall(5, 5);
 		m.setMap(c);
 		
 		Character monster = new Character(100, 30, 30, 1, 5, false);

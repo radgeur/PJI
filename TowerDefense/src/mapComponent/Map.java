@@ -23,6 +23,7 @@ public class Map {
 	public static int caseHeight = 10;
 	public static int casewidth = 10;
 	public static int catchArea = 3;
+	public static final int costPassDefence = 5;
 	
 	//METHODS
 	public Map(int length){
@@ -168,11 +169,20 @@ public class Map {
 			List<Case> neighbors = this.getNeighbors(currentCase);
 			for (Case tmp : neighbors) {
 				if (!tmp.isWall()) {
-					if (tmp.getPathFindingNexus() == -1
-							|| tmp.getPathFindingNexus() > currentCase.getPathFindingNexus()) {
-						tmp.setPathFindingNexus(currentCase
-								.getPathFindingNexus() + 1);
-						listCases.add(tmp);
+					if(tmp.hasDefence()){
+						if (tmp.getPathFindingNexus() == -1
+								|| tmp.getPathFindingNexus() > (currentCase.getPathFindingNexus() + Map.costPassDefence)) {
+							tmp.setPathFindingNexus(currentCase
+									.getPathFindingNexus() + Map.costPassDefence);
+							listCases.add(tmp);
+						}
+					} else {
+						if (tmp.getPathFindingNexus() == -1
+								|| tmp.getPathFindingNexus() > currentCase.getPathFindingNexus()) {
+							tmp.setPathFindingNexus(currentCase
+									.getPathFindingNexus() + 1);
+							listCases.add(tmp);
+						}
 					}
 				}
 			}

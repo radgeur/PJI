@@ -30,6 +30,9 @@ public class Wall implements Case{
 	public boolean canPass(Character character) {return false;}
 
 	@Override
+	public boolean hasDefence(){return false;}
+	
+	@Override
 	public int getX() {return x;}
 
 	@Override

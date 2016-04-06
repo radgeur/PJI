@@ -21,6 +21,12 @@ public interface Case {
 	 */
 	public boolean canPass(Character character);
 	
+	/**
+	 * Check if there is already a defence on the case.
+	 * @return true if there is a defence on the case.
+	 */
+	public boolean hasDefence();
+	
 	/** Return the x coordinate of the case. 
 	 * @return x coordinate of the case
 	 */
