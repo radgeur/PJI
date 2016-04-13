@@ -20,7 +20,7 @@ public class CreationMapTest {
 		GameModel model = new GameModel(map);
 		GameView view = new GameView();
 		model.addObserver(view);
-		/*GameControler controler = new GameControler(model);
-		controler.run();*/
+		GameControler controler = new GameControler(model);
+		controler.run();
 	}
 }

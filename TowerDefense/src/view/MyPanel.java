@@ -40,13 +40,13 @@ public class MyPanel extends JPanel{
 			graph.drawString(ent.getHP() + "/" + ent.getMaxHP(),ent.getX(), ent.getY());
 		}
 		
-		/*if(map.isFinished()){
+		if(map.isFinished()){
 			graph.setColor(Color.RED);
 			if(map.getNexus().getHP() > 0)
 				graph.drawString("Gagné!!!",200, 200);
 			else
 				graph.drawString("Perdu!!!",200, 200);
-		}*/
+		}
 			
 	}
 	}

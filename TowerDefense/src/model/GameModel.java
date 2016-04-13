@@ -31,26 +31,27 @@ public class GameModel extends Observable{
 		char currentChar;
 		Map map = new Map(height);
 		Case[][] cases = new Case[width][height];
+		Defence nexus = new Defence(10, 9, 9, 0, 0, true);
+		nexus.setActStrategy(new NoActionActStrategy());
 		for(int i = 0;i<height;i++){
 			currentLine = scan.nextLine();
 			for(int j = 0; j<width; j++){
 				currentChar = currentLine.charAt(j);
 				System.out.println(currentChar);
 				if(currentChar == 'X')
-					cases[j][i] = new Wall(j*Map.caseHeight,i*Map.casewidth);
-				/*else if (currentChar == 'N'){
-					cases[j][i] = new Ground(j*Map.caseHeight,i*Map.casewidth);
-					Defence nexus = new Defence(10, 1, 1, 0, 0, true);
+					cases[j][i] = new Wall(j,i);
+				else if (currentChar == 'N'){
+					cases[j][i] = new Ground(j,i);
 					nexus.setX(j*Map.casewidth);
 					nexus.setY(i*Map.caseHeight);
-					map.setNexus(nexus);
-				}*/
+				}
 				else
-					cases[j][i] = new Ground(j*Map.caseHeight,i*Map.casewidth);					
+					cases[j][i] = new Ground(j,i);					
 			}
 		}
 		scan.close();
 		map.setMap(cases);
+		map.setNexus(nexus);
 		return map;
 	}
 }
