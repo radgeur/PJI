@@ -30,7 +30,7 @@ public class Game2 {
 
 	private Map initMap() {
 		int nbCase = 10;
-		Map m = new Map(nbCase);
+		Map m = new Map();
 		m.setHeight(50);
 		m.setWidth(50);
 		Case[][] c = new Case[nbCase][nbCase];

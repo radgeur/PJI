@@ -13,8 +13,19 @@ import mapComponent.Map;
 import mapComponent.Wall;
 
 public class GameModel extends Observable{
+	//ATTRIBUTES
 	public static Map map;
-	public GameModel(Map map){this.map = map;}
+	
+	//METHODS
+	/** empty Constructor */
+	public GameModel() {
+		map = new Map();
+	}
+	
+	/** Constructor
+	 * @param map for the game
+	 */
+	public GameModel(Map m){map = m;}
 	
 	public void setchange(){this.setChanged();}
 	
@@ -23,13 +34,12 @@ public class GameModel extends Observable{
 	 * @return
 	 * @throws FileNotFoundException 
 	 */
-	public static Map readMap(String fileName) throws FileNotFoundException{
+	public void readMap(String fileName) throws FileNotFoundException{
 		Scanner scan = new Scanner(new File(fileName));
 		int height = Integer.parseInt(scan.nextLine());
 		int width = Integer.parseInt(scan.nextLine());
 		String currentLine;
 		char currentChar;
-		Map map = new Map(height);
 		Case[][] cases = new Case[width][height];
 		Defence nexus = new Defence(10, 9, 9, 0, 0, true);
 		nexus.setActStrategy(new NoActionActStrategy());
@@ -52,6 +62,5 @@ public class GameModel extends Observable{
 		scan.close();
 		map.setMap(cases);
 		map.setNexus(nexus);
-		return map;
 	}
 }

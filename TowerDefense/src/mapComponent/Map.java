@@ -26,11 +26,9 @@ public class Map {
 	public static final int costPassDefence = 5;
 	
 	//METHODS
-	/** Constructor
-	 * @param length of the map
-	 */
-	public Map(int length){
-		map = new Case[length][length];
+	/** Constructor */
+	public Map(){
+		map = new Case[10][10];
 		listEntities = new ArrayList<Entity>();
 	}
 
@@ -61,7 +59,6 @@ public class Map {
 		System.out.println(21/10);
 		for (int i = start.getX(); i <= end.getX(); i++) {
 			for (int j = start.getY(); j <= end.getY(); j++) {
-				System.out.println("coucou");
 				cases.add(map[i][j]);
 			}
 		}
