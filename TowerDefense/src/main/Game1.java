@@ -27,7 +27,7 @@ public class Game1 {
 	}
 
 	private Map initMap() {
-		Map m = new Map(5);
+		Map m = new Map();
 		m.setHeight(100);
 		m.setWidth(100);
 		Case[][] c = new Case[5][5];
