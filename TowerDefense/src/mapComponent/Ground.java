@@ -126,5 +126,10 @@ public class Ground implements Case{
 
 	@Override
 	public int getYInPixel() {return y * Map.caseHeight;}
+
+	@Override
+	public Defence getDefence() {
+		return defence;
+	}
 	
 }

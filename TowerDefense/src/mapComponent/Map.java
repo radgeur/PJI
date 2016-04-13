@@ -62,8 +62,6 @@ public class Map {
 	}
 	
 
-	// TODO remplacer les getcase par des getcases dans addcharacter and
-	// adddefence
 	/**
 	 * Add a Character to the list of entities and on the cases where he is locate
 	 * @param character  to add

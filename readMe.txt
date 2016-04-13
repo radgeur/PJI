@@ -61,3 +61,12 @@ S'il n'y a pas de numéro il suit les flèches et des qu'il y a des numéros on 
 Numéroter toutes les cases avec un numéro indiquant la distance jusqu'au nexus
 Indiquer le distance avec un int la séparant du héros
 Une liste contenant toutes les défenses à moins de 10 cases de rayons par exemple trier par ordre croissant.
+
+
+
+
+
+
+
+
+Penser a rassembler les static dans une classe pour eviter les doublons (ex : protected final int DEFAULT_MOVE_SPEED = 10; dans les movestrategy)
