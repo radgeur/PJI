@@ -1,16 +1,18 @@
 package model;
 
 import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.LineNumberReader;
 import java.util.Observable;
 import java.util.Scanner;
 
-import strategy.actStrategy.NoActionActStrategy;
-import entities.Defence;
 import mapComponent.Case;
 import mapComponent.Ground;
 import mapComponent.Map;
 import mapComponent.Wall;
+import strategy.actStrategy.NoActionActStrategy;
+import entities.Defence;
 
 public class GameModel extends Observable{
 	//ATTRIBUTES
@@ -32,12 +34,26 @@ public class GameModel extends Observable{
 	/** Create a map from a file
 	 * @param filename 
 	 * @return
-	 * @throws FileNotFoundException 
+	 * @throws IOException 
 	 */
-	public void readMap(String fileName) throws FileNotFoundException{
+	public void readMap(String fileName) throws IOException{
+		//to count the lineNumber of the file
+		LineNumberReader ln = new LineNumberReader(new FileReader(new File(fileName)));
+		ln.skip(Long.MAX_VALUE);
+		
+		//to read the file
 		Scanner scan = new Scanner(new File(fileName));
 		int height = Integer.parseInt(scan.nextLine());
 		int width = Integer.parseInt(scan.nextLine());
+		
+		//not the right length for the file
+		if(height+2 < ln.getLineNumber() || height+2 > ln.getLineNumber()) {
+			System.out.println("the length of the file isn't right");
+			scan.close();
+			ln.close();
+			return;
+		}
+		
 		String currentLine;
 		char currentChar;
 		Case[][] cases = new Case[width][height];
@@ -45,9 +61,16 @@ public class GameModel extends Observable{
 		nexus.setActStrategy(new NoActionActStrategy());
 		for(int i = 0;i<height;i++){
 			currentLine = scan.nextLine();
+			
+			if(currentLine.length() < width || currentLine.length() > width) {
+				System.out.println("the length of the line " + (i+2+1) + " isn't right");
+				scan.close();
+				ln.close();
+				return;
+			}
+			
 			for(int j = 0; j<width; j++){
 				currentChar = currentLine.charAt(j);
-				System.out.println(currentChar);
 				if(currentChar == 'X')
 					cases[j][i] = new Wall(j,i);
 				else if (currentChar == 'N'){
@@ -60,6 +83,7 @@ public class GameModel extends Observable{
 			}
 		}
 		scan.close();
+		ln.close();
 		map.setMap(cases);
 		map.setNexus(nexus);
 	}

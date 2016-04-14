@@ -42,8 +42,6 @@ public class Map {
 			return null;
 		if (y >= map[0].length * caseHeight || y < 0)
 			return null;
-		Case c = map[0][0];
-		System.out.println(c.getX());
 		return map[x / casewidth][y / caseHeight];
 	}
 
@@ -56,7 +54,6 @@ public class Map {
 		Case start = getCaseWithPixel(entity.getX(), entity.getY());
 		Case end = getCaseWithPixel(entity.getX() + entity.getWidth(),
 				entity.getY() + entity.getHeight());
-		System.out.println(21/10);
 		for (int i = start.getX(); i <= end.getX(); i++) {
 			for (int j = start.getY(); j <= end.getY(); j++) {
 				cases.add(map[i][j]);
