@@ -2,6 +2,9 @@ package entities;
 
 import java.awt.Point;
 
+import mapComponent.Case;
+import model.GameModel;
+
 import strategy.actStrategy.ActStrategy;
 
 /**
@@ -83,8 +86,8 @@ public abstract class Entity {
 	 * @return center of the entity
 	 */
 	public Point getCenter() {
-		int x = (this.x + width) / 2;
-		int y = (this.y + height) / 2;
+		int x = this.x + width / 2;
+		int y = this.y + height / 2;
 		return new Point(x,y);
 	}
 	
@@ -98,6 +101,47 @@ public abstract class Entity {
 		Point otherEntityCenter = entity.getCenter();
 		dist = Math.abs(currentEntityCenter.getX() - otherEntityCenter.getX());
 		dist += Math.abs(currentEntityCenter.getY() - otherEntityCenter.getY());
+		return dist;
+	}
+	
+	/** Return the minimal distance between the current entity and an other entity
+	 * @param entity to compare the distance
+	 * @return distance between both
+	 */
+	public double minimalDistance(Entity entity) {
+		double dist;
+		Point currentEntityCenter = this.getCenter();
+		if(currentEntityCenter.getX() >= entity.getX() 
+				&& currentEntityCenter.getX() <= entity.getX() + entity.getWidth() ){
+			double d1 = Math.abs(currentEntityCenter.getY() - entity.getY());
+			double d2 = Math.abs(currentEntityCenter.getY() - (entity.getY() + entity.getHeight()));
+			return d1<d2?d1:d2;
+		} else if(currentEntityCenter.getY() >= entity.getY() 
+				&& currentEntityCenter.getY() <= entity.getY() + entity.getHeight()){
+			double d1 = Math.abs(currentEntityCenter.getX() - entity.getX());
+			double d2 = Math.abs(currentEntityCenter.getX() - (entity.getX() + entity.getWidth()));
+			return d1<d2?d1:d2;
+		} else {
+			return distance(entity);
+		}
+	}
+	
+	/** Return the distance between the current entity and an case
+	 * @param case to compare the distance
+	 * @return distance between both
+	 */
+	public int distanceInLineToCase(Case c) {
+		int dist = Integer.MAX_VALUE;
+		dist = Math.min(dist, this.x - c.getXInPixel());
+		dist = Math.min(dist, this.x - (c.getXInPixel() + GameModel.map.casewidth));
+		dist = Math.min(dist, (this.x + this.width) - c.getXInPixel());
+		dist = Math.min(dist, (this.x + this.width) - (c.getXInPixel() + GameModel.map.casewidth));
+		
+		dist = Math.min(dist, this.y - c.getYInPixel());
+		dist = Math.min(dist, this.y - (c.getYInPixel() + GameModel.map.caseHeight));
+		dist = Math.min(dist, (this.y + this.height) - c.getYInPixel());
+		dist = Math.min(dist, (this.y + this.height) - (c.getYInPixel() + GameModel.map.caseHeight));	
+		
 		return dist;
 	}
 	

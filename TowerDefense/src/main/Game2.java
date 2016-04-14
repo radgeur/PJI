@@ -5,11 +5,13 @@ import mapComponent.Ground;
 import mapComponent.Map;
 import mapComponent.Wall;
 import model.GameModel;
+import strategy.actStrategy.AimNexusActStrategy;
 import strategy.actStrategy.NoActionActStrategy;
 import strategy.actStrategy.SimpleCharacterActStrategy;
 import strategy.actStrategy.SimpleDefenceActStrategy;
 import strategy.attackStrategy.ClosestAttackStrategy;
 import strategy.attackStrategy.SimpleAttackStrategy;
+import strategy.moveStrategy.AimNexusMoveStrategy;
 import strategy.moveStrategy.SimpleMoveStrategy;
 import view.GameView;
 import controler.GameControler;
@@ -55,11 +57,18 @@ public class Game2 {
 		//c[5][5] = new Wall(5, 5);
 		m.setMap(c);
 		
-		Character monster = new Character(100, 30, 30, 1, 5, false);
-		monster.setActStrategy(new SimpleCharacterActStrategy(
+		Character monster = new Character(100, 30, 30, 20, 5, false);
+		
+		/* TEST de aintonexus strategy
+		 * 
+		 * monster.setActStrategy(new SimpleCharacterActStrategy(
 				new SimpleAttackStrategy(), new SimpleMoveStrategy(), monster));
+		*/
+		monster.setActStrategy(new AimNexusActStrategy(
+				new ClosestAttackStrategy(), new AimNexusMoveStrategy(), monster));
+		
 		monster.setSpeed(3);
-		monster.setX(220);
+		monster.setX(210);
 		monster.setY(0);
 		m.addCharacter(monster);
 		

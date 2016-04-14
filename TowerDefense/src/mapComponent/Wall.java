@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.TreeMap;
 
 import entities.Character;
+import entities.Defence;
 import entities.Entity;
 
 /**
@@ -76,4 +77,9 @@ public class Wall implements Case{
 	
 	@Override
 	public int getClosestPathFindingDefence(){return -1;}
+
+	@Override
+	public Defence getDefence() {
+		return null;
+	}
 }

@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.TreeMap;
 
 import entities.Character;
+import entities.Defence;
 import entities.Entity;
 
 /**
@@ -98,5 +99,11 @@ public interface Case {
 	 * @return int the distance to the closest defence
 	 */
 	public int getClosestPathFindingDefence();
+	
+	/**
+	 * Return the defence present on this case 
+	 * @return the defence present on this case
+	 */
+	public Defence getDefence();
 	
 }
