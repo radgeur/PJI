@@ -1,6 +1,5 @@
 package model;
 
-import java.awt.Dimension;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
@@ -34,10 +33,9 @@ public class GameModel extends Observable{
 	
 	/** Create a map from a file
 	 * @param filename
-	 * @param dimension to set the size of the cases on the map
 	 * @throws IOException 
 	 */
-	public void readMap(String fileName, Dimension dimension) throws IOException{
+	public void readMap(String fileName) throws IOException{
 		//to count the lineNumber of the file
 		LineNumberReader ln = new LineNumberReader(new FileReader(new File(fileName)));
 		ln.skip(Long.MAX_VALUE);

@@ -1,6 +1,5 @@
 package strategy.moveStrategy;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import mapComponent.Case;

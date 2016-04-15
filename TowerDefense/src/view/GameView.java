@@ -42,10 +42,5 @@ public class GameView implements Observer{
 		System.out.println("update");
 		panel.repaint();
 	}
-	
-	
-	public Dimension getPanelDimension(){
-		return this.panel.getPreferredSize();
-	}
 
 }
