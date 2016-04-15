@@ -100,10 +100,19 @@ public interface Case {
 	 */
 	public int getClosestPathFindingDefence();
 	
-	/**
-	 * Return the defence present on this case 
+	/** Return the defence present on this case 
 	 * @return the defence present on this case
 	 */
 	public Defence getDefence();
+	
+	/** Put defence on the case
+	 * @param defence to pu on the case
+	 */
+	public void putDefence(Defence defence);
+	
+	/** Know if we can put a defence on the case
+	 * @return true if can, else false
+	 */
+	public boolean canPut();
 	
 }

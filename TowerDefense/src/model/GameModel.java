@@ -1,5 +1,6 @@
 package model;
 
+import java.awt.Dimension;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
@@ -32,11 +33,11 @@ public class GameModel extends Observable{
 	public void setchange(){this.setChanged();}
 	
 	/** Create a map from a file
-	 * @param filename 
-	 * @return
+	 * @param filename
+	 * @param dimension to set the size of the cases on the map
 	 * @throws IOException 
 	 */
-	public void readMap(String fileName) throws IOException{
+	public void readMap(String fileName, Dimension dimension) throws IOException{
 		//to count the lineNumber of the file
 		LineNumberReader ln = new LineNumberReader(new FileReader(new File(fileName)));
 		ln.skip(Long.MAX_VALUE);
@@ -45,6 +46,7 @@ public class GameModel extends Observable{
 		Scanner scan = new Scanner(new File(fileName));
 		int height = Integer.parseInt(scan.nextLine());
 		int width = Integer.parseInt(scan.nextLine());
+		int cptNexus = 0;
 		
 		//not the right length for the file
 		if(height+2 < ln.getLineNumber() || height+2 > ln.getLineNumber()) {
@@ -73,10 +75,17 @@ public class GameModel extends Observable{
 				currentChar = currentLine.charAt(j);
 				if(currentChar == 'X')
 					cases[j][i] = new Wall(j,i);
-				else if (currentChar == 'N'){
+				else if (currentChar == 'N' && cptNexus<1){
+					cptNexus++;
 					cases[j][i] = new Ground(j,i);
 					nexus.setX(j*Map.casewidth);
 					nexus.setY(i*Map.caseHeight);
+				}
+				else if (currentChar == 'N' && cptNexus>=1){
+					System.out.println("There are more than 1 Nexus on the map, this is forbidden");
+					scan.close();
+					ln.close();
+					return;
 				}
 				else
 					cases[j][i] = new Ground(j,i);					

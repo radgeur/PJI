@@ -5,11 +5,9 @@ import java.util.List;
 
 import mapComponent.Case;
 import model.GameModel;
-
 import strategy.attackStrategy.AttackStrategy;
 import strategy.moveStrategy.MoveStrategy;
 import entities.Character;
-import entities.Defence;
 import entities.Entity;
 
 public class AimNexusActStrategy implements ActStrategy<Character> {

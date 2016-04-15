@@ -8,9 +8,11 @@ package view;
  */
 
 import java.awt.Color;
+import java.awt.Dimension;
 import java.util.Observable;
 import java.util.Observer;
 
+import javax.swing.BoxLayout;
 import javax.swing.JFrame;
 
 public class GameView implements Observer{
@@ -20,15 +22,18 @@ public class GameView implements Observer{
 	/** Constructor */
 	public GameView(){
 		window = new JFrame();
+		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	    window.setTitle("Tower Defense");
-	    window.setSize(500, 550);
-	    window.setLocationRelativeTo(null);
 	    panel = new MyPanel();
 	    panel.setBackground(Color.WHITE);
-	    window.setContentPane(panel);
+	    panel.setPreferredSize(new Dimension(500,550));
+	    window.setLayout(new BoxLayout(window.getContentPane(), BoxLayout.Y_AXIS));
+	    window.getContentPane().add(panel);
 	    window.setResizable(false);
 	    window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	    window.setLocationRelativeTo(null);
 	    window.setVisible(true);
+	    window.pack();
 	}
 	
 	
@@ -36,6 +41,11 @@ public class GameView implements Observer{
 	public void update(Observable o, Object arg) {
 		System.out.println("update");
 		panel.repaint();
+	}
+	
+	
+	public Dimension getPanelDimension(){
+		return this.panel.getPreferredSize();
 	}
 
 }

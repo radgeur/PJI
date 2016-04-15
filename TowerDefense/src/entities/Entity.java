@@ -1,9 +1,8 @@
 package entities;
 
 import java.awt.Point;
-
+import mapComponent.Map;
 import mapComponent.Case;
-import model.GameModel;
 
 import strategy.actStrategy.ActStrategy;
 
@@ -109,7 +108,6 @@ public abstract class Entity {
 	 * @return distance between both
 	 */
 	public double minimalDistance(Entity entity) {
-		double dist;
 		Point currentEntityCenter = this.getCenter();
 		if(currentEntityCenter.getX() >= entity.getX() 
 				&& currentEntityCenter.getX() <= entity.getX() + entity.getWidth() ){
@@ -133,14 +131,14 @@ public abstract class Entity {
 	public int distanceInLineToCase(Case c) {
 		int dist = Integer.MAX_VALUE;
 		dist = Math.min(dist, this.x - c.getXInPixel());
-		dist = Math.min(dist, this.x - (c.getXInPixel() + GameModel.map.casewidth));
+		dist = Math.min(dist, this.x - (c.getXInPixel() + Map.casewidth));
 		dist = Math.min(dist, (this.x + this.width) - c.getXInPixel());
-		dist = Math.min(dist, (this.x + this.width) - (c.getXInPixel() + GameModel.map.casewidth));
+		dist = Math.min(dist, (this.x + this.width) - (c.getXInPixel() + Map.casewidth));
 		
 		dist = Math.min(dist, this.y - c.getYInPixel());
-		dist = Math.min(dist, this.y - (c.getYInPixel() + GameModel.map.caseHeight));
+		dist = Math.min(dist, this.y - (c.getYInPixel() + Map.caseHeight));
 		dist = Math.min(dist, (this.y + this.height) - c.getYInPixel());
-		dist = Math.min(dist, (this.y + this.height) - (c.getYInPixel() + GameModel.map.caseHeight));	
+		dist = Math.min(dist, (this.y + this.height) - (c.getYInPixel() + Map.caseHeight));	
 		
 		return dist;
 	}

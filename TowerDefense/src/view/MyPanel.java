@@ -47,6 +47,5 @@ public class MyPanel extends JPanel{
 			else
 				graph.drawString("Perdu!!!",200, 200);
 		}
-			
 	}
-	}
+}

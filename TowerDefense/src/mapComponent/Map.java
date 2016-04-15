@@ -84,13 +84,13 @@ public class Map {
 		List<Case> tmp = getCasesOfEntity(defence);
 		listEntities.add(defence);
 		for(Case c : tmp){
-			if(!c.isWall() && ((Ground) c).canPut(defence))
-				((Ground) c).putDefence(defence);
+			if(!c.isWall() && c.canPut())
+				c.putDefence(defence);
 		}
 	}
 
 	/** remove an entity to the list of entities and of the case where he is
-	 * @param entity toremove
+	 * @param entity to remove
 	 */
 	public void removeEntity(Entity entity) {
 		listEntities.remove(entity);

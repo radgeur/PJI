@@ -46,10 +46,9 @@ public class Ground implements Case{
 	}
 	
 	/** Check if a defence could be place on the case.
-	 * @param defence
 	 * @return true if a defence can be place on the case.
 	 */
-	public boolean canPut(Defence defence){return this.defence == null;}
+	public boolean canPut(){return this.defence == null;}
 	
 	@Override
 	public boolean hasDefence(){return defence != null;}
@@ -58,7 +57,7 @@ public class Ground implements Case{
 	 * @param d
 	 */
 	public void putDefence(Defence d){
-		if(canPut(d))
+		if(canPut())
 			this.defence = d;
 	}
 
@@ -128,8 +127,6 @@ public class Ground implements Case{
 	public int getYInPixel() {return y * Map.caseHeight;}
 
 	@Override
-	public Defence getDefence() {
-		return defence;
-	}
+	public Defence getDefence() {return defence;}
 	
 }

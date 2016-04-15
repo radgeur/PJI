@@ -79,7 +79,9 @@ public class Wall implements Case{
 	public int getClosestPathFindingDefence(){return -1;}
 
 	@Override
-	public Defence getDefence() {
-		return null;
-	}
+	public Defence getDefence() {return null;}
+	
+	public void putDefence(Defence defence) {}
+	
+	public boolean canPut(){return false;}
 }
