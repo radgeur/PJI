@@ -57,7 +57,7 @@ public class Game2 {
 		//c[5][5] = new Wall(5, 5);
 		m.setMap(c);
 		
-		Character monster = new Character(100, 30, 30, 20, 5, false);
+		Character monster = new Character(1000, 30, 30, 20, 5, false);
 		
 		/* TEST de aintonexus strategy
 		 * 
@@ -81,7 +81,7 @@ public class Game2 {
 		m.addCharacter(monster2);
 		
 		
-		Defence defence = new Defence(10, 49, 49, 49, 5, true);
+		Defence defence = new Defence(10, 49, 49, 100, 5, true);
 		defence.setActStrategy(new SimpleDefenceActStrategy(new ClosestAttackStrategy(), defence));
 		defence.setX(200);
 		defence.setY(200);

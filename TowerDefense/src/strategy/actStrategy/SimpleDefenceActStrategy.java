@@ -36,7 +36,7 @@ public class SimpleDefenceActStrategy implements ActStrategy<Defence>{
 		List<Entity> listAttackable = new ArrayList<Entity>();
 		for(Entity ent : listEntity){
 			if(ent.isOpponent(defence)){
-				if(ent.minimalDistance(defence) <= defence.getRange()){
+				if(defence.minimalDistance(ent) <= defence.getRange()){
 					listAttackable.add(ent);
 				}
 			}

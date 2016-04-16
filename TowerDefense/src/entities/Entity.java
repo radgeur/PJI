@@ -1,6 +1,9 @@
 package entities;
 
 import java.awt.Point;
+import java.awt.geom.Line2D;
+import java.awt.geom.Point2D;
+
 import mapComponent.Map;
 import mapComponent.Case;
 
@@ -108,21 +111,25 @@ public abstract class Entity {
 	 * @return distance between both
 	 */
 	public double minimalDistance(Entity entity) {
-		Point currentEntityCenter = this.getCenter();
-		if(currentEntityCenter.getX() >= entity.getX() 
-				&& currentEntityCenter.getX() <= entity.getX() + entity.getWidth() ){
-			double d1 = Math.abs(currentEntityCenter.getY() - entity.getY());
-			double d2 = Math.abs(currentEntityCenter.getY() - (entity.getY() + entity.getHeight()));
-			return d1<d2?d1:d2;
-		} else if(currentEntityCenter.getY() >= entity.getY() 
-				&& currentEntityCenter.getY() <= entity.getY() + entity.getHeight()){
-			double d1 = Math.abs(currentEntityCenter.getX() - entity.getX());
-			double d2 = Math.abs(currentEntityCenter.getX() - (entity.getX() + entity.getWidth()));
-			return d1<d2?d1:d2;
-		} else {
-			return distance(entity);
-		}
+		Point2D p = this.getCenter();
+		Point2D pEnt = new Point(entity.getX(), entity.getY());
+		Point2D pEnt2 = new Point((int)(pEnt.getX()),(int)( pEnt.getY() + entity.getHeight()));
+		Point2D pEnt3 = new Point((int)(pEnt.getX() + entity.getWidth()),(int)( pEnt.getY() + entity.getHeight()));
+		Point2D pEnt4 = new Point((int)(pEnt.getX() + entity.getWidth()),(int)( pEnt.getY()));
+		
+		Line2D line = new Line2D.Double(pEnt, pEnt2);
+		double d1 = line.ptSegDist(p);
+		line = new Line2D.Double(pEnt2, pEnt3);
+		double d2 = line.ptSegDist(p);
+		line = new Line2D.Double(pEnt3, pEnt4);
+		double d3 = line.ptSegDist(p);
+		line = new Line2D.Double(pEnt, pEnt4);
+		double d4 = line.ptSegDist(p);
+		double min =  Math.min(Math.min(d1, d2), Math.min(d3, d4));
+		System.out.println((int)d1 + " " + (int)d2 + " " + (int)d3 + " " + (int)d4 + "   " + this.getHP() +" "+ entity.getHP());
+		return min;
 	}
+	
 	
 	/** Return the distance between the current entity and an case
 	 * @param case to compare the distance
