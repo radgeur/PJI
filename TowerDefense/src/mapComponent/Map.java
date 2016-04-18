@@ -20,8 +20,8 @@ public class Map {
 	private Case[][] map;
 	private List<Entity> listEntities;
 	private Defence nexus;
-	public static int caseHeight = 10;
-	public static int casewidth = 10;
+	public static int caseHeight = 50;
+	public static int casewidth = 50;
 	public static int catchArea = 3;
 	public static final int costPassDefence = 5;
 	

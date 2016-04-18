@@ -57,7 +57,7 @@ public class GameModel extends Observable{
 		String currentLine;
 		char currentChar;
 		Case[][] cases = new Case[width][height];
-		Defence nexus = new Defence(10, 1, 1, 0, 0, true);
+		Defence nexus = new Defence(10, 10, 10, 0, 0, true);
 		nexus.setActStrategy(new NoActionActStrategy());
 		for(int i = 0;i<height;i++){
 			currentLine = scan.nextLine();
@@ -73,7 +73,7 @@ public class GameModel extends Observable{
 				currentChar = currentLine.charAt(j);
 				if(currentChar == 'X')
 					cases[j][i] = new Wall(j,i);
-				/**else if (currentChar == 'N' && cptNexus<1){
+				else if (currentChar == 'N' && cptNexus<1){
 					cptNexus++;
 					cases[j][i] = new Ground(j,i);
 					nexus.setX(j*Map.casewidth);
@@ -84,7 +84,7 @@ public class GameModel extends Observable{
 					scan.close();
 					ln.close();
 					return;
-				}*/
+				}
 				else
 					cases[j][i] = new Ground(j,i);					
 			}
