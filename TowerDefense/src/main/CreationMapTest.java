@@ -15,9 +15,9 @@ import controler.GameControler;
 
 public class CreationMapTest {
 	public static void main(String[] args) throws IOException{
-		GameView view = new GameView();
 		GameModel model = new GameModel();
 		model.readMap("../map_test.txt");
+		GameView view = new GameView();
 		model.addObserver(view);
 		GameControler controler = new GameControler(model);
 		controler.run();

@@ -22,6 +22,7 @@ public class MyPanel extends JPanel{
 		for(int i = 0; i<map.getMap().length; i++){
 			for(int j = 0; j<map.getMap()[0].length; j++){
 				Case c = map.getMap()[i][j];
+				System.out.println(i + " " + j);
 				if(c.isWall()){
 					graph.setColor(Color.BLACK);
 					graph.drawRect(c.getX()*Map.casewidth, c.getY()*Map.caseHeight, Map.casewidth, Map.caseHeight);
