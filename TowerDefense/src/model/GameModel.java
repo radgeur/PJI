@@ -53,11 +53,10 @@ public class GameModel extends Observable{
 			ln.close();
 			return;
 		}
-		
 		String currentLine;
 		char currentChar;
 		Case[][] cases = new Case[width][height];
-		Defence nexus = new Defence(10, 10, 10, 0, 0, true);
+		Defence nexus = new Defence(10, 9, 9, 0, 0, true);
 		nexus.setActStrategy(new NoActionActStrategy());
 		for(int i = 0;i<height;i++){
 			currentLine = scan.nextLine();
@@ -93,5 +92,6 @@ public class GameModel extends Observable{
 		ln.close();
 		map.setMap(cases);
 		map.setNexus(nexus);
+		map.initNexusPathFinding();
 	}
 }
