@@ -57,7 +57,7 @@ public class AimNexusActStrategy implements ActStrategy<Character> {
 		} else {
 			if (character.minimalDistance(closestOfNexus.getDefence()) > character
 					.getRange()) {
-				System.out.println("aimNexus move2 !" + character.minimalDistance(closestOfNexus.getDefence()) + "   " + character
+				System.out.println("aimNexus move2 : " + character.minimalDistance(closestOfNexus.getDefence()) + "   " + character
 						.getRange());
 				moveStrategy.action(character);
 			} else {

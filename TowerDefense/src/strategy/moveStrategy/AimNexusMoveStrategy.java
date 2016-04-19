@@ -33,6 +33,7 @@ public class AimNexusMoveStrategy implements MoveStrategy {
 						.getPathFindingNexus() && c.getPathFindingNexus() != -1)
 					closestOfNexus = c;
 			}
+			System.out.println("closest : " + closestOfNexus.getX() + ", " + closestOfNexus.getY());
 			/*
 			 * Détection de la direction à emprunter
 			 */
@@ -99,11 +100,12 @@ public class AimNexusMoveStrategy implements MoveStrategy {
 		List<Case> cases = GameModel.map.getCasesOfEntity(character);
 		int xChar = character.getX();
 		int yChar = character.getY();
+		System.out.println("move : " +x + " , " + y);
 		for (Case caseC : cases)
 			caseC.removeCharacter(character);
 		for(int i = x; i>0; i--){
 			boolean canPass = true;
-			character.setX(character.getX() + x);
+			character.setX(character.getX() + i);
 			if (character.getX() + character.getWidth() >= GameModel.map.getMap().length
 					* Map.casewidth)
 				character.setX(GameModel.map.getMap().length * Map.casewidth
@@ -125,7 +127,7 @@ public class AimNexusMoveStrategy implements MoveStrategy {
 		
 		for(int i = x; i<0; i++){
 			boolean canPass = true;
-			character.setX(character.getX() + x);
+			character.setX(character.getX() + i);
 			if (character.getX() + character.getWidth() >= GameModel.map.getMap().length
 					* Map.casewidth)
 				character.setX(GameModel.map.getMap().length * Map.casewidth
@@ -147,7 +149,7 @@ public class AimNexusMoveStrategy implements MoveStrategy {
 		
 		for(int i = y; i>0; i--){
 			boolean canPass = true;
-			character.setY(character.getY() + y);
+			character.setY(character.getY() + i);
 			if (character.getY() + character.getHeight() >= GameModel.map.getMap()[0].length
 					* Map.caseHeight)
 				character.setY(GameModel.map.getMap()[0].length * Map.caseHeight
@@ -170,7 +172,7 @@ public class AimNexusMoveStrategy implements MoveStrategy {
 		
 		for(int i = y; i<0; i++){
 			boolean canPass = true;
-			character.setY(character.getY() + y);
+			character.setY(character.getY() + i);
 			if (character.getY() + character.getHeight() >= GameModel.map.getMap()[0].length
 					* Map.caseHeight)
 				character.setY(GameModel.map.getMap()[0].length * Map.caseHeight

@@ -11,7 +11,12 @@ import mapComponent.Case;
 import mapComponent.Ground;
 import mapComponent.Map;
 import mapComponent.Wall;
+import strategy.actStrategy.AimNexusActStrategy;
 import strategy.actStrategy.NoActionActStrategy;
+import strategy.actStrategy.SimpleDefenceActStrategy;
+import strategy.attackStrategy.ClosestAttackStrategy;
+import strategy.moveStrategy.AimNexusMoveStrategy;
+import entities.Character;
 import entities.Defence;
 
 public class GameModel extends Observable{
@@ -56,7 +61,7 @@ public class GameModel extends Observable{
 		String currentLine;
 		char currentChar;
 		Case[][] cases = new Case[width][height];
-		Defence nexus = new Defence(10, 9, 9, 0, 0, true);
+		Defence nexus = new Defence(10, map.caseHeight-1, map.casewidth-1, 0, 0, true);
 		nexus.setActStrategy(new NoActionActStrategy());
 		for(int i = 0;i<height;i++){
 			currentLine = scan.nextLine();
@@ -91,6 +96,17 @@ public class GameModel extends Observable{
 		scan.close();
 		ln.close();
 		map.setMap(cases);
+		
+		Character monster = new Character(1000, 30, 30, 20, 5, false);
+		monster.setActStrategy(new AimNexusActStrategy(
+				new ClosestAttackStrategy(), new AimNexusMoveStrategy(), monster));
+		
+		monster.setSpeed(3);
+		monster.setX(210);
+		monster.setY(0);
+		map.addCharacter(monster);
+		
+		
 		map.setNexus(nexus);
 		map.initNexusPathFinding();
 	}

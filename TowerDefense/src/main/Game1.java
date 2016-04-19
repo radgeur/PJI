@@ -49,7 +49,7 @@ public class Game1 {
 			}
 		}
 		m.setMap(c);
-		Character monster = new Character(10, 70, 70, 1, 5, false);
+		Character monster = new Character(10, 70, 70, 10, 5, false);
 		monster.setActStrategy(new SimpleCharacterActStrategy(
 				new SimpleAttackStrategy(), new SimpleMoveStrategy(), monster));
 		monster.setSpeed(1);
