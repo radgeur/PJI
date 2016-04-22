@@ -13,7 +13,6 @@ import mapComponent.Map;
 import mapComponent.Wall;
 import strategy.actStrategy.AimNexusActStrategy;
 import strategy.actStrategy.NoActionActStrategy;
-import strategy.actStrategy.SimpleDefenceActStrategy;
 import strategy.attackStrategy.ClosestAttackStrategy;
 import strategy.moveStrategy.AimNexusMoveStrategy;
 import entities.Character;
@@ -61,11 +60,12 @@ public class GameModel extends Observable{
 		String currentLine;
 		char currentChar;
 		Case[][] cases = new Case[width][height];
-		Defence nexus = new Defence(10, map.caseHeight-1, map.casewidth-1, 0, 0, true);
+		Defence nexus = new Defence(10, Map.caseHeight-1, Map.casewidth-1, 0, 0, true);
 		nexus.setActStrategy(new NoActionActStrategy());
 		for(int i = 0;i<height;i++){
 			currentLine = scan.nextLine();
 			
+			//A line haven't the right length
 			if(currentLine.length() < width || currentLine.length() > width) {
 				System.out.println("the length of the line " + (i+2+1) + " isn't right");
 				scan.close();
