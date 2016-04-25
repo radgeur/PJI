@@ -1,6 +1,11 @@
 package entities;
 
 import java.awt.Point;
+import java.awt.geom.Line2D;
+import java.awt.geom.Point2D;
+
+import mapComponent.Map;
+import mapComponent.Case;
 
 import strategy.actStrategy.ActStrategy;
 
@@ -44,8 +49,105 @@ public abstract class Entity {
 		this.isFriendly = isFriendly;
 	}
 	
+	/** Define how the entity gonna act */
 	public void action(){
 		actStrategy.action();
+	}
+	
+	
+	/** Calculate the substraction of life points
+	 * @param rmHp number of life points to substract
+	 */
+	public void removeHP(int rmHp){
+		if(HP - rmHp <= 0)
+			HP = 0;
+		else
+			HP -= rmHp;
+	}
+	
+	
+	/** To know if both are on the same side
+	 * @return true if same side, else false
+	 */
+	public boolean isOpponent(Entity entity) {
+		return entity.getFriendly() != this.isFriendly;
+	}
+	
+	/** Method call when an entity attack
+	 * @param enemy attacked
+	 */
+	public void attack(Entity enemy){
+		enemy.removeHP(power);
+	}
+	
+	/** Define if the entity is a defence or not */
+	public abstract boolean isDefense();
+	
+	/** Return the center of an Entity
+	 * @param entity
+	 * @return center of the entity
+	 */
+	public Point getCenter() {
+		int x = this.x + width / 2;
+		int y = this.y + height / 2;
+		return new Point(x,y);
+	}
+	
+	/** Return the distance between the current entity and an other entity
+	 * @param entity to compare the distance
+	 * @return distance between both
+	 */
+	public double distance(Entity entity) {
+		double dist;
+		Point currentEntityCenter = this.getCenter();
+		Point otherEntityCenter = entity.getCenter();
+		dist = Math.abs(currentEntityCenter.getX() - otherEntityCenter.getX());
+		dist += Math.abs(currentEntityCenter.getY() - otherEntityCenter.getY());
+		return dist;
+	}
+	
+	/** Return the minimal distance between the current entity and an other entity
+	 * @param entity to compare the distance
+	 * @return distance between both
+	 */
+	public double minimalDistance(Entity entity) {
+		Point2D p = this.getCenter();
+		Point2D pEnt = new Point(entity.getX(), entity.getY());
+		Point2D pEnt2 = new Point((int)(pEnt.getX()),(int)( pEnt.getY() + entity.getHeight()));
+		Point2D pEnt3 = new Point((int)(pEnt.getX() + entity.getWidth()),(int)( pEnt.getY() + entity.getHeight()));
+		Point2D pEnt4 = new Point((int)(pEnt.getX() + entity.getWidth()),(int)( pEnt.getY()));
+		
+		Line2D line = new Line2D.Double(pEnt, pEnt2);
+		double d1 = line.ptSegDist(p);
+		line = new Line2D.Double(pEnt2, pEnt3);
+		double d2 = line.ptSegDist(p);
+		line = new Line2D.Double(pEnt3, pEnt4);
+		double d3 = line.ptSegDist(p);
+		line = new Line2D.Double(pEnt, pEnt4);
+		double d4 = line.ptSegDist(p);
+		double min =  Math.min(Math.min(d1, d2), Math.min(d3, d4));
+		System.out.println((int)d1 + " " + (int)d2 + " " + (int)d3 + " " + (int)d4 + "   " + this.getHP() +" "+ entity.getHP());
+		return min;
+	}
+	
+	
+	/** Return the distance between the current entity and an case
+	 * @param case to compare the distance
+	 * @return distance between both
+	 */
+	public int distanceInLineToCase(Case c) {
+		int dist = Integer.MAX_VALUE;
+		dist = Math.min(dist, this.x - c.getXInPixel());
+		dist = Math.min(dist, this.x - (c.getXInPixel() + Map.casewidth));
+		dist = Math.min(dist, (this.x + this.width) - c.getXInPixel());
+		dist = Math.min(dist, (this.x + this.width) - (c.getXInPixel() + Map.casewidth));
+		
+		dist = Math.min(dist, this.y - c.getYInPixel());
+		dist = Math.min(dist, this.y - (c.getYInPixel() + Map.caseHeight));
+		dist = Math.min(dist, (this.y + this.height) - c.getYInPixel());
+		dist = Math.min(dist, (this.y + this.height) - (c.getYInPixel() + Map.caseHeight));	
+		
+		return dist;
 	}
 	
 	public int getHP() {return HP;}
@@ -53,13 +155,6 @@ public abstract class Entity {
 	public int getMaxHP() {return maxHP;}
 	
 	public void setHP(int hP) {HP = hP;}
-	
-	public void removeHP(int rmHp){
-		if(HP - rmHp <= 0)
-			HP = 0;
-		else
-			HP -= rmHp;
-	}
 	
 	public int getWidth() {return width;}
 	
@@ -94,40 +189,4 @@ public abstract class Entity {
 	public void setSpeed(int speed) {this.speed = speed;}
 	
 	public void setActStrategy(ActStrategy<? extends Entity> act){this.actStrategy = act;}
-	
-	/** To know if both are on the same side
-	 * @return true if same side, else false
-	 */
-	public boolean isOpponent(Entity entity) {
-		return entity.getFriendly() != this.isFriendly;
-	}
-	
-	public void attack(Entity enemy){
-		enemy.removeHP(power);
-	}
-	
-	public abstract boolean isDefense();
-	
-	/** Return the center of an Entity
-	 * @param entity
-	 * @return center of the entity
-	 */
-	public Point getCenter() {
-		int x = (this.x + width) / 2;
-		int y = (this.y + height) / 2;
-		return new Point(x,y);
-	}
-	
-	/** Return the distance between the current entity and an other entity
-	 * @param entity to compare the distance
-	 * @return distance between both
-	 */
-	public double distance(Entity entity) {
-		double dist;
-		Point currentEntityCenter = this.getCenter();
-		Point otherEntityCenter = entity.getCenter();
-		dist = Math.abs(currentEntityCenter.getX() - otherEntityCenter.getX());
-		dist += Math.abs(currentEntityCenter.getY() - otherEntityCenter.getY());
-		return dist;
-	}
 }

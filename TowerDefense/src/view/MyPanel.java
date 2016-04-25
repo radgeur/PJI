@@ -10,9 +10,11 @@ import model.GameModel;
 import entities.Entity;
 
 public class MyPanel extends JPanel{
-
+	//ATTRIBUTES
 	private static final long serialVersionUID = 1L;
 
+	//METHODS
+	@Override
 	public void paintComponent(Graphics graph){
 	    super.paintComponent(graph);
 	    System.out.println("repaint");
@@ -27,7 +29,7 @@ public class MyPanel extends JPanel{
 					graph.setColor(Color.LIGHT_GRAY);
 					graph.drawString(c.getPathFindingNexus() + "", c.getXInPixel(), c.getYInPixel()+15);
 					graph.setColor(Color.DARK_GRAY);
-					graph.drawString(c.getClosestestPathFindingDefence() + "", c.getXInPixel()+15, c.getYInPixel()+15);
+					graph.drawString(c.getClosestPathFindingDefence() + "", c.getXInPixel()+15, c.getYInPixel()+15);
 				}
 			}
 		}
@@ -45,6 +47,5 @@ public class MyPanel extends JPanel{
 			else
 				graph.drawString("Perdu!!!",200, 200);
 		}
-			
 	}
-	}
+}

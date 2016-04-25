@@ -16,12 +16,7 @@ Base de données : niveau , (stuff)
 CaseEffectStrategy peut avoir les strategy fire et ice par exemple et lorsque le personnage passe dessus où est dessus au moment de l'effet, celui-ci va s'appliquer
 CharacterEffectStrategy va avoir les strategy fire et ice egalement mais ici l'effet va s'appliquer durant un laps de temps sur le personnage
 
-Main 
-contient tout
 
-Question à poser : 
-
-Qu'est-ce qui est plus propre : implements runnable, Thread thread = new Thread(new maclassRunnable()) ou extends Thread? (peu importe)
 Pourrait etre mieux de faire une boucle qui gère une action de tout les personnages pendant cette boucle et un sleep à la fin
 
 Comment marche le modèle MVC?
@@ -32,15 +27,10 @@ Comment marche le modèle MVC?
 
 
 Comment gérer l'alternance attaque et déplacement?
-    Créer un ActStrategy qui détermine par exemple si le personnage décide d'abord d'attaquer et apres de bouger ou inversement et dont attaquer et bouger dépend de sa stratégei
-
-Mettre la map en cours en static (globale)
+    Créer un ActStrategy qui détermine par exemple si le personnage décide d'abord d'attaquer et apres de bouger ou inversement et dont attaquer et bouger dépend de sa stratégie
 
 
-Est ce que c'est moche dans une classe de prendre une liste alors qu'on est sûre d'en utiliser q'un seul élement mais à côté les attributs ne sont définis qu'une seule fois dans une interface qui devient ainsi une classe abstraite avec du coup un seul constructeur commun.
-
-
-act strategy differebt pour defense et character
+act strategy different pour defense et character
 
 calculé la distance en fonction du centre de l'entité
 
@@ -61,3 +51,12 @@ S'il n'y a pas de numéro il suit les flèches et des qu'il y a des numéros on 
 Numéroter toutes les cases avec un numéro indiquant la distance jusqu'au nexus
 Indiquer le distance avec un int la séparant du héros
 Une liste contenant toutes les défenses à moins de 10 cases de rayons par exemple trier par ordre croissant.
+
+
+
+
+
+
+
+
+Penser a rassembler les static dans une classe pour eviter les doublons (ex : protected final int DEFAULT_MOVE_SPEED = 10; dans les movestrategy)

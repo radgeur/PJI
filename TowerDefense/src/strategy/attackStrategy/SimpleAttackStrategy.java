@@ -16,13 +16,12 @@ public class SimpleAttackStrategy implements AttackStrategy{
 	protected Entity entity;
 	
 	//METHODS
-	/** {@inheritDoc}*/
+	@Override
 	public void action(Entity entity, List<Entity> listAttackableEnemies) {
 		this.entity = entity;
 		Entity enemy = closestEnemy(listAttackableEnemies);
 		this.entity.attack(enemy);
 	}
-
 
 
 	/**

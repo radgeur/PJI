@@ -15,7 +15,5 @@ public class Character extends Entity{
 	}
 
 	@Override
-	public boolean isDefense() {
-		return false;
-	}
+	public boolean isDefense() {return false;}
 }

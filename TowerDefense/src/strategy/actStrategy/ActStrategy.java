@@ -9,8 +9,6 @@ import entities.Entity;
  *
  */
 public interface ActStrategy <T extends Entity> {
-	/**
-	 * Action to do when act
-	 */
+	/** Action to do when act */
 	public void action();
 }
