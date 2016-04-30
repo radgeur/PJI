@@ -81,15 +81,25 @@ public class Ground implements Case{
 	@Override
 	public void setPathFindingDefence(int key, Entity defence) {
 		List<Entity> tmp;
-		//if the treemap already contains the defence
-		for(Integer k : defencesDistance.keySet()){
-			if(defencesDistance.get(k).contains(defence)){
-				//if the new distance is farest than the first
-				if (k < key)
-					return;
-				else
-					defencesDistance.get(k).remove(defence);
+		//check if the treemap already contains the defence
+		if(!defencesDistance.keySet().isEmpty()) {
+			for(Integer k : defencesDistance.keySet()){
+				if(defencesDistance.get(k).contains(defence)){
+					//if the new distance is farest than the first
+					if (k < key)
+						return;
+					else
+						defencesDistance.get(k).remove(defence);
+				}
+				//if the key already exist in the map
+				if(!defencesDistance.containsKey(key))
+					tmp =new ArrayList<Entity>();
+				else 
+					tmp = defencesDistance.get(key);
+				tmp.add(defence);
+				this.defencesDistance.put(key, tmp);
 			}
+		} else {
 			//if the key already exist in the map
 			if(!defencesDistance.containsKey(key))
 				tmp =new ArrayList<Entity>();
