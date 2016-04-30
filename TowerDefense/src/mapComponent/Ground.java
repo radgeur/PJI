@@ -48,7 +48,7 @@ public class Ground implements Case{
 	/** Check if a defence could be place on the case.
 	 * @return true if a defence can be place on the case.
 	 */
-	public boolean canPut(){return this.defence == null;}
+	public boolean canPut(){return this.defence == null && listCharacter.isEmpty();}
 	
 	@Override
 	public boolean hasDefence(){return defence != null;}
