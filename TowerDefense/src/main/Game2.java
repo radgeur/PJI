@@ -59,9 +59,9 @@ public class Game2 {
 		
 		Character monster = new Character(1000, 30, 30, 20, 5, false);
 		
-		/* TEST de aintonexus strategy
-		 * 
-		 * monster.setActStrategy(new SimpleCharacterActStrategy(
+		// TEST de aintonexus strategy
+		  
+		 /* monster.setActStrategy(new SimpleCharacterActStrategy(
 				new SimpleAttackStrategy(), new SimpleMoveStrategy(), monster));
 		*/
 		monster.setActStrategy(new AimNexusActStrategy(

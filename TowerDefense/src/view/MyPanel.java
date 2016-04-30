@@ -43,9 +43,9 @@ public class MyPanel extends JPanel{
 		if(map.isFinished()){
 			graph.setColor(Color.RED);
 			if(map.getNexus().getHP() > 0)
-				graph.drawString("Gagné!!!",200, 200);
+				graph.drawString("Gagné!!!",200, 300);
 			else
-				graph.drawString("Perdu!!!",200, 200);
+				graph.drawString("Perdu!!!",200, 300);
 		}
 	}
 }
