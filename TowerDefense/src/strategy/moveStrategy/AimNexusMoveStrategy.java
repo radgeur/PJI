@@ -16,12 +16,12 @@ public class AimNexusMoveStrategy implements MoveStrategy {
 	
 	@Override
 	public void action(Character character) {
-		System.out.println("move");
+		//System.out.println("move");
 		
 		this.character = character;
 		List<Case> characterCases = GameModel.map.getCasesOfEntity(character);
 		if(characterCases.size() == 1){
-			System.out.println("one case");
+			//System.out.println("one case");
 			Case characterCase = characterCases.get(0);
 			List<Case> neighbors = GameModel.map.getNeighbors(characterCase);
 			Case closestOfNexus = null;
@@ -33,7 +33,7 @@ public class AimNexusMoveStrategy implements MoveStrategy {
 						.getPathFindingNexus() && c.getPathFindingNexus() != -1)
 					closestOfNexus = c;
 			}
-			System.out.println("closest : " + closestOfNexus.getX() + ", " + closestOfNexus.getY());
+			//System.out.println("closest : " + closestOfNexus.getX() + ", " + closestOfNexus.getY());
 			/*
 			 * Détection de la direction à emprunter
 			 */
@@ -57,7 +57,7 @@ public class AimNexusMoveStrategy implements MoveStrategy {
 			
 			
 		} else if(characterCases.size() == 2){
-			System.out.println("two case");
+			//System.out.println("two case");
 			Case closestNexusCase = characterCases.get(0);
 			Case farthestNexusCase = characterCases.get(1);
 			if(farthestNexusCase.getPathFindingNexus() < closestNexusCase.getPathFindingNexus()){
@@ -65,9 +65,7 @@ public class AimNexusMoveStrategy implements MoveStrategy {
 				farthestNexusCase = characterCases.get(0);
 			}
 			
-			/*
-			 * Détection de la direction à emprunter
-			 */
+			//Détection de la direction à emprunter
 			if (Math.abs(farthestNexusCase.getX() - closestNexusCase.getX()) == 1
 					&& Math.abs(farthestNexusCase.getY() - closestNexusCase.getY()) == 0) {
 				if (closestNexusCase.getX() - farthestNexusCase.getX() == 1) {
@@ -100,7 +98,7 @@ public class AimNexusMoveStrategy implements MoveStrategy {
 		List<Case> cases = GameModel.map.getCasesOfEntity(character);
 		int xChar = character.getX();
 		int yChar = character.getY();
-		System.out.println("move : " +x + " , " + y);
+		//System.out.println("move : " +x + " , " + y);
 		for (Case caseC : cases)
 			caseC.removeCharacter(character);
 		for(int i = x; i>0; i--){

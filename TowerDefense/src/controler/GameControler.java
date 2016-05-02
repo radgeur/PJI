@@ -33,10 +33,10 @@ public class GameControler {
 			model.setchange();
 			model.notifyObservers();
 		}
-		if(GameModel.map.getNexus().getHP() > 0)
+		/*if(GameModel.map.getNexus().getHP() > 0)
 			System.out.println("vous avez gagné");
 		else
-			System.out.println("Vous avez perdu");
+			System.out.println("Vous avez perdu");*/
 		
 	}
 }

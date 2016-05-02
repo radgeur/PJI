@@ -126,7 +126,7 @@ public abstract class Entity {
 		line = new Line2D.Double(pEnt, pEnt4);
 		double d4 = line.ptSegDist(p);
 		double min =  Math.min(Math.min(d1, d2), Math.min(d3, d4));
-		System.out.println((int)d1 + " " + (int)d2 + " " + (int)d3 + " " + (int)d4 + "   " + this.getHP() +" "+ entity.getHP());
+		//System.out.println((int)d1 + " " + (int)d2 + " " + (int)d3 + " " + (int)d4 + "   " + this.getHP() +" "+ entity.getHP());
 		return min;
 	}
 	

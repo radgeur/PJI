@@ -52,6 +52,6 @@ public class SimpleMoveStrategy implements MoveStrategy {
 		cases = map.getCasesOfEntity(character);
 		for (Case caseC : cases)
 			caseC.addCharacter(character);
-		System.out.println("move" + character.getY());
+		//System.out.println("move" + character.getY());
 	}
 }

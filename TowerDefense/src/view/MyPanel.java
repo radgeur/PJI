@@ -9,6 +9,13 @@ import mapComponent.Map;
 import model.GameModel;
 import entities.Entity;
 
+/**
+ * JPanel for the map
+ * 
+ * @author CHARNEUX Dimitri, LEPRETRE Rémy 
+ *
+ */
+
 public class MyPanel extends JPanel{
 	//ATTRIBUTES
 	private static final long serialVersionUID = 1L;

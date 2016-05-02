@@ -52,18 +52,17 @@ public class AimNexusActStrategy implements ActStrategy<Character> {
 				closestOfNexus = c;
 		}
 		if (closestOfNexus.canPass(character)) {
-			System.out.println("aimNexus move1 !");
+			//System.out.println("aimNexus move1 !");
 			moveStrategy.action(character);
 		} else {
 			if (character.minimalDistance(closestOfNexus.getDefence()) > character
 					.getRange()) {
-				System.out.println("aimNexus move2 : " + character.minimalDistance(closestOfNexus.getDefence()) + "   " + character
-						.getRange());
+				/*System.out.println("aimNexus move2 : " + character.minimalDistance(closestOfNexus.getDefence()) + "   " + character
+						.getRange());*/
 				moveStrategy.action(character);
 			} else {
-				System.out.println("distance : "
-						+ character.distance(closestOfNexus.getDefence()));
-				System.out.println("aimNexus attack !");
+				/*System.out.println("distance : " + character.distance(closestOfNexus.getDefence()));
+				System.out.println("aimNexus attack !");*/
 				List<Entity> attackableEntities = new ArrayList<Entity>();
 				attackableEntities.add(closestOfNexus.getDefence());
 				attackStrategy.action(character, attackableEntities);
