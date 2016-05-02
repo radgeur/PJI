@@ -3,8 +3,10 @@ package controler;
 import java.util.ArrayList;
 import java.util.List;
 
-import entities.Entity;
+import mapComponent.Map;
 import model.GameModel;
+import entities.Defence;
+import entities.Entity;
 
 public class GameControler {
 	//ATTRIBUTES
@@ -15,6 +17,11 @@ public class GameControler {
 	public void run() {
 		model.notifyObservers();
 		while(!GameModel.map.isFinished()){
+			for(Defence defence : Map.defencesToAdd){
+				GameModel.map.addDefense(defence);
+				GameModel.map.updateDefencesPathFinding(defence);
+			}
+			Map.defencesToAdd.removeAll(Map.defencesToAdd);
 			for(Entity entity : GameModel.map.getEntities()){
 				entity.action();
 				try {

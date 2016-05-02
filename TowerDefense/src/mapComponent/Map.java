@@ -24,12 +24,14 @@ public class Map {
 	public static int casewidth = 50;
 	public static int catchArea = 3;
 	public static final int costPassDefence = 5;
+	public static List<Defence> defencesToAdd;
 	
 	//METHODS
 	/** Constructor */
 	public Map(){
 		map = new Case[10][10];
 		listEntities = new ArrayList<Entity>();
+		defencesToAdd = new ArrayList<Defence>();
 	}
 
 	/** return the case where the point (x,y) is

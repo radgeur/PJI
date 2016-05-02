@@ -41,10 +41,9 @@ public class GameView implements Observer{
 				if(ToolBar.putDefence != null){
 					Case c = map.getCaseWithPixel(e.getX(), e.getY());
 					if(!c.isWall()){
-						System.out.println("COUCOU");
 						ToolBar.putDefence.setX(c.getXInPixel());
 						ToolBar.putDefence.setY(c.getYInPixel());
-						map.addDefense(ToolBar.putDefence);
+						Map.defencesToAdd.add(ToolBar.putDefence);
 						ToolBar.putDefence = null;
 					}
 				}

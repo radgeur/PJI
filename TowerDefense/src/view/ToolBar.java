@@ -8,6 +8,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import strategy.actStrategy.NoActionActStrategy;
 import mapComponent.Map;
 import entities.Defence;
 
@@ -38,6 +39,7 @@ public class ToolBar extends JPanel{
 				@Override
 				public void mouseClicked(MouseEvent e) {
 					putDefence= new Defence(10, Map.casewidth-1, Map.caseHeight-1,5,5,true);
+					putDefence.setActStrategy(new NoActionActStrategy());
 				}
 
 				@Override
