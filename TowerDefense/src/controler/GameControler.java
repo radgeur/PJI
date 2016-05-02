@@ -21,6 +21,8 @@ public class GameControler {
 				GameModel.map.addDefense(defence);
 				GameModel.map.updateDefencesPathFinding(defence);
 			}
+			if(!Map.defencesToAdd.isEmpty())
+				GameModel.map.initNexusPathFinding();
 			Map.defencesToAdd.removeAll(Map.defencesToAdd);
 			for(Entity entity : GameModel.map.getEntities()){
 				entity.action();

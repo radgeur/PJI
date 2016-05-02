@@ -106,9 +106,15 @@ public class Map {
 	 * @param list of entities to remove
 	 */
 	public void removeEntities(List<Entity> entities) {
+		boolean initPathFinding = false;
 		for (Entity ent : entities) {
+			if(ent instanceof Defence)
+				initPathFinding = true;
 			removeEntity(ent);
 		}
+		if(initPathFinding)
+			this.initNexusPathFinding();
+		
 	}
 
 	/** List the neighbors cases of the current case
@@ -156,9 +162,18 @@ public class Map {
 			previousCases.addAll(currentCases);
 		}
 	}
+	
+	public void initNexusPathFindingToNull(){
+		for(Case[] cc : map){
+			for(Case c : cc){
+				c.setPathFindingNexus(-1);
+			}
+		}
+	}
 
 	/** Calculate for each case the distance from the Nexus to this case. */
 	public void initNexusPathFinding() {
+		initNexusPathFindingToNull();
 		List<Case> listTmp = getCasesOfEntity(nexus);
 		Queue<Case> listCases = new LinkedList<Case>();
 		for (Case c : listTmp) {
