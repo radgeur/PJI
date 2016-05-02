@@ -149,6 +149,7 @@ public class Map {
 	public void updateDefencesPathFinding(Entity defence){
 		List<Case> currentCases = new ArrayList<Case>();
 		List<Case> previousCases = new ArrayList<Case>();
+ 		List<Case> walls = new ArrayList<Case>();
  		previousCases = this.getCasesOfEntity(defence);
 		
 		for(int i=1;i<=catchArea;i++){
@@ -158,7 +159,10 @@ public class Map {
 			for(Case c : currentCases){
 				if (!c.isWall() && !previousCases.contains(c))
 					c.setPathFindingDefence(i, defence);
+				if(c.isWall())
+					walls.add(c);
 			}
+			currentCases.removeAll(walls);
 			previousCases.addAll(currentCases);
 		}
 	}
