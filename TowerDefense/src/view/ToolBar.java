@@ -29,9 +29,9 @@ public class ToolBar extends JPanel{
 		@Override
 		public void paintComponent(Graphics g){
 			//create elements
-			ImageIcon noSelec = new ImageIcon("./media/tourelle_selec.jpg");
-			ImageIcon selec = new ImageIcon("./media/tourelle.jpg");
-		    JLabel label = new JLabel(new ImageIcon("./media/tourelle.jpg"));
+			final ImageIcon noSelec = new ImageIcon("./media/tourelle_selec.jpg");
+			final ImageIcon selec = new ImageIcon("./media/tourelle.jpg");
+		    final JLabel label = new JLabel(new ImageIcon("./media/tourelle.jpg"));
 		    
 		    //listeners
 		    label.addMouseListener(new MouseListener(){
