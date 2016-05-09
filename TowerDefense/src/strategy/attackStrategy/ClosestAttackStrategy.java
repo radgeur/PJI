@@ -36,7 +36,8 @@ public class ClosestAttackStrategy implements AttackStrategy{
 	public void action(Entity entity, List<Entity> listAttackableEnemies) {
 		this.entity = entity;
 		Entity enemy = closestEnemy(listAttackableEnemies);
-		this.entity.attack(enemy);
+		if(enemy != null)
+			this.entity.attack(enemy);
 	}
 	
 }

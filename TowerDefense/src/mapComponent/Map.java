@@ -222,7 +222,18 @@ public class Map {
 		this.addDefense(nexus);
 	}
 
-	public boolean isFinished() {return nexus.getHP() <= 0;}
+	public boolean isFinished() {
+		if(nexus.getHP() <= 0)
+			return true;
+		boolean ennemyInLive = false;
+		for(Entity ent : listEntities)
+			if(!ent.getFriendly()){
+				ennemyInLive = true;
+				break;
+			}
+		
+		return !ennemyInLive;
+	}
 
 	public void setHeight(int h) {caseHeight = h;}
 

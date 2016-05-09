@@ -17,6 +17,8 @@ import java.util.Observer;
 import javax.swing.BoxLayout;
 import javax.swing.JFrame;
 
+import keyListener.ActionKeyListener;
+
 import mapComponent.Case;
 import mapComponent.Map;
 import model.GameModel;
@@ -34,6 +36,8 @@ public class GameView implements Observer{
 		panel = new MyPanel();
 	    panel.setBackground(Color.WHITE);
 	    panel.setPreferredSize(new Dimension(500,550));
+	    panel.setFocusable(true);
+	    panel.requestFocus();
 	    panel.addMouseListener(new MouseListener(){
 
 			@Override
@@ -62,6 +66,8 @@ public class GameView implements Observer{
 			public void mouseExited(MouseEvent e) {}
 	    	
 	    });
+	    
+	    panel.addKeyListener(new ActionKeyListener());
 	    
 	    //toolbar
 	    toolbar = new ToolBar();

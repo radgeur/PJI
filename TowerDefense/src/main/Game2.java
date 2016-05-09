@@ -7,11 +7,13 @@ import mapComponent.Wall;
 import model.GameModel;
 import strategy.actStrategy.AimNexusActStrategy;
 import strategy.actStrategy.NoActionActStrategy;
+import strategy.actStrategy.PlayerActStrategy;
 import strategy.actStrategy.SimpleCharacterActStrategy;
 import strategy.actStrategy.SimpleDefenceActStrategy;
 import strategy.attackStrategy.ClosestAttackStrategy;
 import strategy.attackStrategy.SimpleAttackStrategy;
 import strategy.moveStrategy.AimNexusMoveStrategy;
+import strategy.moveStrategy.PlayerMoveStrategy;
 import strategy.moveStrategy.SimpleMoveStrategy;
 import view.GameView;
 import controler.GameControler;
@@ -57,7 +59,7 @@ public class Game2 {
 		//c[5][5] = new Wall(5, 5);
 		m.setMap(c);
 		
-		Character monster = new Character(1000, 30, 30, 20, 5, false);
+		Character monster = new Character(500, 30, 30, 20, 5, false);
 		
 		// TEST de aintonexus strategy
 		  
@@ -71,6 +73,17 @@ public class Game2 {
 		monster.setX(210);
 		monster.setY(0);
 		m.addCharacter(monster);
+		
+		
+		Character player = new Character(1000, 30, 30, 20, 100, true);
+		
+		
+		player.setActStrategy(new PlayerActStrategy(new ClosestAttackStrategy(), new PlayerMoveStrategy(), player));
+		
+		player.setSpeed(3);
+		player.setX(210);
+		player.setY(150);
+		m.addCharacter(player);
 		
 		Character monster2 = new Character(10, 30, 30, 1, 5, false);
 		monster2.setActStrategy(new SimpleCharacterActStrategy(
