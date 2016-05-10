@@ -150,6 +150,14 @@ public abstract class Entity {
 		return dist;
 	}
 	
+	
+	public String toString(){
+		String string = "HP: " + HP;
+		string += "\n Range: " + range;
+		string += "\n Power: " + power;
+		return string;
+	}
+	
 	public int getHP() {return HP;}
 	
 	public int getMaxHP() {return maxHP;}
@@ -189,4 +197,6 @@ public abstract class Entity {
 	public void setSpeed(int speed) {this.speed = speed;}
 	
 	public void setActStrategy(ActStrategy<? extends Entity> act){this.actStrategy = act;}
+	
+	public ActStrategy<? extends Entity> getActStrategy(){return actStrategy;}
 }

@@ -1,4 +1,4 @@
-package keyListener;
+package listeners;
 
 /**
  * This enum represent the differents actions doable by a character.

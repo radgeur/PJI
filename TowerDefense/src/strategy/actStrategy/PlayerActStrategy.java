@@ -3,8 +3,8 @@ package strategy.actStrategy;
 import java.util.ArrayList;
 import java.util.List;
 
-import keyListener.ActionKeyListener;
-import keyListener.CharacterAction;
+import listeners.ActionKeyListener;
+import listeners.CharacterAction;
 import model.GameModel;
 import strategy.attackStrategy.AttackStrategy;
 import strategy.moveStrategy.PlayerMoveStrategy;

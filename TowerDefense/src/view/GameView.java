@@ -9,63 +9,29 @@ package view;
 
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import java.util.Observable;
 import java.util.Observer;
 
 import javax.swing.BoxLayout;
 import javax.swing.JFrame;
 
-import keyListener.ActionKeyListener;
-
-import mapComponent.Case;
-import mapComponent.Map;
-import model.GameModel;
+import listeners.ActionKeyListener;
+import listeners.PanelMouseListener;
 
 public class GameView implements Observer{
 	private JFrame window;
 	private MyPanel panel;
 	private ToolBar toolbar;
-	private Map map;
 	
 	/** Constructor */
 	public GameView(){
-		map = GameModel.map;
 		//MyPanel
 		panel = new MyPanel();
 	    panel.setBackground(Color.WHITE);
 	    panel.setPreferredSize(new Dimension(500,550));
 	    panel.setFocusable(true);
 	    panel.requestFocus();
-	    panel.addMouseListener(new MouseListener(){
-
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				if(ToolBar.putDefence != null){
-					Case c = map.getCaseWithPixel(e.getX(), e.getY());
-					if(!c.isWall()){
-						ToolBar.putDefence.setX(c.getXInPixel());
-						ToolBar.putDefence.setY(c.getYInPixel());
-						Map.defencesToAdd.add(ToolBar.putDefence);
-						ToolBar.putDefence = null;
-					}
-				}
-			}
-
-			@Override
-			public void mousePressed(MouseEvent e) {}
-
-			@Override
-			public void mouseReleased(MouseEvent e) {}
-
-			@Override
-			public void mouseEntered(MouseEvent e) {}
-
-			@Override
-			public void mouseExited(MouseEvent e) {}
-	    	
-	    });
+	    panel.addMouseListener(new PanelMouseListener());
 	    
 	    panel.addKeyListener(new ActionKeyListener());
 	    
