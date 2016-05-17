@@ -1,7 +1,7 @@
 package view;
 
 /**
- * Class to instantiate a frame for the game
+ * Class to instantiate a frame for the game at the developer view
  * 
  * @author CHARNEUX Dimitri, LEPRETRE Rémy 
  *
@@ -18,15 +18,15 @@ import javax.swing.JFrame;
 import listeners.ActionKeyListener;
 import listeners.PanelMouseListener;
 
-public class GameView implements Observer{
+public class GameDevView implements Observer{
 	private JFrame window;
-	private MyPanel panel;
+	private DevPanel panel;
 	private ToolBar toolbar;
 	
 	/** Constructor */
-	public GameView(){
+	public GameDevView(){
 		//MyPanel
-		panel = new MyPanel();
+		panel = new DevPanel();
 	    panel.setBackground(Color.WHITE);
 	    panel.setPreferredSize(new Dimension(500,550));
 	    panel.setFocusable(true);

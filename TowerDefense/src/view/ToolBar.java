@@ -29,9 +29,9 @@ public class ToolBar extends JPanel{
 		public void paintComponent(Graphics g){
 			//create elements
 			////Defence1
-			final ImageIcon selec = new ImageIcon("./media/tourelle_selec.jpg");
-			final ImageIcon noSelec = new ImageIcon("./media/tourelle.jpg");
-		    final JLabel labelDefence1 = new JLabel();
+			ImageIcon selec = new ImageIcon("./media/tourelle_selec.jpg");
+			ImageIcon noSelec = new ImageIcon("./media/tourelle.jpg");
+		    JLabel labelDefence1 = new JLabel();
 		    Defence defence1 = new Defence(10, Map.casewidth-1, Map.caseHeight-1,5,5,true);
 		    defence1.setActStrategy(new NoActionActStrategy());
 		    

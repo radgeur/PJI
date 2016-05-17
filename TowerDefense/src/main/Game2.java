@@ -15,7 +15,7 @@ import strategy.attackStrategy.SimpleAttackStrategy;
 import strategy.moveStrategy.AimNexusMoveStrategy;
 import strategy.moveStrategy.PlayerMoveStrategy;
 import strategy.moveStrategy.SimpleMoveStrategy;
-import view.GameView;
+import view.GameDevView;
 import controler.GameControler;
 import entities.Character;
 import entities.Defence;
@@ -25,7 +25,7 @@ public class Game2 {
 	public void run() {
 		Map map = initMap();
 		GameModel model = new GameModel(map);
-		GameView view = new GameView();
+		GameDevView view = new GameDevView();
 		model.addObserver(view);
 		GameControler controler = new GameControler(model);
 		map.initNexusPathFinding();
