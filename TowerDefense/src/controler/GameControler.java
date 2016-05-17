@@ -18,8 +18,7 @@ public class GameControler {
 		model.notifyObservers();
 		while(!GameModel.map.isFinished()){
 			for(Defence defence : Map.defencesToAdd){
-				GameModel.map.addDefense(defence);
-				GameModel.map.updateDefencesPathFinding(defence);
+				GameModel.map.addDefence(defence);
 			}
 			if(!Map.defencesToAdd.isEmpty())
 				GameModel.map.initNexusPathFinding();

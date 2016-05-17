@@ -113,7 +113,9 @@ public class Ground implements Case{
 	
 	@Override
 	public int getClosestPathFindingDefence(){
-		if(!defencesDistance.isEmpty()){
+		if (this.hasDefence())
+			return 0;
+		else if(!defencesDistance.isEmpty()){
 			for(Integer key : defencesDistance.keySet()){
 				for(Entity d : defencesDistance.get(key)){
 					if(d.getHP() > 0){

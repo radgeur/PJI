@@ -5,6 +5,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
+import model.GameModel;
 import entities.Character;
 import entities.Defence;
 import entities.Entity;
@@ -82,12 +83,14 @@ public class Map {
 	/** Add a defence to the list of entities and on the cases where it is locate 
 	 * @param defence to add
 	 */
-	public void addDefense(Defence defence) {
+	public void addDefence(Defence defence) {
 		List<Case> tmp = getCasesOfEntity(defence);
-		listEntities.add(defence);
 		for(Case c : tmp){
-			if(!c.isWall() && c.canPut())
+			if(c.canPut()){
 				c.putDefence(defence);
+				listEntities.add(defence);
+				GameModel.map.updateDefencesPathFinding(defence);
+			}
 		}
 	}
 
@@ -219,7 +222,7 @@ public class Map {
 
 	public void setNexus(Defence nexus) {
 		this.nexus = nexus;
-		this.addDefense(nexus);
+		this.addDefence(nexus);
 	}
 
 	public boolean isFinished() {

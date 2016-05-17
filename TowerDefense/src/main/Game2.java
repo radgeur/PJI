@@ -98,7 +98,7 @@ public class Game2 {
 		defence.setActStrategy(new SimpleDefenceActStrategy(new ClosestAttackStrategy(), defence));
 		defence.setX(200);
 		defence.setY(200);
-		m.addDefense(defence);
+		m.addDefence(defence);
 		m.updateDefencesPathFinding(defence);
 
 		Defence nexus = new Defence(10, 49, 49, 0, 0, true);
