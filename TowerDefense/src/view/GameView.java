@@ -48,15 +48,14 @@ public class GameView implements Observer{
 	    window.getContentPane().add(toolbar);
 	    window.setResizable(false);
 	    window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	    window.setLocationRelativeTo(null);
 	    window.setVisible(true);
 	    window.pack();
+	    window.setLocationRelativeTo(null);
 	}
 	
 	
 	@Override
 	public void update(Observable o, Object arg) {
-		System.out.println("update");
 		panel.repaint();
 	}
 

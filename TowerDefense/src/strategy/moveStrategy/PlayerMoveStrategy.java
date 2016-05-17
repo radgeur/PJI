@@ -27,7 +27,6 @@ public class PlayerMoveStrategy implements MoveStrategy{
 		List<Case> cases = GameModel.map.getCasesOfEntity(character);
 		int xChar = character.getX();
 		int yChar = character.getY();
-		//System.out.println("move : " +x + " , " + y);
 		for (Case caseC : cases)
 			caseC.removeCharacter(character);
 		for(int i = x; i>0; i--){

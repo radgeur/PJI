@@ -12,13 +12,10 @@ public class ActionKeyListener implements KeyListener{
 	public static CharacterAction lastAction = CharacterAction.NO_ACTION;
 	
 	@Override
-	public void keyTyped(KeyEvent e) {
-		System.out.println("keyTyped : " + e.getKeyChar());
-	}
+	public void keyTyped(KeyEvent e) {}
 
 	@Override
 	public void keyPressed(KeyEvent e) {
-		System.out.println("keyPressed : " + e.getKeyChar());
 		switch (e.getKeyChar()) {
 		case 'z':
 			ActionKeyListener.lastAction = CharacterAction.MOVE_TOP;
@@ -41,7 +38,5 @@ public class ActionKeyListener implements KeyListener{
 	}
 
 	@Override
-	public void keyReleased(KeyEvent e) {
-		System.out.println("keyReleased : " + e.getKeyChar());
-	}
+	public void keyReleased(KeyEvent e) {}
 }

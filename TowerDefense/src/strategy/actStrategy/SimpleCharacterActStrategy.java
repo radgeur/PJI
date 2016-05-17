@@ -37,7 +37,6 @@ public class SimpleCharacterActStrategy implements ActStrategy<Character>{
 	@Override
 	public void action() {
 		List<Entity> listAttackableEntity = getAttackableEntities();
-		//System.out.println("act" + listAttackableEntity.size());
 		if(listAttackableEntity.size() == 0)
 			moveStrategy.action(character);
 		else

@@ -68,12 +68,12 @@ public class Wall implements Case{
 	public void setPathFindingNexus(int pathfinding) {}
 
 	@Override
-	public TreeMap<Integer, List<Entity>> getPathFindingDefence() {
+	public TreeMap<Integer, List<Defence>> getPathFindingDefence() {
 		return null;
 	}
 
 	@Override
-	public void setPathFindingDefence(int key, Entity value) {}
+	public void setPathFindingDefence(int key, Defence value) {}
 	
 	@Override
 	public int getClosestPathFindingDefence(){return -1;}

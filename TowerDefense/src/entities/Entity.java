@@ -49,6 +49,17 @@ public abstract class Entity {
 		this.isFriendly = isFriendly;
 	}
 	
+	/**
+	 * Constructor with coordinates
+	 * @param x
+	 * @param y
+	 */
+	public Entity(int HP, int width, int height, int range, int power, boolean isFriendly, int x, int y){
+		this(HP, width, height, range, power, isFriendly);
+		this.x = x;
+		this.y = y;
+	}
+	
 	/** Define how the entity gonna act */
 	public void action(){
 		actStrategy.action();
@@ -126,7 +137,6 @@ public abstract class Entity {
 		line = new Line2D.Double(pEnt, pEnt4);
 		double d4 = line.ptSegDist(p);
 		double min =  Math.min(Math.min(d1, d2), Math.min(d3, d4));
-		//System.out.println((int)d1 + " " + (int)d2 + " " + (int)d3 + " " + (int)d4 + "   " + this.getHP() +" "+ entity.getHP());
 		return min;
 	}
 	

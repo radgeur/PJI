@@ -146,7 +146,7 @@ public class Map {
 	/** When a Defence is put on the board, his catch area are calculated with the static value 
 	 * @param Entity defence was put on the board
 	 */
-	public void updateDefencesPathFinding(Entity defence){
+	public void updateDefencesPathFinding(Defence defence){
 		List<Case> currentCases = new ArrayList<Case>();
 		List<Case> previousCases = new ArrayList<Case>();
  		List<Case> walls = new ArrayList<Case>();

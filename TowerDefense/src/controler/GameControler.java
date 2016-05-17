@@ -41,11 +41,6 @@ public class GameControler {
 			GameModel.map.removeEntities(tmp);
 			model.setchange();
 			model.notifyObservers();
-		}
-		/*if(GameModel.map.getNexus().getHP() > 0)
-			System.out.println("vous avez gagné");
-		else
-			System.out.println("Vous avez perdu");*/
-		
+		}		
 	}
 }

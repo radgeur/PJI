@@ -23,7 +23,7 @@ public class Ground implements Case{
 	private List<Character> listCharacter;
 	private int x,y;
 	private int nexusDistance;
-	private TreeMap<Integer, List<Entity>> defencesDistance;
+	private TreeMap<Integer, List<Defence>> defencesDistance;
 	
 	//METHODS
 	/** Constructor
@@ -35,7 +35,7 @@ public class Ground implements Case{
 		this.y = y;
 		listCharacter = new ArrayList<Character>();
 		nexusDistance = -1;
-		this.defencesDistance =  new TreeMap<Integer, List<Entity>>();
+		this.defencesDistance =  new TreeMap<Integer, List<Defence>>();
 	}
 	
 	@Override
@@ -79,12 +79,13 @@ public class Ground implements Case{
 	}
 
 	@Override
-	public void setPathFindingDefence(int key, Entity defence) {
-		List<Entity> tmp;
+	public void setPathFindingDefence(int key, Defence defence) {
+		List<Defence> tmp;
+		TreeMap<Integer, List<Defence>> tmpTreeMap = (TreeMap<Integer, List<Defence>>) defencesDistance.clone();
 		//check if the treemap already contains the defence
-		if(!defencesDistance.keySet().isEmpty()) {
-			for(Integer k : defencesDistance.keySet()){
-				if(defencesDistance.get(k).contains(defence)){
+		if(!tmpTreeMap.keySet().isEmpty()) {
+			for(Integer k : tmpTreeMap.keySet()){
+				if(tmpTreeMap.get(k).contains(defence)){
 					//if the new distance is farest than the first
 					if (k < key)
 						return;
@@ -92,19 +93,19 @@ public class Ground implements Case{
 						defencesDistance.get(k).remove(defence);
 				}
 				//if the key already exist in the map
-				if(!defencesDistance.containsKey(key))
-					tmp =new ArrayList<Entity>();
+				if(!tmpTreeMap.containsKey(key))
+					tmp =new ArrayList<Defence>();
 				else 
-					tmp = defencesDistance.get(key);
+					tmp = tmpTreeMap.get(key);
 				tmp.add(defence);
 				this.defencesDistance.put(key, tmp);
 			}
 		} else {
 			//if the key already exist in the map
-			if(!defencesDistance.containsKey(key))
-				tmp =new ArrayList<Entity>();
+			if(!tmpTreeMap.containsKey(key))
+				tmp = new ArrayList<Defence>();
 			else 
-				tmp = defencesDistance.get(key);
+				tmp = tmpTreeMap.get(key);
 			tmp.add(defence);
 			this.defencesDistance.put(key, tmp);
 		}
@@ -112,8 +113,16 @@ public class Ground implements Case{
 	
 	@Override
 	public int getClosestPathFindingDefence(){
-		if(!defencesDistance.isEmpty())
-			return defencesDistance.firstKey();
+		if(!defencesDistance.isEmpty()){
+			for(Integer key : defencesDistance.keySet()){
+				for(Entity d : defencesDistance.get(key)){
+					if(d.getHP() > 0){
+						return key;
+					}
+				}
+			}
+			return 0;
+		}
 		else 
 			return 0;
 	}
@@ -130,7 +139,7 @@ public class Ground implements Case{
 	public void setPathFindingNexus(int pathfinding) {this.nexusDistance = pathfinding;}
 
 	@Override
-	public TreeMap<Integer, List<Entity>> getPathFindingDefence() {return defencesDistance;}
+	public TreeMap<Integer, List<Defence>> getPathFindingDefence() {return defencesDistance;}
 	
 	@Override
 	public int getX() {return x;}

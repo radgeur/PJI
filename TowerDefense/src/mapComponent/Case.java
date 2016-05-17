@@ -87,13 +87,13 @@ public interface Case {
 	/** Return the treeMap with the defence that are in the catchArea with their distance
 	 * @return TreeMap
 	 */
-	public TreeMap<Integer, List<Entity>> getPathFindingDefence();
+	public TreeMap<Integer, List<Defence>> getPathFindingDefence();
 	
 	/** Update the treeMap with the defence
 	 * @param key the distance
 	 * @param value the defence
 	 */
-	public void setPathFindingDefence(int key, Entity value);
+	public void setPathFindingDefence(int key, Defence value);
 	
 	/** Return the distance to the closest defence
 	 * @return int the distance to the closest defence
