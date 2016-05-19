@@ -26,12 +26,43 @@ public class UserPanel extends JPanel{
 	//METHODS
 	@Override
 	public void paintComponent(Graphics graph){
+		this.removeAll();	    
+		Map map = GameModel.map;
+		for(Entity ent : map.getEntities()){
+			//is the entity is a defence
+			if(ent.isDefense()){
+				//if this is the nexus
+				if(ent == map.getNexus()){
+					JLabel nexus = new JLabel(new ImageIcon("./media/nexus.png"));
+					nexus.setBounds(ent.getX(), ent.getY(), ent.getWidth(), ent.getHeight());
+					this.add(nexus);
+				}
+				//if this is any defence
+				else{
+					JLabel defence = new JLabel(new ImageIcon("./media/tourelle.png"));
+					defence.setBounds(ent.getX(), ent.getY(), ent.getWidth(), ent.getHeight());
+					this.add(defence);
+				}
+			}
+			//else this is not a defence
+			else {
+				//if this is not a monster
+				if(ent.getFriendly()){
+					JLabel hero = new JLabel(new ImageIcon("./media/hero.png"));
+					hero.setBounds(ent.getX(), ent.getY(), ent.getWidth(), ent.getHeight());
+					this.add(hero);
+				} else {
+					JLabel monster = new JLabel(new ImageIcon("./media/monster.png"));
+					monster.setBounds(ent.getX(), ent.getY(), ent.getWidth(), ent.getHeight());
+					this.add(monster);
+				}
+			}
+		}
 		//wall and ground pictures
 		this.setLayout(null);
 		ImageIcon wallPicture = new ImageIcon("./media/wall.jpg");
 		ImageIcon groundPicture = new ImageIcon("./media/ground.jpg");
 	    super.paintComponent(graph);
-	    Map map = GameModel.map;
 		for(int i = 0; i<map.getMap().length; i++){
 			for(int j = 0; j<map.getMap()[0].length; j++){
 				Case c = map.getMap()[i][j];
@@ -47,14 +78,7 @@ public class UserPanel extends JPanel{
 			}
 		}
 		
-		for(Entity ent : map.getEntities()){
-			/*graph.setColor(Color.BLUE);
-			graph.drawRect(ent.getX(), ent.getY(), ent.getWidth(), ent.getHeight());
-			graph.drawString(ent.getHP() + "/" + ent.getMaxHP(),ent.getX(), ent.getY());*/
-			JLabel test = new JLabel(new ImageIcon("./media/tourelle.jpg"));
-			test.setBounds(ent.getX(), ent.getY(), ent.getWidth(), ent.getHeight());
-			this.add(test);
-		}
+		
 		
 		if(map.isFinished()){
 			graph.setColor(Color.RED);

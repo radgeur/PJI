@@ -1,5 +1,12 @@
 package listeners;
 
+/**
+ * Listener to manage the map in the main panel
+ * 
+ * @author CHARNEUX Dimitri, LEPRETRE Rémy 
+ *
+ */
+
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 

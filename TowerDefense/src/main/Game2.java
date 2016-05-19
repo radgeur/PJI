@@ -56,7 +56,7 @@ public class Game2 {
 			}
 		}
 		//Uncomment to test the pathfinding.
-		//c[5][5] = new Wall(5, 5);
+		c[5][5] = new Wall(5, 5);
 		m.setMap(c);
 		
 		Character monster = new Character(500, 30, 30, 20, 5, false);
@@ -99,7 +99,6 @@ public class Game2 {
 		defence.setX(200);
 		defence.setY(200);
 		m.addDefence(defence);
-		m.updateDefencesPathFinding(defence);
 
 		Defence nexus = new Defence(10, 49, 49, 0, 0, true);
 		nexus.setActStrategy(new NoActionActStrategy());

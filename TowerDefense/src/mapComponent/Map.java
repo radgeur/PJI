@@ -5,7 +5,6 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
-import model.GameModel;
 import entities.Character;
 import entities.Defence;
 import entities.Entity;
@@ -89,7 +88,7 @@ public class Map {
 			if(c.canPut()){
 				c.putDefence(defence);
 				listEntities.add(defence);
-				GameModel.map.updateDefencesPathFinding(defence);
+				this.updateDefencesPathFinding(defence);
 			}
 		}
 	}

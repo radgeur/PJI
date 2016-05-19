@@ -13,8 +13,10 @@ import mapComponent.Map;
 import mapComponent.Wall;
 import strategy.actStrategy.AimNexusActStrategy;
 import strategy.actStrategy.NoActionActStrategy;
+import strategy.actStrategy.PlayerActStrategy;
 import strategy.attackStrategy.ClosestAttackStrategy;
 import strategy.moveStrategy.AimNexusMoveStrategy;
+import strategy.moveStrategy.PlayerMoveStrategy;
 import entities.Character;
 import entities.Defence;
 
@@ -105,6 +107,16 @@ public class GameModel extends Observable{
 		monster.setX(210);
 		monster.setY(0);
 		map.addCharacter(monster);
+		
+		Character player = new Character(1000, 30, 30, 20, 100, true);
+		
+		
+		player.setActStrategy(new PlayerActStrategy(new ClosestAttackStrategy(), new PlayerMoveStrategy(), player));
+		
+		player.setSpeed(3);
+		player.setX(210);
+		player.setY(150);
+		map.addCharacter(player);
 		
 		
 		map.setNexus(nexus);
