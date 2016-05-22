@@ -7,6 +7,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import listeners.CaseListener;
 import mapComponent.Case;
 import mapComponent.Map;
 import model.GameModel;
@@ -66,15 +67,16 @@ public class UserPanel extends JPanel{
 		for(int i = 0; i<map.getMap().length; i++){
 			for(int j = 0; j<map.getMap()[0].length; j++){
 				Case c = map.getMap()[i][j];
+				JLabel square = new JLabel();
 				if(c.isWall()){
-					JLabel wall = new JLabel(wallPicture);
-					wall.setBounds(c.getX()*Map.casewidth, c.getY()*Map.caseHeight, Map.casewidth, Map.caseHeight);
-					this.add(wall);
+					square.setIcon(wallPicture);
+					square.setBounds(c.getX()*Map.casewidth, c.getY()*Map.caseHeight, Map.casewidth, Map.caseHeight);
 				} else {
-					JLabel ground = new JLabel(groundPicture);
-					ground.setBounds(c.getX()*Map.casewidth, c.getY()*Map.caseHeight, Map.casewidth, Map.caseHeight);
-					this.add(ground);
+					square.setIcon(groundPicture);
+					//square.addMouseListener(new CaseListener(c, square, groundPicture));
+					square.setBounds(c.getX()*Map.casewidth, c.getY()*Map.caseHeight, Map.casewidth, Map.caseHeight);
 				}
+				this.add(square);
 			}
 		}
 		

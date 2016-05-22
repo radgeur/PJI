@@ -24,10 +24,11 @@ public class DefenceMouseListener implements MouseListener{
 	private JLabel label;
 	
 	//METHODS
-	public DefenceMouseListener(Defence defence, ImageIcon imageSelec, ImageIcon imageNoSelec, JLabel label){
+	public DefenceMouseListener(Defence defence, JLabel label){
+		super();
 		this.defence = defence;
-		this.imageSelec = imageSelec;
-		this.imageNoSelec = imageNoSelec;
+		this.imageSelec = new ImageIcon("./media/tourelleSelec_toolbar.png");
+		this.imageNoSelec = new ImageIcon("./media/tourelle_toolbar.png");;
 		this.label = label;
 		label.setIcon(imageNoSelec);
 		label.setToolTipText(defence.toString());

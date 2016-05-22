@@ -10,7 +10,33 @@ package listeners;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+
+import mapComponent.Case;
+
 public class CaseListener implements MouseListener{
+	//ATTRIBUTES
+	private Case c;
+	private JLabel label;
+	private ImageIcon base;
+	private ImageIcon canPut;
+	private ImageIcon cannotPut;
+	
+	//METHODS
+	/** Constructor
+	 * @param c the case to manage
+	 * @param label the picture
+	 */
+	public CaseListener(Case c, JLabel label, ImageIcon picture){
+		super();
+		this.c = c;
+		this.base = picture;
+		this.label = label;
+		this.canPut = new ImageIcon("./media/grassCan.png");
+		this.cannotPut = new ImageIcon("./media/grassCannot.png");
+		label.setIcon(base);
+	}
 
 	@Override
 	public void mouseClicked(MouseEvent e) {}
@@ -22,9 +48,16 @@ public class CaseListener implements MouseListener{
 	public void mouseReleased(MouseEvent e) {}
 
 	@Override
-	public void mouseEntered(MouseEvent e) {}
+	public void mouseEntered(MouseEvent e) {
+		if(c.canPut())
+			label.setIcon(canPut);
+		else
+			label.setIcon(cannotPut);
+	}
 
 	@Override
-	public void mouseExited(MouseEvent e) {}
+	public void mouseExited(MouseEvent e) {
+		label.setIcon(base);
+	}
 	
 }
