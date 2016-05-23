@@ -45,7 +45,7 @@ public class Ground implements Case{
 		this.picture = new ImageIcon("./media/ground.jpg");
 		this.label = new JLabel(picture);
 		this.label.setBounds(this.getX()*Map.casewidth, this.getY()*Map.caseHeight, Map.casewidth, Map.caseHeight);
-		//this.label.addMouseListener(new CaseListener(this, label, picture));
+		this.label.addMouseListener(new CaseListener(this, label, picture));
 	}
 	
 	@Override

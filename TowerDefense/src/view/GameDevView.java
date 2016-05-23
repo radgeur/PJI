@@ -16,7 +16,6 @@ import javax.swing.BoxLayout;
 import javax.swing.JFrame;
 
 import listeners.ActionKeyListener;
-import listeners.PanelMouseListener;
 
 public class GameDevView implements Observer{
 	private JFrame window;
@@ -31,7 +30,6 @@ public class GameDevView implements Observer{
 	    panel.setPreferredSize(new Dimension(500,550));
 	    panel.setFocusable(true);
 	    panel.requestFocus();
-	    panel.addMouseListener(new PanelMouseListener());
 	    
 	    panel.addKeyListener(new ActionKeyListener());
 	    

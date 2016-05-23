@@ -14,6 +14,8 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 import mapComponent.Case;
+import mapComponent.Map;
+import view.ToolBar;
 
 public class CaseListener implements MouseListener{
 	//ATTRIBUTES
@@ -39,7 +41,14 @@ public class CaseListener implements MouseListener{
 	}
 
 	@Override
-	public void mouseClicked(MouseEvent e) {}
+	public void mouseClicked(MouseEvent e) {
+		if(ToolBar.putDefence != null){
+			ToolBar.putDefence.setX(c.getXInPixel());
+			ToolBar.putDefence.setY(c.getYInPixel());
+			Map.defencesToAdd.add(ToolBar.putDefence);
+			ToolBar.putDefence = null;
+		}
+	}
 
 	@Override
 	public void mousePressed(MouseEvent e) {}
@@ -49,10 +58,12 @@ public class CaseListener implements MouseListener{
 
 	@Override
 	public void mouseEntered(MouseEvent e) {
-		if(c.canPut())
-			label.setIcon(canPut);
-		else
-			label.setIcon(cannotPut);
+		if(ToolBar.putDefence != null){
+			if(c.canPut())
+				label.setIcon(canPut);
+			else
+				label.setIcon(cannotPut);
+		}
 	}
 
 	@Override
