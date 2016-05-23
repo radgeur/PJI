@@ -1,13 +1,12 @@
 package view;
 
-import java.awt.Color;
 import java.awt.Graphics;
 
 import javax.swing.ImageIcon;
+import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import listeners.CaseListener;
 import mapComponent.Case;
 import mapComponent.Map;
 import model.GameModel;
@@ -83,11 +82,11 @@ public class UserPanel extends JPanel{
 		
 		
 		if(map.isFinished()){
-			graph.setColor(Color.RED);
+			JDialog dialBox = new JDialog();
 			if(map.getNexus().getHP() > 0)
-				graph.drawString("Gagné!!!",200, 300);
+				dialBox.setName("Vous avez gagné.");
 			else
-				graph.drawString("Perdu!!!",200, 300);
+				dialBox.setName("Vous avez perdu.");
 		}
 	}
 }
