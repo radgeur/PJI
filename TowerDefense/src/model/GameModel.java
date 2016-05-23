@@ -99,7 +99,7 @@ public class GameModel extends Observable{
 		ln.close();
 		map.setMap(cases);
 		
-		Character monster = new Character(1000, 30, 30, 20, 5, false);
+		Character monster = new Character(500, 30, 30, 20, 5, false);
 		monster.setActStrategy(new AimNexusActStrategy(
 				new ClosestAttackStrategy(), new AimNexusMoveStrategy(), monster));
 		
@@ -108,7 +108,7 @@ public class GameModel extends Observable{
 		monster.setY(0);
 		map.addCharacter(monster);
 		
-		Character player = new Character(1000, 30, 30, 20, 100, true);
+		Character player = new Character(1000, 30, 30, 20, 300, true);
 		
 		
 		player.setActStrategy(new PlayerActStrategy(new ClosestAttackStrategy(), new PlayerMoveStrategy(), player));

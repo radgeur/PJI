@@ -48,10 +48,11 @@ public class DevPanel extends JPanel{
 		
 		if(map.isFinished()){
 			graph.setColor(Color.RED);
-			if(map.getNexus().getHP() > 0)
+			if(map.getNexus().getHP() > 0){
 				graph.drawString("Gagné!!!",200, 300);
-			else
+			}else{
 				graph.drawString("Perdu!!!",200, 300);
+			}
 		}
 	}
 }

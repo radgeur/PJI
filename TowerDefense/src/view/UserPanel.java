@@ -5,6 +5,7 @@ import java.awt.Graphics;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import listeners.CaseListener;
@@ -73,7 +74,7 @@ public class UserPanel extends JPanel{
 					square.setBounds(c.getX()*Map.casewidth, c.getY()*Map.caseHeight, Map.casewidth, Map.caseHeight);
 				} else {
 					square.setIcon(groundPicture);
-					//square.addMouseListener(new CaseListener(c, square, groundPicture));
+					square.addMouseListener(new CaseListener(c, square, groundPicture));
 					square.setBounds(c.getX()*Map.casewidth, c.getY()*Map.caseHeight, Map.casewidth, Map.caseHeight);
 				}
 				this.add(square);
@@ -83,11 +84,20 @@ public class UserPanel extends JPanel{
 		
 		
 		if(map.isFinished()){
-			graph.setColor(Color.RED);
-			if(map.getNexus().getHP() > 0)
+			graph.setColor(Color.BLACK);
+			if(map.getNexus().getHP() > 0){
 				graph.drawString("Gagné!!!",200, 300);
-			else
+				this.removeAll();
+				JLabel lab = new JLabel();
+				lab.setText("Tu as gagné !");
+				this.add(lab);
+			}else{
 				graph.drawString("Perdu!!!",200, 300);
+				this.removeAll();
+				JLabel lab = new JLabel();
+				lab.setText("Tu as perdu :(");
+				this.add(lab);
+			}
 		}
 	}
 }
