@@ -1,5 +1,7 @@
 package main;
 
+import javax.swing.ImageIcon;
+
 import mapComponent.Case;
 import mapComponent.Ground;
 import mapComponent.Map;
@@ -49,7 +51,7 @@ public class Game1 {
 			}
 		}
 		m.setMap(c);
-		Character monster = new Character(10, 70, 70, 10, 5, false);
+		Character monster = new Character(10, 70, 70, 10, 5, false, new ImageIcon("./media/monster.png"));
 		monster.setActStrategy(new SimpleCharacterActStrategy(
 				new SimpleAttackStrategy(), new SimpleMoveStrategy(), monster));
 		monster.setSpeed(1);
@@ -58,7 +60,7 @@ public class Game1 {
 		m.addCharacter(monster);
 		c[2][0].addCharacter(monster);
 
-		Defence nexus = new Defence(10, 99, 99, 0, 0, true);
+		Defence nexus = new Defence(10, 99, 99, 0, 0, true,new ImageIcon("./media/nexus.png"));
 		nexus.setActStrategy(new NoActionActStrategy());
 		nexus.setX(200);
 		nexus.setY(400);

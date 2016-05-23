@@ -123,6 +123,11 @@ public interface Case {
 	 */
 	public ImageIcon getPicture();
 	
+	/** Set the picture of the case
+	 * @param picture new
+	 */
+	public void setPicture(ImageIcon picture);
+	
 	/** return the label of the case
 	 * @return label
 	 */

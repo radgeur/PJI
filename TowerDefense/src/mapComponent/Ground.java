@@ -7,6 +7,7 @@ import java.util.TreeMap;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
+import listeners.CaseListener;
 import entities.Character;
 import entities.Defence;
 import entities.Entity;
@@ -44,6 +45,7 @@ public class Ground implements Case{
 		this.picture = new ImageIcon("./media/ground.jpg");
 		this.label = new JLabel(picture);
 		this.label.setBounds(this.getX()*Map.casewidth, this.getY()*Map.caseHeight, Map.casewidth, Map.caseHeight);
+		this.label.addMouseListener(new CaseListener(this, label, picture));
 	}
 	
 	@Override
@@ -168,6 +170,9 @@ public class Ground implements Case{
 	
 	@Override
 	public ImageIcon getPicture(){return this.picture;}
+	
+	@Override
+	public void setPicture(ImageIcon picture){this.picture = picture;}
 	
 	@Override
 	public JLabel getLabel(){return this.label;}

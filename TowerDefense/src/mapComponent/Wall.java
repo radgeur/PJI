@@ -97,5 +97,8 @@ public class Wall implements Case{
 	public ImageIcon getPicture(){return this.picture;}
 	
 	@Override
+	public void setPicture(ImageIcon picture){this.picture = picture;}
+	
+	@Override
 	public JLabel getLabel(){return this.label;}
 }

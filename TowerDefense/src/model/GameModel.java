@@ -7,6 +7,8 @@ import java.io.LineNumberReader;
 import java.util.Observable;
 import java.util.Scanner;
 
+import javax.swing.ImageIcon;
+
 import mapComponent.Case;
 import mapComponent.Ground;
 import mapComponent.Map;
@@ -62,7 +64,7 @@ public class GameModel extends Observable{
 		String currentLine;
 		char currentChar;
 		Case[][] cases = new Case[width][height];
-		Defence nexus = new Defence(10, Map.caseHeight-1, Map.casewidth-1, 0, 0, true);
+		Defence nexus = new Defence(10, Map.caseHeight-1, Map.casewidth-1, 0, 0, true, new ImageIcon("./media/nexus.png"));
 		nexus.setActStrategy(new NoActionActStrategy());
 		for(int i = 0;i<height;i++){
 			currentLine = scan.nextLine();
@@ -99,7 +101,7 @@ public class GameModel extends Observable{
 		ln.close();
 		map.setMap(cases);
 		
-		Character monster = new Character(500, 30, 30, 20, 5, false);
+		Character monster = new Character(500, 30, 30, 20, 5, false, new ImageIcon("./media/monster.png"));
 		monster.setActStrategy(new AimNexusActStrategy(
 				new ClosestAttackStrategy(), new AimNexusMoveStrategy(), monster));
 		
@@ -108,7 +110,7 @@ public class GameModel extends Observable{
 		monster.setY(0);
 		map.addCharacter(monster);
 		
-		Character player = new Character(1000, 30, 30, 20, 300, true);
+		Character player = new Character(1000, 30, 30, 20, 300, true, new ImageIcon("./media/hero.png"));
 		
 		
 		player.setActStrategy(new PlayerActStrategy(new ClosestAttackStrategy(), new PlayerMoveStrategy(), player));

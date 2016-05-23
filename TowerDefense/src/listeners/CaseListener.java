@@ -33,8 +33,8 @@ public class CaseListener implements MouseListener{
 		this.c = c;
 		this.base = picture;
 		this.label = label;
-		this.canPut = new ImageIcon("./media/grassCan.png");
-		this.cannotPut = new ImageIcon("./media/grassCannot.png");
+		this.canPut = new ImageIcon("./media/grassCan.jpg");
+		this.cannotPut = new ImageIcon("./media/grassCannot.jpg");
 		label.setIcon(base);
 	}
 

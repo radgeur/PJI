@@ -16,7 +16,7 @@ import javax.swing.JLabel;
 import view.ToolBar;
 import entities.Defence;
 
-public class DefenceMouseListener implements MouseListener{
+public class DefenceToolBarMouseListener implements MouseListener{
 	//ATTRIBUTES
 	private Defence defence;
 	private ImageIcon imageSelec;
@@ -24,7 +24,7 @@ public class DefenceMouseListener implements MouseListener{
 	private JLabel label;
 	
 	//METHODS
-	public DefenceMouseListener(Defence defence, JLabel label){
+	public DefenceToolBarMouseListener(Defence defence, JLabel label){
 		super();
 		this.defence = defence;
 		this.imageSelec = new ImageIcon("./media/tourelleSelec_toolbar.png");
@@ -36,7 +36,7 @@ public class DefenceMouseListener implements MouseListener{
 	
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		ToolBar.putDefence = new Defence(defence.getHP(), defence.getWidth(), defence.getHeight(), defence.getRange(), defence.getPower(), defence.getFriendly());
+		ToolBar.putDefence = new Defence(defence.getHP(), defence.getWidth(), defence.getHeight(), defence.getRange(), defence.getPower(), defence.getFriendly(), defence.getPicture());
 		ToolBar.putDefence.setActStrategy(defence.getActStrategy());
 	}
 
