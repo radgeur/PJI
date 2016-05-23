@@ -62,22 +62,11 @@ public class UserPanel extends JPanel{
 		}
 		//wall and ground pictures
 		this.setLayout(null);
-		ImageIcon wallPicture = new ImageIcon("./media/wall.jpg");
-		ImageIcon groundPicture = new ImageIcon("./media/ground.jpg");
 	    super.paintComponent(graph);
 		for(int i = 0; i<map.getMap().length; i++){
 			for(int j = 0; j<map.getMap()[0].length; j++){
 				Case c = map.getMap()[i][j];
-				JLabel square = new JLabel();
-				if(c.isWall()){
-					square.setIcon(wallPicture);
-					square.setBounds(c.getX()*Map.casewidth, c.getY()*Map.caseHeight, Map.casewidth, Map.caseHeight);
-				} else {
-					square.setIcon(groundPicture);
-					square.addMouseListener(new CaseListener(c, square, groundPicture));
-					square.setBounds(c.getX()*Map.casewidth, c.getY()*Map.caseHeight, Map.casewidth, Map.caseHeight);
-				}
-				this.add(square);
+				this.add(c.getLabel());
 			}
 		}
 		

@@ -3,6 +3,9 @@ package mapComponent;
 import java.util.List;
 import java.util.TreeMap;
 
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+
 import entities.Character;
 import entities.Defence;
 import entities.Entity;
@@ -16,6 +19,8 @@ import entities.Entity;
 public class Wall implements Case{
 	//ATTRIBUTS
 	private int x, y;
+	private ImageIcon picture;
+	private JLabel label;
 	
 	//METHODS
 	/** Constructor
@@ -25,6 +30,9 @@ public class Wall implements Case{
 	public Wall(int x, int y){
 		this.x = x;
 		this.y = y;
+		this.picture = new ImageIcon("./media/wall.jpg");
+		this.label = new JLabel(picture);
+		this.label.setBounds(this.getX()*Map.casewidth, this.getY()*Map.caseHeight, Map.casewidth, Map.caseHeight);
 	}
 	
 	@Override
@@ -84,4 +92,10 @@ public class Wall implements Case{
 	public void putDefence(Defence defence) {}
 	
 	public boolean canPut(){return false;}
+	
+	@Override
+	public ImageIcon getPicture(){return this.picture;}
+	
+	@Override
+	public JLabel getLabel(){return this.label;}
 }
