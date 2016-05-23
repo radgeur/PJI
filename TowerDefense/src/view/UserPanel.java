@@ -5,8 +5,10 @@ import java.awt.Graphics;
 import javax.swing.ImageIcon;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
+import listeners.CaseListener;
 import mapComponent.Case;
 import mapComponent.Map;
 import model.GameModel;
@@ -72,7 +74,7 @@ public class UserPanel extends JPanel{
 					square.setBounds(c.getX()*Map.casewidth, c.getY()*Map.caseHeight, Map.casewidth, Map.caseHeight);
 				} else {
 					square.setIcon(groundPicture);
-					//square.addMouseListener(new CaseListener(c, square, groundPicture));
+					square.addMouseListener(new CaseListener(c, square, groundPicture));
 					square.setBounds(c.getX()*Map.casewidth, c.getY()*Map.caseHeight, Map.casewidth, Map.caseHeight);
 				}
 				this.add(square);
@@ -82,11 +84,19 @@ public class UserPanel extends JPanel{
 		
 		
 		if(map.isFinished()){
-			JDialog dialBox = new JDialog();
-			if(map.getNexus().getHP() > 0)
-				dialBox.setName("Vous avez gagné.");
-			else
-				dialBox.setName("Vous avez perdu.");
+			if(map.getNexus().getHP() > 0){
+				graph.drawString("Gagné!!!",200, 300);
+				this.removeAll();
+				JLabel lab = new JLabel();
+				lab.setText("Tu as gagné !");
+				this.add(lab);
+			}else{
+				graph.drawString("Perdu!!!",200, 300);
+				this.removeAll();
+				JLabel lab = new JLabel();
+				lab.setText("Tu as perdu :(");
+				this.add(lab);
+			}
 		}
 	}
 }
