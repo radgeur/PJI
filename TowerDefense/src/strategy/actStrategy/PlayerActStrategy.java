@@ -16,7 +16,7 @@ public class PlayerActStrategy implements ActStrategy<Character>{
 	private AttackStrategy attackStrategy;
 	private PlayerMoveStrategy moveStrategy;
 	private Character character;
-	protected final int DEFAULT_MOVE_SPEED = 5;
+	protected final int DEFAULT_MOVE_SPEED = 2;
 
 	
 	//METHODS

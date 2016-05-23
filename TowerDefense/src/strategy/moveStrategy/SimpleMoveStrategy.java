@@ -16,7 +16,7 @@ import entities.Character;
 
 public class SimpleMoveStrategy implements MoveStrategy {
 
-	protected final int DEFAULT_MOVE_SPEED = 10;
+	protected final int DEFAULT_MOVE_SPEED = 2;
 
 	// ATTRIBUTS
 	protected Character character;

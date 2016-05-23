@@ -24,7 +24,7 @@ import entities.Entity;
 public class UserPanel extends JPanel{
 	//ATTRIBUTES
 	private static final long serialVersionUID = 1L;
-
+	private Result res;
 	//METHODS
 	@Override
 	public void paintComponent(Graphics graph){
@@ -86,16 +86,10 @@ public class UserPanel extends JPanel{
 		if(map.isFinished()){
 			if(map.getNexus().getHP() > 0){
 				graph.drawString("Gagné!!!",200, 300);
-				this.removeAll();
-				JLabel lab = new JLabel();
-				lab.setText("Tu as gagné !");
-				this.add(lab);
+				res = new Result(true);
 			}else{
 				graph.drawString("Perdu!!!",200, 300);
-				this.removeAll();
-				JLabel lab = new JLabel();
-				lab.setText("Tu as perdu :(");
-				this.add(lab);
+				res = new Result(false);
 			}
 		}
 	}

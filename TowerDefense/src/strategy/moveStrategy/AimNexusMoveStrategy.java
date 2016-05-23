@@ -8,7 +8,7 @@ import model.GameModel;
 import entities.Character;
 
 public class AimNexusMoveStrategy implements MoveStrategy {
-	protected final int DEFAULT_MOVE_SPEED = 5;
+	protected final int DEFAULT_MOVE_SPEED = 2;
 
 	// ATTRIBUTS
 	protected Character character;
