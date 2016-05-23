@@ -30,7 +30,7 @@ public class ToolBar extends JPanel{
 			//create elements
 			////Defence1
 		    JLabel labelDefence1 = new JLabel();
-		    Defence defence1 = new Defence(10, Map.casewidth-1, Map.caseHeight-1,5,5,true,new ImageIcon("./media/tourelle_toolbar.png"));
+		    Defence defence1 = new Defence(10, Map.casewidth-1, Map.caseHeight-1,5,5,true,new ImageIcon("./media/tourelle.png"));
 		    defence1.setActStrategy(new NoActionActStrategy());
 		    
 		    //listeners
