@@ -1,5 +1,7 @@
 package main;
 
+import javax.swing.ImageIcon;
+
 import mapComponent.Case;
 import mapComponent.Ground;
 import mapComponent.Map;
@@ -59,7 +61,7 @@ public class Game2 {
 		c[5][5] = new Wall(5, 5);
 		m.setMap(c);
 		
-		Character monster = new Character(500, 30, 30, 20, 5, false);
+		Character monster = new Character(500, 30, 30, 20, 5, false,new ImageIcon("./media/monster.png"));
 		
 		// TEST de aintonexus strategy
 		  
@@ -75,7 +77,7 @@ public class Game2 {
 		m.addCharacter(monster);
 		
 		
-		Character player = new Character(1000, 30, 30, 20, 100, true);
+		Character player = new Character(1000, 30, 30, 20, 100, true, new ImageIcon("./media/hero.png"));
 		
 		
 		player.setActStrategy(new PlayerActStrategy(new ClosestAttackStrategy(), new PlayerMoveStrategy(), player));
@@ -85,7 +87,7 @@ public class Game2 {
 		player.setY(150);
 		m.addCharacter(player);
 		
-		Character monster2 = new Character(10, 30, 30, 1, 5, false);
+		Character monster2 = new Character(10, 30, 30, 1, 5, false, new ImageIcon("./media/monster.png"));
 		monster2.setActStrategy(new SimpleCharacterActStrategy(
 				new SimpleAttackStrategy(), new SimpleMoveStrategy(), monster2));
 		monster2.setSpeed(1);
@@ -94,13 +96,13 @@ public class Game2 {
 		m.addCharacter(monster2);
 		
 		
-		Defence defence = new Defence(10, 49, 49, 100, 5, true);
+		Defence defence = new Defence(10, 49, 49, 100, 5, true, new ImageIcon("./media/tourelle.png"));
 		defence.setActStrategy(new SimpleDefenceActStrategy(new ClosestAttackStrategy(), defence));
 		defence.setX(200);
 		defence.setY(200);
 		m.addDefence(defence);
 
-		Defence nexus = new Defence(10, 49, 49, 0, 0, true);
+		Defence nexus = new Defence(10, 49, 49, 0, 0, true, new ImageIcon("./media/tourelle.png"));
 		nexus.setActStrategy(new NoActionActStrategy());
 		nexus.setX(200);
 		nexus.setY(400);

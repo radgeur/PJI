@@ -3,6 +3,9 @@ package mapComponent;
 import java.util.List;
 import java.util.TreeMap;
 
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+
 import entities.Character;
 import entities.Defence;
 import entities.Entity;
@@ -114,5 +117,20 @@ public interface Case {
 	 * @return true if can, else false
 	 */
 	public boolean canPut();
+	
+	/** return the picture of the case
+	 * @return picture
+	 */
+	public ImageIcon getPicture();
+	
+	/** Set the picture of the case
+	 * @param picture new
+	 */
+	public void setPicture(ImageIcon picture);
+	
+	/** return the label of the case
+	 * @return label
+	 */
+	public JLabel getLabel();
 	
 }

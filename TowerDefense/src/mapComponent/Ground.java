@@ -4,6 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.TreeMap;
 
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+
+import listeners.CaseListener;
 import entities.Character;
 import entities.Defence;
 import entities.Entity;
@@ -24,6 +28,8 @@ public class Ground implements Case{
 	private int x,y;
 	private int nexusDistance;
 	private TreeMap<Integer, List<Defence>> defencesDistance;
+	private ImageIcon picture;
+	private JLabel label;
 	
 	//METHODS
 	/** Constructor
@@ -36,6 +42,10 @@ public class Ground implements Case{
 		listCharacter = new ArrayList<Character>();
 		nexusDistance = -1;
 		this.defencesDistance =  new TreeMap<Integer, List<Defence>>();
+		this.picture = new ImageIcon("./media/ground.jpg");
+		this.label = new JLabel(picture);
+		this.label.setBounds(this.getX()*Map.casewidth, this.getY()*Map.caseHeight, Map.casewidth, Map.caseHeight);
+		this.label.addMouseListener(new CaseListener(this, label, picture));
 	}
 	
 	@Override
@@ -158,4 +168,12 @@ public class Ground implements Case{
 	@Override
 	public Defence getDefence() {return defence;}
 	
+	@Override
+	public ImageIcon getPicture(){return this.picture;}
+	
+	@Override
+	public void setPicture(ImageIcon picture){this.picture = picture;}
+	
+	@Override
+	public JLabel getLabel(){return this.label;}
 }

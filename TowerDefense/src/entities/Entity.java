@@ -4,9 +4,11 @@ import java.awt.Point;
 import java.awt.geom.Line2D;
 import java.awt.geom.Point2D;
 
-import mapComponent.Map;
-import mapComponent.Case;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 
+import mapComponent.Case;
+import mapComponent.Map;
 import strategy.actStrategy.ActStrategy;
 
 /**
@@ -28,6 +30,8 @@ public abstract class Entity {
 	protected int x;
 	protected int y;
 	protected int speed;
+	protected ImageIcon picture;
+	protected JLabel label;
 	protected boolean isFriendly;
 	protected ActStrategy<? extends Entity> actStrategy;
 	
@@ -40,13 +44,16 @@ public abstract class Entity {
 	 * @param power
 	 * @param isFriendly to know on which side the Entity is
 	 */
-	public Entity(int HP, int width, int height, int range, int power, boolean isFriendly) {
+	public Entity(int HP, int width, int height, int range, int power, boolean isFriendly, ImageIcon picture) {
 		this.maxHP = this.HP = HP;
 		this.width = width;
 		this.height = height;
 		this.range = range + (int) Math.sqrt((height/2)^2 + (width/2)^2);
 		this.power = power;
 		this.isFriendly = isFriendly;
+		this.picture = picture;
+		this.label = new JLabel(picture);
+		this.label.setToolTipText(this.toString());
 	}
 	
 	/**
@@ -54,10 +61,11 @@ public abstract class Entity {
 	 * @param x
 	 * @param y
 	 */
-	public Entity(int HP, int width, int height, int range, int power, boolean isFriendly, int x, int y){
-		this(HP, width, height, range, power, isFriendly);
+	public Entity(int HP, int width, int height, int range, int power, boolean isFriendly, int x, int y, ImageIcon picture){
+		this(HP, width, height, range, power, isFriendly, picture);
 		this.x = x;
 		this.y = y;
+		this.label.setBounds(this.getX(), this.getY(), this.getWidth(), this.getHeight());
 	}
 	
 	/** Define how the entity gonna act */
@@ -163,8 +171,8 @@ public abstract class Entity {
 	
 	public String toString(){
 		String string = "HP: " + HP;
-		string += "\n Range: " + range;
-		string += "\n Power: " + power;
+		string += " Range: " + range;
+		string += " Power: " + power;
 		return string;
 	}
 	
@@ -192,11 +200,17 @@ public abstract class Entity {
 	
 	public int getX() {return x;}
 	
-	public void setX(int x) {this.x = x;}
+	public void setX(int x) {
+		this.x = x;
+		this.label.setBounds(this.getX(), this.getY(), this.getWidth(), this.getHeight());
+	}
 	
 	public int getY() {return y;}
 	
-	public void setY(int y) {this.y = y;}
+	public void setY(int y) {
+		this.y = y;
+		this.label.setBounds(this.getX(), this.getY(), this.getWidth(), this.getHeight());
+	}
 	
 	public boolean getFriendly() {return isFriendly;}
 	
@@ -209,4 +223,10 @@ public abstract class Entity {
 	public void setActStrategy(ActStrategy<? extends Entity> act){this.actStrategy = act;}
 	
 	public ActStrategy<? extends Entity> getActStrategy(){return actStrategy;}
+	
+	public ImageIcon getPicture(){return this.picture;}
+	
+	public void setPicture(ImageIcon picture){this.picture = picture;}
+	
+	public JLabel getLabel(){return this.label;}
 }
