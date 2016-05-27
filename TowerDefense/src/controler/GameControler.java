@@ -26,7 +26,7 @@ public class GameControler {
 			for(Entity entity : GameModel.map.getEntities()){
 				entity.action();
 				try {
-					Thread.sleep(40);
+					Thread.sleep(50);
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}

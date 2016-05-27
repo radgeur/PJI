@@ -82,6 +82,7 @@ public abstract class Entity {
 			HP = 0;
 		else
 			HP -= rmHp;
+		this.label.setToolTipText(this.toString());
 	}
 	
 	

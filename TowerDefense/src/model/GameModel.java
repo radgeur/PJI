@@ -64,7 +64,7 @@ public class GameModel extends Observable{
 		String currentLine;
 		char currentChar;
 		Case[][] cases = new Case[width][height];
-		Defence nexus = new Defence(10, Map.caseHeight-1, Map.casewidth-1, 0, 0, true, new ImageIcon("./media/nexus.png"));
+		Defence nexus = new Defence(100, Map.caseHeight-1, Map.casewidth-1, 0, 0, true, new ImageIcon("./media/nexus.png"));
 		nexus.setActStrategy(new NoActionActStrategy());
 		for(int i = 0;i<height;i++){
 			currentLine = scan.nextLine();
